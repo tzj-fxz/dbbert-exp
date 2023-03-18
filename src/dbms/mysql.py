@@ -9,12 +9,14 @@ import mysql.connector
 import os
 from parameters.util import is_numerical
 import time
+import json
 
 class MySQLconfig(ConfigurableDBMS):
     """ Represents configurable MySQL database. """
     
     def __init__(self, db, user, password, 
-                 restart_cmd, recovery_cmd, timeout_s):
+                 restart_cmd, recovery_cmd, timeout_s, knob_config_file=None,
+                 if_no_connect=False):
         """ Initialize DB connection with given credentials. 
         
         Args:
@@ -28,19 +30,26 @@ class MySQLconfig(ConfigurableDBMS):
         unit_to_size={'KB':'000', 'MB':'000000', 'GB':'000000000',
                       'K':'000', 'M':'000000', 'G':'000000000'}
         super().__init__(db, user, password, unit_to_size, 
-                         restart_cmd, recovery_cmd, timeout_s)
-        self.global_vars = [t[0] for t in self.query_all(
-            'show global variables') if is_numerical(t[1])]
-        self.server_cost_params = [t[0] for t in self.query_all(
-            'select cost_name from mysql.server_cost')]
-        self.engine_cost_params = [t[0] for t in self.query_all(
-            'select cost_name from mysql.engine_cost')]
-        self.all_variables = self.global_vars + \
-            self.server_cost_params + self.engine_cost_params
-            
-        print(f'Global variables: {self.global_vars}')
-        print(f'Server cost parameters: {self.server_cost_params}')
-        print(f'Engine cost parameters: {self.engine_cost_params}')
+                         restart_cmd, recovery_cmd, timeout_s,
+                         knob_config_file=knob_config_file,
+                         if_no_connect=if_no_connect)
+        if self.if_no_connect and self.knob_config_file is not None:
+            with open(self.knob_config_file, "r") as f:
+                knob_configs = json.load(f)
+            self.all_variables = list(knob_configs.keys())
+        else:
+            self.global_vars = [t[0] for t in self.query_all(
+                'show global variables') if is_numerical(t[1])]
+            self.server_cost_params = [t[0] for t in self.query_all(
+                'select cost_name from mysql.server_cost')]
+            self.engine_cost_params = [t[0] for t in self.query_all(
+                'select cost_name from mysql.engine_cost')]
+            self.all_variables = self.global_vars + \
+                self.server_cost_params + self.engine_cost_params
+            print(f'Global variables: {self.global_vars}')
+            print(f'Server cost parameters: {self.server_cost_params}')
+            print(f'Engine cost parameters: {self.engine_cost_params}')
+
         print(f'All parameters: {self.all_variables}')
         
     @classmethod
@@ -60,8 +69,12 @@ class MySQLconfig(ConfigurableDBMS):
         restart_cmd = config['DATABASE']['restart_cmd']
         recovery_cmd = config['DATABASE']['recovery_cmd']
         timeout_s = config['LEARNING']['timeout_s']
+        knob_config_file = config['DATABASE']['knob_config_file']
+        if_no_connect = config['DATABASE']['if_no_connect']
         return cls(db_name, db_user, password, 
-                   restart_cmd, recovery_cmd, timeout_s)
+                   restart_cmd, recovery_cmd, timeout_s,
+                   knob_config_file=knob_config_file,
+                   if_no_connect=if_no_connect)
         
     def __del__(self):
         """ Close DBMS connection if any. """
@@ -87,6 +100,9 @@ class MySQLconfig(ConfigurableDBMS):
             True if connection attempt is successful
         """
         print(f'Trying to connect to {self.db} with user {self.user}')
+        # TODO For no_connect test
+        if self.if_no_connect:
+            return False
         # Need to recover in case of bad configuration
         try:
             self.connection = mysql.connector.connect(
@@ -153,15 +169,15 @@ class MySQLconfig(ConfigurableDBMS):
     def update(self, sql):
         """ Runs an SQL update and returns true iff the update succeeds. """
         #print(f'Trying update {sql}')
-        self.connection.autocommit = True
-        cursor = self.connection.cursor(buffered=True)
         try:
+            self.connection.autocommit = True
+            cursor = self.connection.cursor(buffered=True)
             cursor.execute(sql)
             success = True
+            cursor.close()
         except Exception as e:
             #print(f'Exception during update: {e}')
             success = False
-        cursor.close()
         return success
     
     def is_param(self, param):

@@ -19,6 +19,10 @@ import random
 import search.objectives
 import time
 import torch
+import ipdb
+from autotune.utils.config import parse_args
+from autotune.dbenv import DBEnv
+from autotune.tuner import DBTuner
 
 # Read configuration referenced as command line parameters
 arg_parser = ArgumentParser(description='DB-BERT: Train NLU for DB tuning documents')
@@ -26,6 +30,10 @@ arg_parser.add_argument('cpath', type=str, help='Path to configuration file')
 args = arg_parser.parse_args()
 config = ConfigParser()
 config.read(args.cpath)
+
+# TODO Test for dbenv, but with no real db
+env = DBEnv(config['DATABASE'], config['TUNE'], db=None)
+# env = None
 
 device = config['LEARNING']['device'] # cuda or cpu
 nr_frames = int(config['LEARNING']['nr_frames']) # number of frames
@@ -51,6 +59,9 @@ objective = search.objectives.from_file(config)
 dbms = dbms.factory.from_file(config)
 bench = benchmark.factory.from_file(config, dbms)
 
+
+# ipdb.set_trace()
+
 for run_ctr in range(nr_runs):
     print(f'Starting run number {run_ctr} ...')
     
@@ -75,9 +86,10 @@ for run_ctr in range(nr_runs):
 
     unsupervised_env = NlpTuningEnv(
         docs=docs, max_length=max_length, hint_order=hint_order, 
-        dbms=dbms, benchmark=bench, hardware=[memory, disk, cores], 
+        dbms=dbms, benchmark=bench, hardware={'memory':memory, 'disk': disk, 'cores': cores}, 
         hints_per_episode=nr_hints, nr_evals=nr_evals, 
-        scale_perf=p_scaling, scale_asg=a_scaling, objective=objective)
+        scale_perf=p_scaling, scale_asg=a_scaling, objective=objective,
+        dbenv=env)
     unsupervised_env.reset()
     # unsupervised_env = GymEnvironment(unsupervised_env, device=device)
     
@@ -90,7 +102,8 @@ for run_ctr in range(nr_runs):
     print(f'Running for up to {timeout_s} seconds, {nr_frames} frames')
     start_s = time.time()
     # Could move warmup to pre-training
-    model.learn(total_timesteps=20000)
+    model.learn(total_timesteps=20)
+    # model.learn(total_timesteps=20000)
     unsupervised_env.stop_warmup()
     for i in range(nr_frames):
         model.learn(total_timesteps=1)

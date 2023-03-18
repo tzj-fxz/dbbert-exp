@@ -16,6 +16,7 @@ import pandas as pd
 import search.search_with_hints
 import transformers
 import typing
+import random
 
 class DecisionType(enum.IntEnum):
     """ Describes next decision to make by agent. """
@@ -77,7 +78,8 @@ class NlpTuningEnv(gym.Env):
             self, docs: doc.collection.DocCollection, max_length, 
             hint_order, dbms: dbms.generic_dbms.ConfigurableDBMS, 
             benchmark: benchmark.evaluate.Benchmark, hardware, 
-            hints_per_episode, nr_evals, scale_perf, scale_asg, objective):
+            hints_per_episode, nr_evals, scale_perf, scale_asg, objective,
+            dbenv=None):
         """ Initialize from given tuning documents, database, and benchmark. 
         
         Args:
@@ -104,7 +106,7 @@ class NlpTuningEnv(gym.Env):
         self.scale_perf = scale_perf
         self.scale_asg = scale_asg
         self.explorer = search.search_with_hints.ParameterExplorer(
-            dbms, benchmark, objective)
+            dbms, benchmark, objective, dbenv)
         self.decision = DecisionType.PICK_FACTOR
         self.factors = [0.25, 0.5, 1, 2, 4]
         self.weights = [1, 2, 4, 8, 16]
@@ -117,10 +119,18 @@ class NlpTuningEnv(gym.Env):
         self.hint_to_weight = collections.defaultdict(lambda: 0)
         self.log = []
         self.log_dict = {}
+        self.dbenv = dbenv
         print('All hints considered for multi-doc tuning:')
         for i, (_, hint) in enumerate(self.hints):
             print(f'Hint {i}: {hint.param.group()} -> {hint.value.group()}')
     
+    def stop_warmup(self):
+        """ Switch from warmup mode to actual evaluations. """
+        self.warmup = False
+        self.obs_cache = {}
+        self.hint_ctr = 0
+        self.reset()
+
     def reset(self):
         """ Initializes for new tuning episode. 
         
@@ -317,7 +327,10 @@ class NlpTuningEnv(gym.Env):
         """
         param = hint.param.group()
         value = str(int(self.base * self.factor)) + hint.val_unit
-        success = self.dbms.can_set(param, value)
+        # TODO should change to dbenv api, now simply random 'success'
+        # success = self.dbms.can_set(param, value)
+        success = random.choice([True, False])
+
         assignment = (param, value)
         print(f'Trying assigning {param} to {value}')
         if success:
@@ -365,6 +378,7 @@ class NlpTuningEnv(gym.Env):
             else:
                 raise ValueError(f'Unknown hint type: {hint_type}')
             self.factor = float(self.factors[action])
+            print(f'type: {hint_type}, value: {hint.float_val}, unit: {hint.val_unit}')
         else:
             reward = self._process_hint(hint, action)
         return reward

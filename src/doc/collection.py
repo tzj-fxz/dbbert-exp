@@ -173,7 +173,10 @@ class DocCollection():
         # Filter based on simple string matching (need parameters and values)
         passages = [p for p in passages if get_parameters(p) and get_values(p)]
         # If available, use DBMS to filter to passages containing real parameters
-        if self.dbms:
+
+        # TODO connect issue
+        # if self.dbms:
+        if self.dbms and not self.dbms.if_no_connect:
             passages = [p for p in passages if any(
                 self.dbms.is_param(t) for t in get_parameters(p))]
         return passages
@@ -228,7 +231,9 @@ class DocCollection():
                 params = re.finditer(parameters.util.param_reg, exp_passage)
                 p_names = set([p.group() for p in params])
                 for p_name in p_names:
-                    if not self.filter_params or self.dbms.is_param(p_name):
+                    # TODO connect issue
+                    # if not self.filter_params or self.dbms.is_param(p_name):
+                    if True:
                         answer, score = self._extract_value(p_name, exp_passage)
                         if score > 0.05:
                         # if score > 0:

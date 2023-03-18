@@ -10,7 +10,8 @@ class ConfigurableDBMS(ABC):
     """ Represents a configurable database management system. """
     
     def __init__(self, db, user, password, unit_to_size, 
-                 restart_cmd, recovery_cmd, timeout_s):
+                 restart_cmd, recovery_cmd, timeout_s, knob_config_file=None,
+                 if_no_connect=False):
         """ Initialize DB connection with given credentials. 
         
         Args:
@@ -32,6 +33,8 @@ class ConfigurableDBMS(ABC):
         self.config = {}
         self.failed_connections = 0
         self.connection = None
+        self.knob_config_file = knob_config_file
+        self.if_no_connect = if_no_connect
         self._connect()
         
     def __del__(self):

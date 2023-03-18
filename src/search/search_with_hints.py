@@ -8,11 +8,12 @@ from dbms.generic_dbms import ConfigurableDBMS
 from benchmark.evaluate import Benchmark
 from parameters.util import is_numerical, convert_to_bytes
 from search.objectives import calculate_reward
+from benchmark.evaluate import OLAP, TpcC
 
 class ParameterExplorer():
     """ Explores the parameter space using previously collected tuning hints. """
 
-    def __init__(self, dbms: ConfigurableDBMS, benchmark: Benchmark, objective):
+    def __init__(self, dbms: ConfigurableDBMS, benchmark: Benchmark, objective, dbenv=None):
         """ Initializes for given benchmark and database system. 
         
         Args:
@@ -22,15 +23,22 @@ class ParameterExplorer():
         """
         self.dbms = dbms
         self.benchmark = benchmark
+        self.dbenv = dbenv
         self.def_metrics = self._def_conf_metrics()
         self.objective = objective
 
     def _def_conf_metrics(self):
         """ Returns metrics for running benchmark with default configuration. """
         if self.dbms and self.benchmark:
-            self.dbms.reset_config()
-            self.dbms.reconfigure()
-            def_metrics = self.benchmark.evaluate()
+            # TODO this is dbenv api for default config
+            if self.dbenv:
+                def_metrics_from_dbenv = self.dbenv.step({})
+                def_metrics = {'error': def_metrics_from_dbenv[-1], 'throughput': def_metrics_from_dbenv[2]['tps'],
+                           'time': def_metrics_from_dbenv[2]['lat']}
+            else:
+                self.dbms.reset_config()
+                self.dbms.reconfigure()
+                def_metrics = self.benchmark.evaluate()
         else:
             print('Warning: no DBMS or benchmark specified for parameter exploration.')
             def_metrics = {'error': False, 'time': 0}
@@ -148,14 +156,38 @@ class ParameterExplorer():
             Improvement over default configuration in milliseconds.
         """
         if self.dbms:
-            self.dbms.reset_config()
-            print(f'Trying configuration: {config}')
-            for param, value in config.items():
-                self.dbms.set_param_smart(param, value)
-            self.dbms.reconfigure()
-            metrics = self.benchmark.evaluate()
+            # TODO this is dbenv api for evaluate
+            if self.dbenv:
+                print(f'Trying configuration: {config}')
+                metrics_from_dbenv = self.dbenv.step(config)
+                metrics = {'error': metrics_from_dbenv[-1], 'throughput': metrics_from_dbenv[2]['tps'],
+                           'time': metrics_from_dbenv[2]['lat']}
+                # TODO Only for showing statistics, maybe dbenv has similar api
+                if not metrics['error']:
+                    if isinstance(self.benchmark, OLAP):
+                        if metrics['time'] > self.benchmark.max_time:
+                            self.benchmark.max_time = metrics['time']
+                            self.benchmark.max_conf = config
+                        if metrics['time'] < self.benchmark.min_time:
+                            self.benchmark.min_time = metrics['time']
+                            self.benchmark.min_conf = config
+                    elif isinstance(self.benchmark, TpcC):
+                        if metrics['throughput'] > self.benchmark.max_throughput:
+                            self.benchmark.max_throughput = metrics['throughput']
+                            self.benchmark.max_config = config
+                        if metrics['throughput'] < self.benchmark.min_throughput:
+                            self.benchmark.min_throughput = metrics['throughput']
+                            self.benchmark.min_config = config
+                    self.benchmark.print_stats()
+            else:
+                self.dbms.reset_config()
+                print(f'Trying configuration: {config}')
+                for param, value in config.items():
+                    self.dbms.set_param_smart(param, value)
+                self.dbms.reconfigure()
+                metrics = self.benchmark.evaluate()
             reward = calculate_reward(metrics, self.def_metrics, self.objective)
-            print(f'Reward {reward} with {config}')
-            return reward
         else:
-            return 0
+            reward = 0
+        print(f'Reward {reward} with {config}')
+        return reward

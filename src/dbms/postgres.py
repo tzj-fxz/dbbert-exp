@@ -7,12 +7,14 @@ from dbms.generic_dbms import ConfigurableDBMS
 import os
 import psycopg2
 import time
+import json
 
 class PgConfig(ConfigurableDBMS):
     """ Reconfigurable Postgres DBMS instance. """
     
     def __init__(self, db, user, password, restart_cmd, 
-                 recovery_cmd, timeout_s):
+                 recovery_cmd, timeout_s, knob_config_file=None,
+                 if_no_connect=False):
         """ Initialize DB connection with given credentials. 
         
         Args:
@@ -26,7 +28,9 @@ class PgConfig(ConfigurableDBMS):
         unit_to_size={'KB':'kB', 'MB':'000kB', 'GB':'000000kB',
                       'K':'kB', 'M':'000kB', 'G':'000000kB'}
         super().__init__(db, user, password, unit_to_size, 
-                         restart_cmd, recovery_cmd, timeout_s)
+                         restart_cmd, recovery_cmd, timeout_s,
+                         knob_config_file=knob_config_file,
+                         if_no_connect=if_no_connect)
         
     @classmethod
     def from_file(cls, config):
@@ -45,8 +49,12 @@ class PgConfig(ConfigurableDBMS):
         restart_cmd = config['DATABASE']['restart_cmd']
         recovery_cmd = config['DATABASE']['recovery_cmd']
         timeout_s = config['LEARNING']['timeout_s']
+        knob_config_file = config['DATABASE']['knob_config_file']
+        if_no_connect = config['DATABASE']['if_no_connect']
         return cls(db_name, db_user, password, 
-                   restart_cmd, recovery_cmd, timeout_s)
+                   restart_cmd, recovery_cmd, timeout_s,
+                   knob_config_file=knob_config_file,
+                   if_no_connect=if_no_connect)
         
     def __del__(self):
         """ Close DBMS connection if any. """
@@ -63,6 +71,9 @@ class PgConfig(ConfigurableDBMS):
         Returns:
             True iff connection to Postgres was established
         """
+        # TODO For no_connect test
+        if self.if_no_connect:
+            return False
         print(f'Trying to connect to {self.db} with user {self.user}')
         # Need to recover in case of bad configuration
         try:            
@@ -91,6 +102,11 @@ class PgConfig(ConfigurableDBMS):
 
     def all_params(self):
         """ Return names of all tuning parameters. """
+        if self.knob_config_file is not None:
+            with open(self.knob_config_file, "r") as f:
+                knob_configs = json.load(f)
+            # print(knob_configs.keys())
+            return list(knob_configs.keys())
         cursor = self.connection.cursor()
         cursor.execute("select name from pg_settings " \
                        "where vartype in ('bool', 'integer', 'real')")
