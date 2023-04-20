@@ -281,7 +281,7 @@ class NlpTuningEnv(gym.Env):
                 choices = [f'This hint is {w} important.' for w in v_weights]
             
             result = self.bart(hint.recommendation, choices)
-            print(result)
+            print('result:', result)
             scores = []
             for choice in choices:
                 choice_idx = result['labels'].index(choice)

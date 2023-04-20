@@ -133,17 +133,21 @@ class OLAP(Benchmark):
     def print_stats(self):
         """ Print out benchmark statistics. """
         print('--- Tuning Updates ---')
-        print(f'Minimal time (ms): {self.min_time}')
-        print(f'Achieved with configuration: {self.min_conf}')
-        print(f'Maximal time (ms): {self.max_time}')
-        print(f'Achieved with configuration: {self.max_conf}')
+        print(f'Minimal tps: {self.min_throughput}')
+        print(f'Achieved with configuration: {self.min_config}')
+        print(f'Maximal tps (ms): {self.max_throughput}')
+        print(f'Achieved with configuration: {self.max_config}')
         
     def _init_stats(self):
         """ Initialize minimal and maximal time and configurations. """
         self.min_time = float('inf')
         self.max_time = 0
+        self.min_throughput = float('inf')
+        self.max_throughput = 0
         self.min_conf = {}
         self.max_conf = {}
+        self.min_config = {}
+        self.max_config = {}
     
 class TpcC(Benchmark):
     """ Runs the TPC-C benchmark. """

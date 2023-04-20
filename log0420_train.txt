@@ -1,0 +1,1052 @@
+Sorting hints by stride
+Trying to connect to sbtest with user root
+Global variables: ['auto_increment_increment', 'auto_increment_offset', 'back_log', 'binlog_cache_size', 'binlog_group_commit_sync_delay', 'binlog_group_commit_sync_no_delay_count', 'binlog_max_flush_queue_time', 'binlog_stmt_cache_size', 'binlog_transaction_dependency_history_size', 'bulk_insert_buffer_size', 'connect_timeout', 'default_password_lifetime', 'default_week_format', 'delayed_insert_limit', 'delayed_insert_timeout', 'delayed_queue_size', 'div_precision_increment', 'eq_range_index_dive_limit', 'expire_logs_days', 'flush_time', 'ft_max_word_len', 'ft_min_word_len', 'ft_query_expansion_limit', 'group_concat_max_len', 'gtid_executed_compression_period', 'host_cache_size', 'innodb_adaptive_flushing_lwm', 'innodb_adaptive_hash_index_parts', 'innodb_adaptive_max_sleep_delay', 'innodb_api_bk_commit_interval', 'innodb_api_trx_level', 'innodb_autoextend_increment', 'innodb_autoinc_lock_mode', 'innodb_buffer_pool_chunk_size', 'innodb_buffer_pool_dump_pct', 'innodb_buffer_pool_instances', 'innodb_buffer_pool_size', 'innodb_change_buffer_max_size', 'innodb_commit_concurrency', 'innodb_compression_failure_threshold_pct', 'innodb_compression_level', 'innodb_compression_pad_pct_max', 'innodb_concurrency_tickets', 'innodb_fast_shutdown', 'innodb_fill_factor', 'innodb_flush_log_at_timeout', 'innodb_flush_log_at_trx_commit', 'innodb_flush_neighbors', 'innodb_flushing_avg_loops', 'innodb_force_recovery', 'innodb_ft_cache_size', 'innodb_ft_max_token_size', 'innodb_ft_min_token_size', 'innodb_ft_num_word_optimize', 'innodb_ft_result_cache_limit', 'innodb_ft_sort_pll_degree', 'innodb_ft_total_cache_size', 'innodb_io_capacity', 'innodb_io_capacity_max', 'innodb_lock_wait_timeout', 'innodb_log_buffer_size', 'innodb_log_file_size', 'innodb_log_files_in_group', 'innodb_log_write_ahead_size', 'innodb_lru_scan_depth', 'innodb_max_dirty_pages_pct', 'innodb_max_dirty_pages_pct_lwm', 'innodb_max_purge_lag', 'innodb_max_purge_lag_delay', 'innodb_max_undo_log_size', 'innodb_old_blocks_pct', 'innodb_old_blocks_time', 'innodb_online_alter_log_max_size', 'innodb_open_files', 'innodb_page_cleaners', 'innodb_page_size', 'innodb_purge_batch_size', 'innodb_purge_rseg_truncate_frequency', 'innodb_purge_threads', 'innodb_read_ahead_threshold', 'innodb_read_io_threads', 'innodb_replication_delay', 'innodb_rollback_segments', 'innodb_sort_buffer_size', 'innodb_spin_wait_delay', 'innodb_stats_persistent_sample_pages', 'innodb_stats_sample_pages', 'innodb_stats_transient_sample_pages', 'innodb_sync_array_size', 'innodb_sync_spin_loops', 'innodb_thread_concurrency', 'innodb_thread_sleep_delay', 'innodb_undo_logs', 'innodb_undo_tablespaces', 'innodb_write_io_threads', 'interactive_timeout', 'join_buffer_size', 'key_buffer_size', 'key_cache_age_threshold', 'key_cache_block_size', 'key_cache_division_limit', 'large_page_size', 'lock_wait_timeout', 'log_error_verbosity', 'log_throttle_queries_not_using_indexes', 'log_warnings', 'long_query_time', 'lower_case_table_names', 'max_allowed_packet', 'max_binlog_cache_size', 'max_binlog_size', 'max_binlog_stmt_cache_size', 'max_connect_errors', 'max_connections', 'max_delayed_threads', 'max_digest_length', 'max_error_count', 'max_execution_time', 'max_heap_table_size', 'max_insert_delayed_threads', 'max_join_size', 'max_length_for_sort_data', 'max_points_in_geometry', 'max_prepared_stmt_count', 'max_relay_log_size', 'max_seeks_for_key', 'max_sort_length', 'max_sp_recursion_depth', 'max_tmp_tables', 'max_user_connections', 'max_write_lock_count', 'metadata_locks_cache_size', 'metadata_locks_hash_instances', 'min_examined_row_limit', 'multi_range_count', 'myisam_data_pointer_size', 'myisam_max_sort_file_size', 'myisam_mmap_size', 'myisam_repair_threads', 'myisam_sort_buffer_size', 'net_buffer_length', 'net_read_timeout', 'net_retry_count', 'net_write_timeout', 'ngram_token_size', 'old_passwords', 'open_files_limit', 'optimizer_prune_level', 'optimizer_search_depth', 'optimizer_trace_limit', 'optimizer_trace_max_mem_size', 'parser_max_mem_size', 'performance_schema_digests_size', 'performance_schema_events_stages_history_long_size', 'performance_schema_events_stages_history_size', 'performance_schema_events_statements_history_long_size', 'performance_schema_events_statements_history_size', 'performance_schema_events_transactions_history_long_size', 'performance_schema_events_transactions_history_size', 'performance_schema_events_waits_history_long_size', 'performance_schema_events_waits_history_size', 'performance_schema_max_cond_classes', 'performance_schema_max_digest_length', 'performance_schema_max_file_classes', 'performance_schema_max_file_handles', 'performance_schema_max_memory_classes', 'performance_schema_max_mutex_classes', 'performance_schema_max_rwlock_classes', 'performance_schema_max_socket_classes', 'performance_schema_max_sql_text_length', 'performance_schema_max_stage_classes', 'performance_schema_max_statement_classes', 'performance_schema_max_statement_stack', 'performance_schema_max_thread_classes', 'performance_schema_session_connect_attrs_size', 'port', 'preload_buffer_size', 'profiling_history_size', 'protocol_version', 'query_alloc_block_size', 'query_cache_limit', 'query_cache_min_res_unit', 'query_cache_size', 'query_prealloc_size', 'range_alloc_block_size', 'range_optimizer_max_mem_size', 'read_buffer_size', 'read_rnd_buffer_size', 'relay_log_space_limit', 'report_port', 'rpl_stop_slave_timeout', 'server_id', 'server_id_bits', 'slave_checkpoint_group', 'slave_checkpoint_period', 'slave_max_allowed_packet', 'slave_net_timeout', 'slave_parallel_workers', 'slave_pending_jobs_size_max', 'slave_transaction_retries', 'slow_launch_time', 'sort_buffer_size', 'sql_select_limit', 'sql_slave_skip_counter', 'stored_program_cache', 'sync_binlog', 'sync_master_info', 'sync_relay_log', 'sync_relay_log_info', 'table_definition_cache', 'table_open_cache', 'table_open_cache_instances', 'thread_cache_size', 'thread_stack', 'tmp_table_size', 'transaction_alloc_block_size', 'transaction_prealloc_size', 'validate_password_length', 'validate_password_mixed_case_count', 'validate_password_number_count', 'validate_password_special_char_count', 'wait_timeout']
+Server cost parameters: ['disk_temptable_create_cost', 'disk_temptable_row_cost', 'key_compare_cost', 'memory_temptable_create_cost', 'memory_temptable_row_cost', 'row_evaluate_cost']
+Engine cost parameters: ['io_block_read_cost', 'memory_block_read_cost']
+All parameters: ['auto_increment_increment', 'auto_increment_offset', 'back_log', 'binlog_cache_size', 'binlog_group_commit_sync_delay', 'binlog_group_commit_sync_no_delay_count', 'binlog_max_flush_queue_time', 'binlog_stmt_cache_size', 'binlog_transaction_dependency_history_size', 'bulk_insert_buffer_size', 'connect_timeout', 'default_password_lifetime', 'default_week_format', 'delayed_insert_limit', 'delayed_insert_timeout', 'delayed_queue_size', 'div_precision_increment', 'eq_range_index_dive_limit', 'expire_logs_days', 'flush_time', 'ft_max_word_len', 'ft_min_word_len', 'ft_query_expansion_limit', 'group_concat_max_len', 'gtid_executed_compression_period', 'host_cache_size', 'innodb_adaptive_flushing_lwm', 'innodb_adaptive_hash_index_parts', 'innodb_adaptive_max_sleep_delay', 'innodb_api_bk_commit_interval', 'innodb_api_trx_level', 'innodb_autoextend_increment', 'innodb_autoinc_lock_mode', 'innodb_buffer_pool_chunk_size', 'innodb_buffer_pool_dump_pct', 'innodb_buffer_pool_instances', 'innodb_buffer_pool_size', 'innodb_change_buffer_max_size', 'innodb_commit_concurrency', 'innodb_compression_failure_threshold_pct', 'innodb_compression_level', 'innodb_compression_pad_pct_max', 'innodb_concurrency_tickets', 'innodb_fast_shutdown', 'innodb_fill_factor', 'innodb_flush_log_at_timeout', 'innodb_flush_log_at_trx_commit', 'innodb_flush_neighbors', 'innodb_flushing_avg_loops', 'innodb_force_recovery', 'innodb_ft_cache_size', 'innodb_ft_max_token_size', 'innodb_ft_min_token_size', 'innodb_ft_num_word_optimize', 'innodb_ft_result_cache_limit', 'innodb_ft_sort_pll_degree', 'innodb_ft_total_cache_size', 'innodb_io_capacity', 'innodb_io_capacity_max', 'innodb_lock_wait_timeout', 'innodb_log_buffer_size', 'innodb_log_file_size', 'innodb_log_files_in_group', 'innodb_log_write_ahead_size', 'innodb_lru_scan_depth', 'innodb_max_dirty_pages_pct', 'innodb_max_dirty_pages_pct_lwm', 'innodb_max_purge_lag', 'innodb_max_purge_lag_delay', 'innodb_max_undo_log_size', 'innodb_old_blocks_pct', 'innodb_old_blocks_time', 'innodb_online_alter_log_max_size', 'innodb_open_files', 'innodb_page_cleaners', 'innodb_page_size', 'innodb_purge_batch_size', 'innodb_purge_rseg_truncate_frequency', 'innodb_purge_threads', 'innodb_read_ahead_threshold', 'innodb_read_io_threads', 'innodb_replication_delay', 'innodb_rollback_segments', 'innodb_sort_buffer_size', 'innodb_spin_wait_delay', 'innodb_stats_persistent_sample_pages', 'innodb_stats_sample_pages', 'innodb_stats_transient_sample_pages', 'innodb_sync_array_size', 'innodb_sync_spin_loops', 'innodb_thread_concurrency', 'innodb_thread_sleep_delay', 'innodb_undo_logs', 'innodb_undo_tablespaces', 'innodb_write_io_threads', 'interactive_timeout', 'join_buffer_size', 'key_buffer_size', 'key_cache_age_threshold', 'key_cache_block_size', 'key_cache_division_limit', 'large_page_size', 'lock_wait_timeout', 'log_error_verbosity', 'log_throttle_queries_not_using_indexes', 'log_warnings', 'long_query_time', 'lower_case_table_names', 'max_allowed_packet', 'max_binlog_cache_size', 'max_binlog_size', 'max_binlog_stmt_cache_size', 'max_connect_errors', 'max_connections', 'max_delayed_threads', 'max_digest_length', 'max_error_count', 'max_execution_time', 'max_heap_table_size', 'max_insert_delayed_threads', 'max_join_size', 'max_length_for_sort_data', 'max_points_in_geometry', 'max_prepared_stmt_count', 'max_relay_log_size', 'max_seeks_for_key', 'max_sort_length', 'max_sp_recursion_depth', 'max_tmp_tables', 'max_user_connections', 'max_write_lock_count', 'metadata_locks_cache_size', 'metadata_locks_hash_instances', 'min_examined_row_limit', 'multi_range_count', 'myisam_data_pointer_size', 'myisam_max_sort_file_size', 'myisam_mmap_size', 'myisam_repair_threads', 'myisam_sort_buffer_size', 'net_buffer_length', 'net_read_timeout', 'net_retry_count', 'net_write_timeout', 'ngram_token_size', 'old_passwords', 'open_files_limit', 'optimizer_prune_level', 'optimizer_search_depth', 'optimizer_trace_limit', 'optimizer_trace_max_mem_size', 'parser_max_mem_size', 'performance_schema_digests_size', 'performance_schema_events_stages_history_long_size', 'performance_schema_events_stages_history_size', 'performance_schema_events_statements_history_long_size', 'performance_schema_events_statements_history_size', 'performance_schema_events_transactions_history_long_size', 'performance_schema_events_transactions_history_size', 'performance_schema_events_waits_history_long_size', 'performance_schema_events_waits_history_size', 'performance_schema_max_cond_classes', 'performance_schema_max_digest_length', 'performance_schema_max_file_classes', 'performance_schema_max_file_handles', 'performance_schema_max_memory_classes', 'performance_schema_max_mutex_classes', 'performance_schema_max_rwlock_classes', 'performance_schema_max_socket_classes', 'performance_schema_max_sql_text_length', 'performance_schema_max_stage_classes', 'performance_schema_max_statement_classes', 'performance_schema_max_statement_stack', 'performance_schema_max_thread_classes', 'performance_schema_session_connect_attrs_size', 'port', 'preload_buffer_size', 'profiling_history_size', 'protocol_version', 'query_alloc_block_size', 'query_cache_limit', 'query_cache_min_res_unit', 'query_cache_size', 'query_prealloc_size', 'range_alloc_block_size', 'range_optimizer_max_mem_size', 'read_buffer_size', 'read_rnd_buffer_size', 'relay_log_space_limit', 'report_port', 'rpl_stop_slave_timeout', 'server_id', 'server_id_bits', 'slave_checkpoint_group', 'slave_checkpoint_period', 'slave_max_allowed_packet', 'slave_net_timeout', 'slave_parallel_workers', 'slave_pending_jobs_size_max', 'slave_transaction_retries', 'slow_launch_time', 'sort_buffer_size', 'sql_select_limit', 'sql_slave_skip_counter', 'stored_program_cache', 'sync_binlog', 'sync_master_info', 'sync_relay_log', 'sync_relay_log_info', 'table_definition_cache', 'table_open_cache', 'table_open_cache_instances', 'thread_cache_size', 'thread_stack', 'tmp_table_size', 'transaction_alloc_block_size', 'transaction_prealloc_size', 'validate_password_length', 'validate_password_mixed_case_count', 'validate_password_number_count', 'validate_password_special_char_count', 'wait_timeout', 'disk_temptable_create_cost', 'disk_temptable_row_cost', 'key_compare_cost', 'memory_temptable_create_cost', 'memory_temptable_row_cost', 'row_evaluate_cost', 'io_block_read_cost', 'memory_block_read_cost']
+Starting run number 0
+Disconnecting ...
+Trying to connect to sbtest with user root
+Disconnecting ...
+Trying to connect to sbtest with user root
+Discard text passages without at least one explicit parameter reference: True (1)
+Try to infer implicit parameter references: True (1)
+Creating hints for document 0
+Creating hints for document 1
+Creating hints for document 2
+Creating hints for document 3
+Creating hints for document 4
+Adding hint TuningHint(doc_id=4, param=<re.Match object; span=(0, 23), match='innodb_buffer_pool_size'>, value=<re.Match object; span=(0, 3), match='50%'>, recommendation='50% – 70% of your total RAM', passage='innodb_buffer_pool_size\nGenerally, set to 50% – 70% of your total RAM as a starting point.\nIt does not need to be set any larger than the total database size.\nPercona Monitoring and Management (PMM) can offer additional insight, showing your buffer pool usage and allowing you to tune accordingly. innodb_buffer_pool_size ', float_val=0.5, val_unit='', hint_type=<HintType.RAM_RATIO: 1>) with confidence 0.1835799515247345
+Adding hint TuningHint(doc_id=4, param=<re.Match object; span=(0, 23), match='innodb_buffer_pool_size'>, value=<re.Match object; span=(6, 9), match='70%'>, recommendation='50% – 70% of your total RAM', passage='innodb_buffer_pool_size\nGenerally, set to 50% – 70% of your total RAM as a starting point.\nIt does not need to be set any larger than the total database size.\nPercona Monitoring and Management (PMM) can offer additional insight, showing your buffer pool usage and allowing you to tune accordingly. innodb_buffer_pool_size ', float_val=0.7, val_unit='', hint_type=<HintType.RAM_RATIO: 1>) with confidence 0.1835799515247345
+Adding hint TuningHint(doc_id=4, param=<re.Match object; span=(0, 20), match='innodb_log_file_size'>, value=<re.Match object; span=(0, 4), match='128M'>, recommendation='128M – 2G', passage='innodb_log_file_size\nThis is generally set between 128M – 2G.\nShould be large enough to hold at most an hour or so of logs.\nThis is more than enough so that MySQL can reorder writes to use sequential I/O during the flushing and checkpointing processes. innodb_log_file_size ', float_val=128.0, val_unit='M', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.7541888356208801
+Adding hint TuningHint(doc_id=4, param=<re.Match object; span=(0, 20), match='innodb_log_file_size'>, value=<re.Match object; span=(7, 9), match='2G'>, recommendation='128M – 2G', passage='innodb_log_file_size\nThis is generally set between 128M – 2G.\nShould be large enough to hold at most an hour or so of logs.\nThis is more than enough so that MySQL can reorder writes to use sequential I/O during the flushing and checkpointing processes. innodb_log_file_size ', float_val=2.0, val_unit='G', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.7541888356208801
+Excluding recommendation "Setting to “1”" for parameter "innodb_flush_log_at_trx_commit" due to low confidence (0.015069256536662579)
+Excluding recommendation "0” or “2”" for parameter "innodb_log_file_size" due to low confidence (0.033455632627010345)
+Excluding recommendation "8”" for parameter "innodb_stats_on_metadata" due to low confidence (0.005280837416648865)
+Excluding recommendation "8”" for parameter "innodb_change_buffer_max_size" due to low confidence (0.025865232571959496)
+Adding hint TuningHint(doc_id=4, param=<re.Match object; span=(133, 161), match='innodb_buffer_pool_instances'>, value=<re.Match object; span=(0, 1), match='8'>, recommendation='8”', passage='innodb_stats_on_metadata\nSetting this to “OFF” avoids unnecessary updating of InnoDB statistics and can greatly improve read speeds.\ninnodb_buffer_pool_instances\nA best practice is to set this to “8” unless the buffer pool size is < 1G, in which case set to “1”. innodb_change_buffer_max_size ', float_val=8.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.09074681252241135
+Adding hint TuningHint(doc_id=4, param=<re.Match object; span=(0, 16), match='query_cache_type'>, value=<re.Match object; span=(0, 1), match='0'>, recommendation='0', passage='query_cache_type & query_cache_size\nSetting both of these to “0” will entirely disable the query cache.\nTuning for Your Workload\nTo tune further, more information will be required. The best way to gather this information is to install a MySQL monitoring / graphing tool like Percona Monitoring and Management platform. Once you have a tool installed, we can dive into the individual metrics and start customizing based on the data. query_cache_size ', float_val=0.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.10174059122800827
+Excluding recommendation "2" for parameter "innodb_io_capacity_max" due to low confidence (0.0010754807153716683)
+Excluding recommendation "how many iops your system can perform" for parameter "sql_select_limit" due to low confidence (0.004296779166907072)
+Excluding recommendation "64 cores" for parameter "o_direct" due to low confidence (0.0020825641695410013)
+Adding hint TuningHint(doc_id=4, param=<re.Match object; span=(161, 183), match='innodb_read_io_threads'>, value=<re.Match object; span=(0, 1), match='4'>, recommendation='4 to 16', passage='Cloud storage, analytic queries, concurrent workload, parallel query enabled (Ali Cloud), 64 cores, o_direct.\ninnodb_buffer_pool_instances (change from 8 to 32)\ninnodb_read_io_threads (change from 4 to 16)\nUnder a 100% physical I/O workload this resulted in a 4x speedup. innodb_write_io_threads ', float_val=4.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.20395362377166748
+Adding hint TuningHint(doc_id=4, param=<re.Match object; span=(161, 183), match='innodb_read_io_threads'>, value=<re.Match object; span=(5, 7), match='16'>, recommendation='4 to 16', passage='Cloud storage, analytic queries, concurrent workload, parallel query enabled (Ali Cloud), 64 cores, o_direct.\ninnodb_buffer_pool_instances (change from 8 to 32)\ninnodb_read_io_threads (change from 4 to 16)\nUnder a 100% physical I/O workload this resulted in a 4x speedup. innodb_write_io_threads ', float_val=16.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.20395362377166748
+Adding hint TuningHint(doc_id=4, param=<re.Match object; span=(110, 138), match='innodb_buffer_pool_instances'>, value=<re.Match object; span=(0, 1), match='8'>, recommendation='8 to 32', passage='Cloud storage, analytic queries, concurrent workload, parallel query enabled (Ali Cloud), 64 cores, o_direct.\ninnodb_buffer_pool_instances (change from 8 to 32)\ninnodb_read_io_threads (change from 4 to 16)\nUnder a 100% physical I/O workload this resulted in a 4x speedup. innodb_write_io_threads ', float_val=8.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.4521346092224121
+Adding hint TuningHint(doc_id=4, param=<re.Match object; span=(110, 138), match='innodb_buffer_pool_instances'>, value=<re.Match object; span=(5, 7), match='32'>, recommendation='8 to 32', passage='Cloud storage, analytic queries, concurrent workload, parallel query enabled (Ali Cloud), 64 cores, o_direct.\ninnodb_buffer_pool_instances (change from 8 to 32)\ninnodb_read_io_threads (change from 4 to 16)\nUnder a 100% physical I/O workload this resulted in a 4x speedup. innodb_write_io_threads ', float_val=32.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.4521346092224121
+Excluding recommendation "4 to 16" for parameter "innodb_write_io_threads" due to low confidence (0.00013030660920776427)
+Adding hint TuningHint(doc_id=4, param=<re.Match object; span=(252, 290), match='performance_schema_max_statement_stack'>, value=<re.Match object; span=(0, 1), match='8'>, recommendation='8', passage='You mileage will vary, test before production usage.\nMost query workloads are not 100% PIO, so actual benefits likely much lower.\nCheers,\nJim\nJune 30, 2020 at 2:08 pm\nJie Zhou\nReply\nWhy innodb_buffer_pool_instances has a best practice to set it to “8” performance_schema_max_statement_stack ', float_val=8.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.5401249527931213
+Adding hint TuningHint(doc_id=4, param=<re.Match object; span=(186, 214), match='innodb_buffer_pool_instances'>, value=<re.Match object; span=(0, 1), match='8'>, recommendation='8” performance_schema_max_statement_stack', passage='You mileage will vary, test before production usage.\nMost query workloads are not 100% PIO, so actual benefits likely much lower.\nCheers,\nJim\nJune 30, 2020 at 2:08 pm\nJie Zhou\nReply\nWhy innodb_buffer_pool_instances has a best practice to set it to “8” performance_schema_max_statement_stack ', float_val=8.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.2643336355686188
+Adding hint TuningHint(doc_id=4, param=<re.Match object; span=(241, 264), match='innodb_buffer_pool_size'>, value=<re.Match object; span=(0, 3), match='1GB'>, recommendation='1GB or more', passage="Hi Jie Zhou. The MySQL default is to set innodb_buffer_pool_instances to 8 (in MySQL version 5.7 and up) as this is a good starting point for most general use cases. As per the MySQL documentation, this option takes effect only when you set innodb_buffer_pool_size to a size of 1GB or more. The total size you specify is divided among all the buffer pools. For best efficiency, specify a combination of innodb_buffer_pool_instances and innodb_buffer_pool_size so that each buffer pool instance is at least 1GB.\nJuly 8, 2020 at 1:11 pm\nLeave a Reply\t\t\t\t\tCancel reply\nHow Can We Help?\nPercona's experts can maximize your application performance with our open source database support, managed services or consulting.\nContact us innodb_buffer_pool_size ", float_val=1.0, val_unit='GB', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.10542558878660202
+Adding hint TuningHint(doc_id=4, param=<re.Match object; span=(41, 69), match='innodb_buffer_pool_instances'>, value=<re.Match object; span=(0, 1), match='8'>, recommendation='8', passage="Hi Jie Zhou. The MySQL default is to set innodb_buffer_pool_instances to 8 (in MySQL version 5.7 and up) as this is a good starting point for most general use cases. As per the MySQL documentation, this option takes effect only when you set innodb_buffer_pool_size to a size of 1GB or more. The total size you specify is divided among all the buffer pools. For best efficiency, specify a combination of innodb_buffer_pool_instances and innodb_buffer_pool_size so that each buffer pool instance is at least 1GB.\nJuly 8, 2020 at 1:11 pm\nLeave a Reply\t\t\t\t\tCancel reply\nHow Can We Help?\nPercona's experts can maximize your application performance with our open source database support, managed services or consulting.\nContact us innodb_buffer_pool_size ", float_val=8.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.27101173996925354
+Creating hints for document 5
+Creating hints for document 6
+Creating hints for document 7
+Creating hints for document 8
+Excluding recommendation "
+join_buffer_size system
+variable" for parameter "join_buffer_size" due to low confidence (0.0011041760444641113)
+Excluding recommendation "
+join_buffer_size system
+variable" for parameter "key_cache_block_size" due to low confidence (1.021152002067538e-05)
+Excluding recommendation "
+join_buffer_size" for parameter "open_files_limit" due to low confidence (0.001292699365876615)
+Creating hints for document 9
+Creating hints for document 10
+Creating hints for document 11
+Creating hints for document 12
+Creating hints for document 13
+Creating hints for document 14
+Creating hints for document 15
+Excluding recommendation "OFF" for parameter "innodb_stats_on_metadata" due to low confidence (0.018648091703653336)
+Adding hint TuningHint(doc_id=15, param=<re.Match object; span=(42, 70), match='innodb_buffer_pool_instances'>, value=<re.Match object; span=(0, 1), match='8'>, recommendation='8', passage='query_cache_size = 0\nquery_cache_type = 0\ninnodb_buffer_pool_instances = 8 (or 1 if innodb_buffer_pool_size < 1GB)\ninnodb_file_per_table=ON\ninnodb_stats_on_metadata = OFF innodb_ft_result_cache_limit ', float_val=8.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.6286190152168274
+Excluding recommendation "query_cache_size = 0" for parameter "innodb_ft_result_cache_limit" due to low confidence (0.0003410233184695244)
+Adding hint TuningHint(doc_id=15, param=<re.Match object; span=(84, 107), match='innodb_buffer_pool_size'>, value=<re.Match object; span=(0, 1), match='8'>, recommendation='8', passage='query_cache_size = 0\nquery_cache_type = 0\ninnodb_buffer_pool_instances = 8 (or 1 if innodb_buffer_pool_size < 1GB)\ninnodb_file_per_table=ON\ninnodb_stats_on_metadata = OFF innodb_ft_result_cache_limit ', float_val=8.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.148806631565094
+Adding hint TuningHint(doc_id=15, param=<re.Match object; span=(21, 37), match='query_cache_type'>, value=<re.Match object; span=(0, 1), match='0'>, recommendation='0', passage='query_cache_size = 0\nquery_cache_type = 0\ninnodb_buffer_pool_instances = 8 (or 1 if innodb_buffer_pool_size < 1GB)\ninnodb_file_per_table=ON\ninnodb_stats_on_metadata = OFF innodb_ft_result_cache_limit ', float_val=0.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.3061431050300598
+Adding hint TuningHint(doc_id=15, param=<re.Match object; span=(0, 16), match='query_cache_size'>, value=<re.Match object; span=(0, 1), match='0'>, recommendation='0', passage='query_cache_size = 0\nquery_cache_type = 0\ninnodb_buffer_pool_instances = 8 (or 1 if innodb_buffer_pool_size < 1GB)\ninnodb_file_per_table=ON\ninnodb_stats_on_metadata = OFF innodb_ft_result_cache_limit ', float_val=0.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.10938647389411926
+Excluding recommendation "RAM: 8GB" for parameter "innodb_change_buffer_max_size" due to low confidence (0.027754411101341248)
+Excluding recommendation "RAM: 4GB" for parameter "innodb_log_file_size" due to low confidence (0.004787778481841087)
+Excluding recommendation "RAM: 4GB" for parameter "innodb_buffer_pool_size" due to low confidence (0.02607758343219757)
+Excluding recommendation "dedicated MySql servers" for parameter "binlog_stmt_cache_size" due to low confidence (0.004795271437615156)
+Adding hint TuningHint(doc_id=15, param=<re.Match object; span=(39, 59), match='innodb_log_file_size'>, value=<re.Match object; span=(0, 3), match='1GB'>, recommendation='1GB', passage='RAM 16GB\ninnodb_buffer_pool_size = 10G\ninnodb_log_file_size = 1GB\nThe values above are examples for dedicated MySql servers (no other services are running on the server). binlog_stmt_cache_size ', float_val=1.0, val_unit='GB', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.09961197525262833
+Excluding recommendation "10G" for parameter "innodb_buffer_pool_size" due to low confidence (0.0363859161734581)
+Adding hint TuningHint(doc_id=15, param=<re.Match object; span=(118, 134), match='query_cache_size'>, value=<re.Match object; span=(0, 1), match='0'>, recommendation='0 binlog_stmt_cache_size', passage='CentOS: /etc/my.cnf\nUbuntu Linux: /etc/mysql/mysql.conf.d/mysqld.cnf\nAn example:\n[mysqld]\n# some other variables here\nquery_cache_size = 0 binlog_stmt_cache_size ', float_val=0.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.19700513780117035
+Excluding recommendation "0" for parameter "binlog_stmt_cache_size" due to low confidence (0.022009562700986862)
+Adding hint TuningHint(doc_id=15, param=<re.Match object; span=(21, 49), match='innodb_buffer_pool_instances'>, value=<re.Match object; span=(0, 1), match='8'>, recommendation='8', passage='query_cache_type = 0\ninnodb_buffer_pool_instances = 8\ninnodb_buffer_pool_size = 5G\ninnodb_file_per_table = ON\ninnodb_log_file_size = 512M\ninnodb_stats_on_metadata = OFF innodb_buffer_pool_size ', float_val=8.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.21449802815914154
+Adding hint TuningHint(doc_id=15, param=<re.Match object; span=(110, 130), match='innodb_log_file_size'>, value=<re.Match object; span=(0, 4), match='512M'>, recommendation='512M', passage='query_cache_type = 0\ninnodb_buffer_pool_instances = 8\ninnodb_buffer_pool_size = 5G\ninnodb_file_per_table = ON\ninnodb_log_file_size = 512M\ninnodb_stats_on_metadata = OFF innodb_buffer_pool_size ', float_val=512.0, val_unit='M', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.3980560898780823
+Adding hint TuningHint(doc_id=15, param=<re.Match object; span=(54, 77), match='innodb_buffer_pool_size'>, value=<re.Match object; span=(0, 2), match='5G'>, recommendation='5G', passage='query_cache_type = 0\ninnodb_buffer_pool_instances = 8\ninnodb_buffer_pool_size = 5G\ninnodb_file_per_table = ON\ninnodb_log_file_size = 512M\ninnodb_stats_on_metadata = OFF innodb_buffer_pool_size ', float_val=5.0, val_unit='G', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.3865525722503662
+Adding hint TuningHint(doc_id=15, param=<re.Match object; span=(0, 16), match='query_cache_type'>, value=<re.Match object; span=(0, 1), match='0'>, recommendation='0', passage='query_cache_type = 0\ninnodb_buffer_pool_instances = 8\ninnodb_buffer_pool_size = 5G\ninnodb_file_per_table = ON\ninnodb_log_file_size = 512M\ninnodb_stats_on_metadata = OFF innodb_buffer_pool_size ', float_val=0.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.07328324764966965
+Creating hints for document 16
+Creating hints for document 17
+Creating hints for document 18
+Creating hints for document 19
+Creating hints for document 20
+Creating hints for document 21
+Excluding recommendation "Multiple buffer pool instances" for parameter "innodb_change_buffer_max_size" due to low confidence (0.0008384705288335681)
+Excluding recommendation "innodb_change_buffer_max_size" for parameter "innodb_buffer_pool_instances" due to low confidence (0.04747382923960686)
+Excluding recommendation "at least 1 gigabyte" for parameter "innodb_buffer_pool_instances" due to low confidence (0.045613572001457214)
+Excluding recommendation "at least 1 gigabyte" for parameter "join_buffer_size" due to low confidence (0.00017164129531010985)
+Adding hint TuningHint(doc_id=21, param=<re.Match object; span=(632, 655), match='innodb_buffer_pool_size'>, value=<re.Match object; span=(0, 1), match='1'>, recommendation='1 gigabyte or more', passage='The number of regions that the InnoDB buffer pool is divided into. For systems with buffer pools in the multi-gigabyte range, dividing the buffer pool into separate instances can improve concurrency, by reducing contention as different threads read and write to cached pages. Each page that is stored in or read from the buffer pool is assigned to one of the buffer pool instances randomly, using a hashing function. Each buffer pool manages its own free lists, flush lists, LRUs, and all other data structures connected to a buffer pool, and is protected by its own buffer pool mutex.This option takes effect only when you set the innodb_buffer_pool_size to a size of 1 gigabyte or more. The total size you specify is divided among all the buffer pools. For best efficiency, specify a combination of innodb_buffer_pool_instances and innodb_buffer_pool_size so that each buffer pool instance is at least 1 gigabyte.\nIn MySQL versions prior to 5.5.4 this was not configurable and thus set to just one instance. Now join_buffer_size ', float_val=1.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.2764282524585724
+Adding hint TuningHint(doc_id=21, param=<re.Match object; span=(117, 145), match='innodb_buffer_pool_instances'>, value=<re.Match object; span=(0, 1), match='1'>, recommendation='1 (the default) up to 64', passage='you can increase innodb_buffer_pool_size, and you can divide the InnoDB buffer pool into multiple regions by setting innodb_buffer_pool_instances to 2, 3, 4 or 8. As long as innodb_buffer_pool_size is set high enough, and you have enough memory available in your MySQL database server. This increases\nInnoDB read/write threads.\nTo enable multiple buffer pool instances, set the innodb_buffer_pool_instances configuration option to a value greater than 1 (the default) up to 64 (the maximum). innodb_buffer_pool_size ', float_val=1.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.08366256207227707
+Adding hint TuningHint(doc_id=21, param=<re.Match object; span=(117, 145), match='innodb_buffer_pool_instances'>, value=<re.Match object; span=(22, 24), match='64'>, recommendation='1 (the default) up to 64', passage='you can increase innodb_buffer_pool_size, and you can divide the InnoDB buffer pool into multiple regions by setting innodb_buffer_pool_instances to 2, 3, 4 or 8. As long as innodb_buffer_pool_size is set high enough, and you have enough memory available in your MySQL database server. This increases\nInnoDB read/write threads.\nTo enable multiple buffer pool instances, set the innodb_buffer_pool_instances configuration option to a value greater than 1 (the default) up to 64 (the maximum). innodb_buffer_pool_size ', float_val=64.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.08366256207227707
+Adding hint TuningHint(doc_id=21, param=<re.Match object; span=(17, 40), match='innodb_buffer_pool_size'>, value=<re.Match object; span=(0, 1), match='2'>, recommendation='2, 3, 4 or 8', passage='you can increase innodb_buffer_pool_size, and you can divide the InnoDB buffer pool into multiple regions by setting innodb_buffer_pool_instances to 2, 3, 4 or 8. As long as innodb_buffer_pool_size is set high enough, and you have enough memory available in your MySQL database server. This increases\nInnoDB read/write threads.\nTo enable multiple buffer pool instances, set the innodb_buffer_pool_instances configuration option to a value greater than 1 (the default) up to 64 (the maximum). innodb_buffer_pool_size ', float_val=2.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.06922652572393417
+Adding hint TuningHint(doc_id=21, param=<re.Match object; span=(17, 40), match='innodb_buffer_pool_size'>, value=<re.Match object; span=(3, 4), match='3'>, recommendation='2, 3, 4 or 8', passage='you can increase innodb_buffer_pool_size, and you can divide the InnoDB buffer pool into multiple regions by setting innodb_buffer_pool_instances to 2, 3, 4 or 8. As long as innodb_buffer_pool_size is set high enough, and you have enough memory available in your MySQL database server. This increases\nInnoDB read/write threads.\nTo enable multiple buffer pool instances, set the innodb_buffer_pool_instances configuration option to a value greater than 1 (the default) up to 64 (the maximum). innodb_buffer_pool_size ', float_val=3.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.06922652572393417
+Adding hint TuningHint(doc_id=21, param=<re.Match object; span=(17, 40), match='innodb_buffer_pool_size'>, value=<re.Match object; span=(6, 7), match='4'>, recommendation='2, 3, 4 or 8', passage='you can increase innodb_buffer_pool_size, and you can divide the InnoDB buffer pool into multiple regions by setting innodb_buffer_pool_instances to 2, 3, 4 or 8. As long as innodb_buffer_pool_size is set high enough, and you have enough memory available in your MySQL database server. This increases\nInnoDB read/write threads.\nTo enable multiple buffer pool instances, set the innodb_buffer_pool_instances configuration option to a value greater than 1 (the default) up to 64 (the maximum). innodb_buffer_pool_size ', float_val=4.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.06922652572393417
+Adding hint TuningHint(doc_id=21, param=<re.Match object; span=(17, 40), match='innodb_buffer_pool_size'>, value=<re.Match object; span=(11, 12), match='8'>, recommendation='2, 3, 4 or 8', passage='you can increase innodb_buffer_pool_size, and you can divide the InnoDB buffer pool into multiple regions by setting innodb_buffer_pool_instances to 2, 3, 4 or 8. As long as innodb_buffer_pool_size is set high enough, and you have enough memory available in your MySQL database server. This increases\nInnoDB read/write threads.\nTo enable multiple buffer pool instances, set the innodb_buffer_pool_instances configuration option to a value greater than 1 (the default) up to 64 (the maximum). innodb_buffer_pool_size ', float_val=8.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.06922652572393417
+Adding hint TuningHint(doc_id=21, param=<re.Match object; span=(60, 88), match='innodb_buffer_pool_instances'>, value=<re.Match object; span=(0, 1), match='4'>, recommendation='4', passage='For example, you can set innodb_buffer_pool_size to 6GB and innodb_buffer_pool_instances to 4 in your my.cnf MySQL configuration file:\n; InnoDB buffer pool size in bytes. The primary value to adjust on a database server,\n; can be set up to 80% of the total memory in these environments\ninnodb_buffer_pool_size = 6000M innodb_buffer_pool_size ', float_val=4.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.8932676315307617
+Adding hint TuningHint(doc_id=21, param=<re.Match object; span=(25, 48), match='innodb_buffer_pool_size'>, value=<re.Match object; span=(0, 3), match='6GB'>, recommendation='6GB and innodb_buffer_pool_instances to 4', passage='For example, you can set innodb_buffer_pool_size to 6GB and innodb_buffer_pool_instances to 4 in your my.cnf MySQL configuration file:\n; InnoDB buffer pool size in bytes. The primary value to adjust on a database server,\n; can be set up to 80% of the total memory in these environments\ninnodb_buffer_pool_size = 6000M innodb_buffer_pool_size ', float_val=6.0, val_unit='GB', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.2101842314004898
+Adding hint TuningHint(doc_id=21, param=<re.Match object; span=(25, 48), match='innodb_buffer_pool_size'>, value=<re.Match object; span=(40, 41), match='4'>, recommendation='6GB and innodb_buffer_pool_instances to 4', passage='For example, you can set innodb_buffer_pool_size to 6GB and innodb_buffer_pool_instances to 4 in your my.cnf MySQL configuration file:\n; InnoDB buffer pool size in bytes. The primary value to adjust on a database server,\n; can be set up to 80% of the total memory in these environments\ninnodb_buffer_pool_size = 6000M innodb_buffer_pool_size ', float_val=4.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.2101842314004898
+Adding hint TuningHint(doc_id=21, param=<re.Match object; span=(52, 80), match='innodb_buffer_pool_instances'>, value=<re.Match object; span=(10, 13), match='1GB'>, recommendation='more than 1GB', passage='If innodb_buffer_pool_size is set to more than 1GB, innodb_buffer_pool_instances\n; divides the InnoDB buffer pool into this many instances.\ninnodb_buffer_pool_instances = 4Code language: TOML, also INI (ini) innodb_buffer_pool_size ', float_val=1.0, val_unit='GB', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.17732873558998108
+Adding hint TuningHint(doc_id=21, param=<re.Match object; span=(3, 26), match='innodb_buffer_pool_size'>, value=<re.Match object; span=(10, 13), match='1GB'>, recommendation='more than 1GB', passage='If innodb_buffer_pool_size is set to more than 1GB, innodb_buffer_pool_instances\n; divides the InnoDB buffer pool into this many instances.\ninnodb_buffer_pool_instances = 4Code language: TOML, also INI (ini) innodb_buffer_pool_size ', float_val=1.0, val_unit='GB', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.4744093418121338
+Excluding recommendation "default" for parameter "nnodb_buffer_pool_instances" due to low confidence (0.029178796336054802)
+Excluding recommendation "minimum 1GB" for parameter "innodb_buffer_pool_instance" due to low confidence (0.02068854309618473)
+Adding hint TuningHint(doc_id=21, param=<re.Match object; span=(30, 53), match='innodb_buffer_pool_size'>, value=<re.Match object; span=(0, 2), match='70'>, recommendation='70 – 80% of the RAM available', passage='In this example, I’ve used an innodb_buffer_pool_size of 6000M (6GB), so there is 1500M available per innodb_buffer_pool_instance, which is more than the minimum 1GB. As a rule of thumb, set your innodb_buffer_pool_size to approximately 70 – 80% of the RAM available.\nInnodb_buffer_pool_instances defaults#\nVarious MySQL versions have different innodb_buffer_pool_instances default values, here is an overview – listing – for you: innodb_buffer_pool_size ', float_val=70.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.07776721566915512
+Adding hint TuningHint(doc_id=21, param=<re.Match object; span=(30, 53), match='innodb_buffer_pool_size'>, value=<re.Match object; span=(5, 8), match='80%'>, recommendation='70 – 80% of the RAM available', passage='In this example, I’ve used an innodb_buffer_pool_size of 6000M (6GB), so there is 1500M available per innodb_buffer_pool_instance, which is more than the minimum 1GB. As a rule of thumb, set your innodb_buffer_pool_size to approximately 70 – 80% of the RAM available.\nInnodb_buffer_pool_instances defaults#\nVarious MySQL versions have different innodb_buffer_pool_instances default values, here is an overview – listing – for you: innodb_buffer_pool_size ', float_val=0.8, val_unit='', hint_type=<HintType.RAM_RATIO: 1>) with confidence 0.07776721566915512
+Excluding recommendation "default" for parameter "innodb_buffer_pool_instances" due to low confidence (0.028880342841148376)
+Excluding recommendation "innodb_read_io_threads" for parameter "binlog_stmt_cache_size" due to low confidence (6.809214391978458e-05)
+Excluding recommendation "binlog_stmt_cache_size" for parameter "innodb_read_io_threads" due to low confidence (0.00012184205843368545)
+Excluding recommendation "1GBMySQL" for parameter "innodb_buffer_pool_instances" due to low confidence (0.0010209183674305677)
+Excluding recommendation "InnoDB read I/O threads and write I/O threads" for parameter "innodb_write_io_threads" due to low confidence (0.0005717670428566635)
+Adding hint TuningHint(doc_id=21, param=<re.Match object; span=(147, 170), match='innodb_buffer_pool_size'>, value=<re.Match object; span=(0, 8), match='1GBMySQL'>, recommendation='1GBMySQL 5.78or 1', passage='MySQL version# InnoDB buffer pool instancesNotesMySQL 5.5 (<= 5.5.4)1not configurableMySQL 5.51–MySQL 5.6 (<= 5.6.5)1–MySQL 5.6 (>= 5.6.6)8or 1 if innodb_buffer_pool_size < 1GBMySQL 5.78or 1 if innodb_buffer_pool_size < 1GBMariaDB 10 (<= MariaDB 10.0.3)1–MariaDB 10 (>= MariaDB 10.0.4)8–InnoDB read and write I/O threads in MySQL#\nBesides innodb_buffer_pool_instances, you can also increase the number of InnoDB read I/O threads and write I/O threads. These are configured with innodb_write_io_threads and innodb_read_io_threads. binlog_stmt_cache_size ', float_val=1.0, val_unit='GBMySQL', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.05096370726823807
+Adding hint TuningHint(doc_id=21, param=<re.Match object; span=(147, 170), match='innodb_buffer_pool_size'>, value=<re.Match object; span=(9, 15), match='5.78or'>, recommendation='1GBMySQL 5.78or 1', passage='MySQL version# InnoDB buffer pool instancesNotesMySQL 5.5 (<= 5.5.4)1not configurableMySQL 5.51–MySQL 5.6 (<= 5.6.5)1–MySQL 5.6 (>= 5.6.6)8or 1 if innodb_buffer_pool_size < 1GBMySQL 5.78or 1 if innodb_buffer_pool_size < 1GBMariaDB 10 (<= MariaDB 10.0.3)1–MariaDB 10 (>= MariaDB 10.0.4)8–InnoDB read and write I/O threads in MySQL#\nBesides innodb_buffer_pool_instances, you can also increase the number of InnoDB read I/O threads and write I/O threads. These are configured with innodb_write_io_threads and innodb_read_io_threads. binlog_stmt_cache_size ', float_val=5.78, val_unit='or', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.05096370726823807
+Adding hint TuningHint(doc_id=21, param=<re.Match object; span=(147, 170), match='innodb_buffer_pool_size'>, value=<re.Match object; span=(16, 17), match='1'>, recommendation='1GBMySQL 5.78or 1', passage='MySQL version# InnoDB buffer pool instancesNotesMySQL 5.5 (<= 5.5.4)1not configurableMySQL 5.51–MySQL 5.6 (<= 5.6.5)1–MySQL 5.6 (>= 5.6.6)8or 1 if innodb_buffer_pool_size < 1GBMySQL 5.78or 1 if innodb_buffer_pool_size < 1GBMariaDB 10 (<= MariaDB 10.0.3)1–MariaDB 10 (>= MariaDB 10.0.4)8–InnoDB read and write I/O threads in MySQL#\nBesides innodb_buffer_pool_instances, you can also increase the number of InnoDB read I/O threads and write I/O threads. These are configured with innodb_write_io_threads and innodb_read_io_threads. binlog_stmt_cache_size ', float_val=1.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.05096370726823807
+Excluding recommendation "8" for parameter "innodb_read_io_threads" due to low confidence (0.0037880237214267254)
+Adding hint TuningHint(doc_id=21, param=<re.Match object; span=(113, 136), match='innodb_write_io_threads'>, value=<re.Match object; span=(0, 1), match='8'>, recommendation='8\n', passage='Both settings default to 4 threads. We can increase these to, for example, 8:\n; Number of I/O threads for writes\ninnodb_write_io_threads = 8\n; Number of I/O threads for reads\ninnodb_read_io_threads = 8Code language: TOML, also INI (ini) innodb_write_io_threads ', float_val=8.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.07176993787288666
+Excluding recommendation "4" for parameter "innodb_read_io_threads" due to low confidence (0.030445467680692673)
+Excluding recommendation "4" for parameter "innodb_write_io_threads" due to low confidence (0.002535211853682995)
+Excluding recommendation "64 × innodb_read_io_threads pending read requests" for parameter "innodb_read_io_threads" due to low confidence (0.019696757197380066)
+Excluding recommendation "64 × innodb_read_io_threads pending read requests" for parameter "innodb_write_io_threads" due to low confidence (0.00010434378054924309)
+Adding hint TuningHint(doc_id=21, param=<re.Match object; span=(123, 146), match='innodb_buffer_pool_size'>, value=<re.Match object; span=(0, 3), match='8GB'>, recommendation='8GB', passage='Starting from MariaDB 10.0, the default number of innodb_buffer_pool_instances is 8. This means you have to configure your innodb_buffer_pool_size to at least 8GB, see the defaults above.\nProtip, don’t over optimize: never make too many configuration changes at once. After changing one or two settings, let the server run for a few days so you can learn the implications of the changes. Then, if necessary, make additional changes to the configuration. innodb_change_buffer_max_size ', float_val=8.0, val_unit='GB', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.16949185729026794
+Excluding recommendation "defaults" for parameter "innodb_change_buffer_max_size" due to low confidence (0.006513070315122604)
+Adding hint TuningHint(doc_id=21, param=<re.Match object; span=(50, 78), match='innodb_buffer_pool_instances'>, value=<re.Match object; span=(0, 1), match='8'>, recommendation='8', passage='Starting from MariaDB 10.0, the default number of innodb_buffer_pool_instances is 8. This means you have to configure your innodb_buffer_pool_size to at least 8GB, see the defaults above.\nProtip, don’t over optimize: never make too many configuration changes at once. After changing one or two settings, let the server run for a few days so you can learn the implications of the changes. Then, if necessary, make additional changes to the configuration. innodb_change_buffer_max_size ', float_val=8.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.20684276521205902
+Excluding recommendation "1/1275" for parameter "ey_read_requests" due to low confidence (5.592456000158563e-05)
+Excluding recommendation "1/1275" for parameter "ey_reads" due to low confidence (2.970765990539803e-06)
+Adding hint TuningHint(doc_id=21, param=<re.Match object; span=(144, 159), match='key_buffer_size'>, value=<re.Match object; span=(0, 5), match='768MB'>, recommendation='768MB', passage='+-------------------+-------------+Code language: SQL (Structured Query Language) (sql)\nThese two variables and values relate to the configured key_buffer_size\nIn this old example, the database server has 4GB of RAM and a configured key_buffer_size of 512MB. The ratio (Key_read_requests / Key_reads) is approximately 1/1275, which is good but the key_buffer_size value may be increased to 768MB. Even though this is not yet necessary. key_buffer_size ', float_val=768.0, val_unit='MB', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.11900541931390762
+Adding hint TuningHint(doc_id=21, param=<re.Match object; span=(45, 62), match='thread_cache_size'>, value=<re.Match object; span=(18, 20), match='20'>, recommendation='somewhere between 20 and 40', passage='You can use the MySQL Server System variable thread_cache_size to configure how many threads must be cached by MySQL. This is one of those configuration settings that, probably, provides the least performance gain, but still…\nDon’t set this one too high, somewhere between 20 and 40 is often good enough:\nthread_cache_size = 20Code language: TOML, also INI (ini)\nWhen you execute the previous statement again, the values will be: max_binlog_stmt_cache_size ', float_val=20.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.2641836106777191
+Adding hint TuningHint(doc_id=21, param=<re.Match object; span=(45, 62), match='thread_cache_size'>, value=<re.Match object; span=(25, 27), match='40'>, recommendation='somewhere between 20 and 40', passage='You can use the MySQL Server System variable thread_cache_size to configure how many threads must be cached by MySQL. This is one of those configuration settings that, probably, provides the least performance gain, but still…\nDon’t set this one too high, somewhere between 20 and 40 is often good enough:\nthread_cache_size = 20Code language: TOML, also INI (ini)\nWhen you execute the previous statement again, the values will be: max_binlog_stmt_cache_size ', float_val=40.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.2641836106777191
+Excluding recommendation "somewhere between 20 and 40" for parameter "max_binlog_stmt_cache_size" due to low confidence (0.016322631388902664)
+Adding hint TuningHint(doc_id=21, param=<re.Match object; span=(24, 43), match='max_heap_table_size'>, value=<re.Match object; span=(0, 3), match='16M'>, recommendation='16M', passage='2.1: tmp_table_size and max_heap_table_sizeThe default tmp_table_size and max_heap_table_size values are 16M. These two have to be equal in size! It sets the maximum size for internal in-memory tables, resulting in less creation of temporarily MyISAM tables on the file system. That in return, results in less disk I/O. max_heap_table_size ', float_val=16.0, val_unit='M', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.5891097187995911
+Adding hint TuningHint(doc_id=21, param=<re.Match object; span=(5, 19), match='tmp_table_size'>, value=<re.Match object; span=(0, 3), match='16M'>, recommendation='16M', passage='2.1: tmp_table_size and max_heap_table_sizeThe default tmp_table_size and max_heap_table_size values are 16M. These two have to be equal in size! It sets the maximum size for internal in-memory tables, resulting in less creation of temporarily MyISAM tables on the file system. That in return, results in less disk I/O. max_heap_table_size ', float_val=16.0, val_unit='M', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.7599074244499207
+Excluding recommendation "1M" for parameter "sysvar_tmp_table_sizehttps" due to low confidence (1.014185090753017e-05)
+Excluding recommendation "join_buffer_sizeThe" for parameter "sysvar_max_heap_table_size" due to low confidence (0.0026526309084147215)
+Excluding recommendation "plain index scans, range index scans and joins without indices" for parameter "key_buffer_size" due to low confidence (0.00012332461483310908)
+Excluding recommendation "diagnostic data" for parameter "information_scheme" due to low confidence (4.560513480100781e-05)
+Creating hints for document 22
+Creating hints for document 23
+Creating hints for document 24
+Excluding recommendation "Increase the value of join_buffer_size" for parameter "binlog_stmt_cache_size" due to low confidence (0.0005467680166475475)
+Excluding recommendation "Increase the value of join_buffer_size to get a faster full join" for parameter "join_buffer_size" due to low confidence (0.0031861027237027884)
+Excluding recommendation "4M" for parameter "query_cache_limit" due to low confidence (0.02157742530107498)
+Adding hint TuningHint(doc_id=24, param=<re.Match object; span=(114, 137), match='innodb_buffer_pool_size'>, value=<re.Match object; span=(0, 5), match='2048M'>, recommendation='2048M\n', passage='query_cache_limit=4M\n#The size in bytes of the memory buffer InnoDB uses to cache data and indexes of its tables.\ninnodb_buffer_pool_size = 2048M\n#Increase the value of join_buffer_size to get a faster full join when adding indexes is not possible. binlog_stmt_cache_size ', float_val=2048.0, val_unit='M', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.07962684333324432
+Excluding recommendation "32M
+" for parameter "query_cache_size" due to low confidence (0.0016912291757762432)
+Excluding recommendation "256M
+" for parameter "thread_cache_size" due to low confidence (5.889064777875319e-05)
+Adding hint TuningHint(doc_id=24, param=<re.Match object; span=(0, 16), match='join_buffer_size'>, value=<re.Match object; span=(0, 4), match='256M'>, recommendation='256M', passage='join_buffer_size = 256M\n#The number of open tables for all threads.\ntable_open_cache = 400\n#The amount of memory allocated for caching query results.\nquery_cache_size=32M\n* Reference:\xa0http://www.packtpub.com/liferay-portal-performance-best-practices/book thread_cache_size ', float_val=256.0, val_unit='M', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.10108125954866409
+Adding hint TuningHint(doc_id=24, param=<re.Match object; span=(68, 84), match='table_open_cache'>, value=<re.Match object; span=(0, 3), match='400'>, recommendation='400', passage='join_buffer_size = 256M\n#The number of open tables for all threads.\ntable_open_cache = 400\n#The amount of memory allocated for caching query results.\nquery_cache_size=32M\n* Reference:\xa0http://www.packtpub.com/liferay-portal-performance-best-practices/book thread_cache_size ', float_val=400.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.0643577054142952
+Creating hints for document 25
+Creating hints for document 26
+Creating hints for document 27
+Creating hints for document 28
+Creating hints for document 29
+Creating hints for document 30
+Creating hints for document 31
+Creating hints for document 32
+Creating hints for document 33
+Creating hints for document 34
+Creating hints for document 35
+Creating hints for document 36
+Creating hints for document 37
+Creating hints for document 38
+Creating hints for document 39
+Creating hints for document 40
+Creating hints for document 41
+Creating hints for document 42
+Creating hints for document 43
+Creating hints for document 44
+Creating hints for document 45
+Creating hints for document 46
+Creating hints for document 47
+Creating hints for document 48
+Creating hints for document 49
+Excluding recommendation "50,000 concurrent inserts per second" for parameter "innodb_buffer_pool_size" due to low confidence (0.004474674351513386)
+Excluding recommendation "50,000 concurrent inserts per second" for parameter "innodb_write_io_threads" due to low confidence (0.00091495958622545)
+Adding hint TuningHint(doc_id=49, param=<re.Match object; span=(374, 397), match='innodb_buffer_pool_size'>, value=<re.Match object; span=(0, 4), match='50GB'>, recommendation='50GB', passage='Typically, having multiple buffer pool instances is appropriate for systems that allocate multiple gigabytes to the InnoDB buffer pool, with each instance being one gigabyte or larger\nThis setting allows you to have multiple pools (the total size will still be the maximum specified in the previous section), so, for example, let’s say we have set this value to 10, and the innodb_buffer_pool_size is set to 50GB., MySQL will then allocate ten pools of 5GB. innodb_buffer_pool_size ', float_val=50.0, val_unit='GB', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.33587074279785156
+Creating hints for document 50
+Creating hints for document 51
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(90, 106), match='table_open_cache'>, value=<re.Match object; span=(0, 4), match='4096'>, recommendation='4096', passage='query_cache_type=0\nquery_cache_size=0\n#query_cache_limit = 4M\ndefault_table_type = InnoDB\ntable_open_cache = 4096\nopen_files_limit = 8192\nmax_connections = 800 query_cache_limit ', float_val=4096.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.7868104577064514
+Excluding recommendation "0" for parameter "query_cache_size" due to low confidence (0.018556440249085426)
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(138, 153), match='max_connections'>, value=<re.Match object; span=(0, 3), match='800'>, recommendation='800', passage='query_cache_type=0\nquery_cache_size=0\n#query_cache_limit = 4M\ndefault_table_type = InnoDB\ntable_open_cache = 4096\nopen_files_limit = 8192\nmax_connections = 800 query_cache_limit ', float_val=800.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.805738627910614
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(0, 16), match='query_cache_type'>, value=<re.Match object; span=(0, 1), match='0'>, recommendation='0', passage='query_cache_type=0\nquery_cache_size=0\n#query_cache_limit = 4M\ndefault_table_type = InnoDB\ntable_open_cache = 4096\nopen_files_limit = 8192\nmax_connections = 800 query_cache_limit ', float_val=0.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.6424553990364075
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(114, 130), match='open_files_limit'>, value=<re.Match object; span=(0, 4), match='8192'>, recommendation='8192', passage='query_cache_type=0\nquery_cache_size=0\n#query_cache_limit = 4M\ndefault_table_type = InnoDB\ntable_open_cache = 4096\nopen_files_limit = 8192\nmax_connections = 800 query_cache_limit ', float_val=8192.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.7869783043861389
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(39, 56), match='query_cache_limit'>, value=<re.Match object; span=(0, 2), match='4M'>, recommendation='4M', passage='query_cache_type=0\nquery_cache_size=0\n#query_cache_limit = 4M\ndefault_table_type = InnoDB\ntable_open_cache = 4096\nopen_files_limit = 8192\nmax_connections = 800 query_cache_limit ', float_val=4.0, val_unit='M', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.08288315683603287
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(68, 88), match='read_rnd_buffer_size'>, value=<re.Match object; span=(0, 4), match='256M'>, recommendation='256M', passage='sort_buffer_size = 2M\njoin_buffer_size = 256K\nread_buffer_size=128K\nread_rnd_buffer_size = 256M\ntransaction-isolation=READ-COMMITTED\nlog_warnings\nslow_query_log sort_buffer_size ', float_val=256.0, val_unit='M', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.08982717990875244
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(0, 16), match='sort_buffer_size'>, value=<re.Match object; span=(0, 2), match='2M'>, recommendation='2M', passage='sort_buffer_size = 2M\njoin_buffer_size = 256K\nread_buffer_size=128K\nread_rnd_buffer_size = 256M\ntransaction-isolation=READ-COMMITTED\nlog_warnings\nslow_query_log sort_buffer_size ', float_val=2.0, val_unit='M', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.24907563626766205
+Excluding recommendation "sort_buffer_size = 2M" for parameter "slow_query_log" due to low confidence (0.00011616003757808357)
+Excluding recommendation "
+" for parameter "log_warnings" due to low confidence (0.0002636759600136429)
+Excluding recommendation "128K" for parameter "read_buffer_size" due to low confidence (0.044977206736803055)
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(22, 38), match='join_buffer_size'>, value=<re.Match object; span=(0, 4), match='256K'>, recommendation='256K', passage='sort_buffer_size = 2M\njoin_buffer_size = 256K\nread_buffer_size=128K\nread_rnd_buffer_size = 256M\ntransaction-isolation=READ-COMMITTED\nlog_warnings\nslow_query_log sort_buffer_size ', float_val=256.0, val_unit='K', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.31841328740119934
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(130, 152), match='nnodb_write_io_threads'>, value=<re.Match object; span=(0, 1), match='8'>, recommendation='8', passage='long_query_time=5\n# Physical RAM is 32G (8-core)\ninnodb_buffer_pool_size =24G\ninnodb_buffer_pool_instances=6\nkey_buffer_size=512M\nnnodb_write_io_threads=8 innodb_buffer_pool_size ', float_val=8.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.42254507541656494
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(78, 106), match='innodb_buffer_pool_instances'>, value=<re.Match object; span=(0, 1), match='6'>, recommendation='6', passage='long_query_time=5\n# Physical RAM is 32G (8-core)\ninnodb_buffer_pool_size =24G\ninnodb_buffer_pool_instances=6\nkey_buffer_size=512M\nnnodb_write_io_threads=8 innodb_buffer_pool_size ', float_val=6.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.40786996483802795
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(109, 124), match='key_buffer_size'>, value=<re.Match object; span=(0, 4), match='512M'>, recommendation='512M', passage='long_query_time=5\n# Physical RAM is 32G (8-core)\ninnodb_buffer_pool_size =24G\ninnodb_buffer_pool_instances=6\nkey_buffer_size=512M\nnnodb_write_io_threads=8 innodb_buffer_pool_size ', float_val=512.0, val_unit='M', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.18617427349090576
+Excluding recommendation "5
+" for parameter "long_query_time" due to low confidence (0.0013318266719579697)
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(49, 72), match='innodb_buffer_pool_size'>, value=<re.Match object; span=(0, 3), match='24G'>, recommendation='24G', passage='long_query_time=5\n# Physical RAM is 32G (8-core)\ninnodb_buffer_pool_size =24G\ninnodb_buffer_pool_instances=6\nkey_buffer_size=512M\nnnodb_write_io_threads=8 innodb_buffer_pool_size ', float_val=24.0, val_unit='G', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.22433410584926605
+Excluding recommendation "8" for parameter "innodb_read_io_threads" due to low confidence (0.03466317057609558)
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(57, 78), match='innodb_data_file_path'>, value=<re.Match object; span=(6, 7), match='1'>, recommendation='ibdata1:1G:autoextend\n', passage='innodb_read_io_threads=8\ninnodb_thread_concurrency = 16\n#innodb_data_file_path = ibdata1:1G:autoextend\n#innodb_autoextend_increment=128M\n#innodb_file_per_table innodb_write_io_threads ', float_val=1.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.10734406858682632
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(57, 78), match='innodb_data_file_path'>, value=<re.Match object; span=(8, 10), match='1G'>, recommendation='ibdata1:1G:autoextend\n', passage='innodb_read_io_threads=8\ninnodb_thread_concurrency = 16\n#innodb_data_file_path = ibdata1:1G:autoextend\n#innodb_autoextend_increment=128M\n#innodb_file_per_table innodb_write_io_threads ', float_val=1.0, val_unit='G', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.10734406858682632
+Excluding recommendation "8" for parameter "innodb_write_io_threads" due to low confidence (0.002624048385769129)
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(104, 131), match='innodb_autoextend_increment'>, value=<re.Match object; span=(0, 4), match='128M'>, recommendation='128M', passage='innodb_read_io_threads=8\ninnodb_thread_concurrency = 16\n#innodb_data_file_path = ibdata1:1G:autoextend\n#innodb_autoextend_increment=128M\n#innodb_file_per_table innodb_write_io_threads ', float_val=128.0, val_unit='M', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.45993316173553467
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(25, 50), match='innodb_thread_concurrency'>, value=<re.Match object; span=(0, 2), match='16'>, recommendation='16', passage='innodb_read_io_threads=8\ninnodb_thread_concurrency = 16\n#innodb_data_file_path = ibdata1:1G:autoextend\n#innodb_autoextend_increment=128M\n#innodb_file_per_table innodb_write_io_threads ', float_val=16.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.5796297192573547
+Excluding recommendation "innodb_read_io_threads=8" for parameter "innodb_file_per_table" due to low confidence (0.0006429379573091865)
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(103, 129), match='innodb_max_dirty_pages_pct'>, value=<re.Match object; span=(0, 2), match='80'>, recommendation='80', passage='innodb_flush_log_at_trx_commit=2\n#sync_binlog=1\ninnodb_log_buffer_size = 16M\ninnodb_log_file_size = 2G\ninnodb_max_dirty_pages_pct = 80\ninnodb_flush_method=O_DIRECT innodb_flush_log_at_trx_commit ', float_val=80.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.5776634216308594
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(77, 97), match='innodb_log_file_size'>, value=<re.Match object; span=(0, 2), match='2G'>, recommendation='2G', passage='innodb_flush_log_at_trx_commit=2\n#sync_binlog=1\ninnodb_log_buffer_size = 16M\ninnodb_log_file_size = 2G\ninnodb_max_dirty_pages_pct = 80\ninnodb_flush_method=O_DIRECT innodb_flush_log_at_trx_commit ', float_val=2.0, val_unit='G', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.5315351486206055
+Excluding recommendation "O_DIRECT" for parameter "innodb_flush_log_at_trx_commit" due to low confidence (0.032646577805280685)
+Excluding recommendation "1" for parameter "sync_binlog" due to low confidence (0.0009375041117891669)
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(48, 70), match='innodb_log_buffer_size'>, value=<re.Match object; span=(0, 3), match='16M'>, recommendation='16M', passage='innodb_flush_log_at_trx_commit=2\n#sync_binlog=1\ninnodb_log_buffer_size = 16M\ninnodb_log_file_size = 2G\ninnodb_max_dirty_pages_pct = 80\ninnodb_flush_method=O_DIRECT innodb_flush_log_at_trx_commit ', float_val=16.0, val_unit='M', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.5187479257583618
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(0, 24), match='innodb_lock_wait_timeout'>, value=<re.Match object; span=(0, 3), match='120'>, recommendation='120', passage='innodb_lock_wait_timeout = 120\nbinlog_format=ROW\ninnodb_autoinc_lock_mode=2\n[mysqldump]\nquick\nmax_allowed_packet = 512M\n[mysql]\nno-auto-rehash innodb_lock_wait_timeout ', float_val=120.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.37837666273117065
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(94, 112), match='max_allowed_packet'>, value=<re.Match object; span=(0, 4), match='512M'>, recommendation='512M\n', passage='innodb_lock_wait_timeout = 120\nbinlog_format=ROW\ninnodb_autoinc_lock_mode=2\n[mysqldump]\nquick\nmax_allowed_packet = 512M\n[mysql]\nno-auto-rehash innodb_lock_wait_timeout ', float_val=512.0, val_unit='M', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.31946200132369995
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(49, 73), match='innodb_autoinc_lock_mode'>, value=<re.Match object; span=(0, 1), match='2'>, recommendation='2', passage='innodb_lock_wait_timeout = 120\nbinlog_format=ROW\ninnodb_autoinc_lock_mode=2\n[mysqldump]\nquick\nmax_allowed_packet = 512M\n[mysql]\nno-auto-rehash innodb_lock_wait_timeout ', float_val=2.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.5191106200218201
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(19, 44), match='innodb_thread_concurrency'>, value=<re.Match object; span=(0, 1), match='0'>, recommendation='0', passage='I would start with innodb_thread_concurrency = 0 to de-restrict the thread concurrency throttling.\nAre your UPDATEs running fully indexed, ideally with PK in the WHERE?\nIs there a good reason you have innodb_file_per_table commented out? innodb_thread_concurrency ', float_val=0.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.4500904381275177
+Excluding recommendation "innodb_thread_concurrency = 0" for parameter "innodb_file_per_table" due to low confidence (0.0007491987780667841)
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(63, 88), match='innodb_thread_concurrency'>, value=<re.Match object; span=(0, 1), match='0'>, recommendation='0', passage="I have corrected my typo and changed my configuration files as innodb_thread_concurrency = 0 as you mentioned.\nI tried to configure very low-performing-consuming parameters and I have read about that innodb_file_per_table parameters could effect the RAM usage, so I decided to comment it out. Actually I couldn't figure out what this parameters use for clearly. performance_schema_max_file_classes ", float_val=0.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.08030897378921509
+Excluding recommendation "RAM usage" for parameter "innodb_file_per_table" due to low confidence (0.00039693579310551286)
+Excluding recommendation "innodb_thread_concurrency = 0" for parameter "performance_schema_max_file_classes" due to low confidence (4.435751179698855e-05)
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(268, 280), match='wait_timeout'>, value=<re.Match object; span=(0, 4), match='100s'>, recommendation='100s', passage='After I start all appcalitons that we use, I realised that I was seeing about 120 processes that created by our user in PROCESSLIST in the INFORMATION_SCHEMA. Also I know that some of these connections don\'t make anything but using connnection_pool.\nI was set up 100s wait_timeout, after 100s later, PROCESSLIST down to "27" and threads_cache became 92. table_open_cache_instances ', float_val=100.0, val_unit='s', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.31627437472343445
+Excluding recommendation "92" for parameter "table_open_cache_instances" due to low confidence (0.013611974194645882)
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(329, 342), match='threads_cache'>, value=<re.Match object; span=(0, 2), match='92'>, recommendation='92', passage='After I start all appcalitons that we use, I realised that I was seeing about 120 processes that created by our user in PROCESSLIST in the INFORMATION_SCHEMA. Also I know that some of these connections don\'t make anything but using connnection_pool.\nI was set up 100s wait_timeout, after 100s later, PROCESSLIST down to "27" and threads_cache became 92. table_open_cache_instances ', float_val=92.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.13683031499385834
+Excluding recommendation "100s wait_timeout" for parameter "connnection_pool" due to low confidence (6.965517513890518e-06)
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(297, 314), match='thread_cache_size'>, value=<re.Match object; span=(0, 3), match='256'>, recommendation='256', passage='I also know that these 27 connection was used by some applications that running some check queries in spesific time interval. (10sec, 4sec, 2sec) So when they run queries , their connection_time return 0 and count again as they are never closed.\nI believe that in the peak_time, we are gonna need thread_cache_size, so configuring this parameter as 256 would be good for our system.\nI know it is so hard to understand for now but can you please check my innodb engine status and give me some advice as I am not very good at concept of database management systems. thread_cache_size ', float_val=256.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.6930452585220337
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(268, 277), match='peak_time'>, value=<re.Match object; span=(0, 3), match='256'>, recommendation='256', passage='I also know that these 27 connection was used by some applications that running some check queries in spesific time interval. (10sec, 4sec, 2sec) So when they run queries , their connection_time return 0 and count again as they are never closed.\nI believe that in the peak_time, we are gonna need thread_cache_size, so configuring this parameter as 256 would be good for our system.\nI know it is so hard to understand for now but can you please check my innodb engine status and give me some advice as I am not very good at concept of database management systems. thread_cache_size ', float_val=256.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.14005455374717712
+Excluding recommendation "0 and count" for parameter "connection_time" due to low confidence (0.004801789298653603)
+Excluding recommendation "5.000000 sec.
+You have 10 out of 5022308" for parameter "long_query_time" due to low confidence (0.0062430924735963345)
+Excluding recommendation "256" for parameter "thread_cache_size" due to low confidence (0.03696717321872711)
+Excluding recommendation "fine" for parameter "thread_cache_size" due to low confidence (0.003945414442569017)
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(37, 52), match='threads_per_sec'>, value=<re.Match object; span=(0, 1), match='0'>, recommendation='0', passage='Current threads_cached = 103\nCurrent threads_per_sec = 0\nHistoric threads_per_sec = 0\nYour thread_cache_size is fine\nMAX CONNECTIONS\nCurrent max_connections = 800\nCurrent threads_connected = 17 thread_cache_size ', float_val=0.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.3617869019508362
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(8, 22), match='threads_cached'>, value=<re.Match object; span=(0, 3), match='103'>, recommendation='103', passage='Current threads_cached = 103\nCurrent threads_per_sec = 0\nHistoric threads_per_sec = 0\nYour thread_cache_size is fine\nMAX CONNECTIONS\nCurrent max_connections = 800\nCurrent threads_connected = 17 thread_cache_size ', float_val=103.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.3402595520019531
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(141, 156), match='max_connections'>, value=<re.Match object; span=(0, 3), match='800'>, recommendation='800', passage='Current threads_cached = 103\nCurrent threads_per_sec = 0\nHistoric threads_per_sec = 0\nYour thread_cache_size is fine\nMAX CONNECTIONS\nCurrent max_connections = 800\nCurrent threads_connected = 17 thread_cache_size ', float_val=800.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.9059332013130188
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(171, 188), match='threads_connected'>, value=<re.Match object; span=(0, 2), match='17'>, recommendation='17', passage='Current threads_cached = 103\nCurrent threads_per_sec = 0\nHistoric threads_per_sec = 0\nYour thread_cache_size is fine\nMAX CONNECTIONS\nCurrent max_connections = 800\nCurrent threads_connected = 17 thread_cache_size ', float_val=17.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.3080434501171112
+Excluding recommendation "120" for parameter "max_connections" due to low confidence (0.00011460407404229045)
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(9, 29), match='max_used_connections'>, value=<re.Match object; span=(0, 3), match='120'>, recommendation='120', passage='Historic max_used_connections = 120\nThe number of used connections is 15% of the configured maximum.\nYour max_connections variable seems to be fine.\nINNODB STATUS\nCurrent InnoDB index space = 4.29 G\nCurrent InnoDB data space = 4.72 G max_connections ', float_val=120.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.13444001972675323
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(47, 70), match='innodb_buffer_pool_size'>, value=<re.Match object; span=(0, 5), match='24.00'>, recommendation='24.00 G', passage='Current InnoDB buffer pool free = 69 %\nCurrent innodb_buffer_pool_size = 24.00 G\nDepending on how much space your innodb indexes take up it may be safe\nto increase this value to up to 2 / 3 of total system memory\nMEMORY USAGE innodb_buffer_pool_size ', float_val=24.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.15765923261642456
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(54, 69), match='key_buffer_size'>, value=<re.Match object; span=(0, 3), match='512'>, recommendation='512 M\n', passage='KEY BUFFER\nCurrent MyISAM index space = 638 K\nCurrent key_buffer_size = 512 M\nKey cache miss rate is 1 : 144181\nKey buffer free ratio = 81 %\nYour key_buffer_size seems to be too high.\nPerhaps you can use these resources elsewhere key_buffer_size ', float_val=512.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.08398707211017609
+Excluding recommendation "SORT OPERATIONS" for parameter "query_cache_size" due to low confidence (0.00030598611920140684)
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(121, 137), match='sort_buffer_size'>, value=<re.Match object; span=(0, 1), match='2'>, recommendation='2 M', passage='QUERY CACHE\nQuery cache is supported but not enabled\nPerhaps you should set the query_cache_size\nSORT OPERATIONS\nCurrent sort_buffer_size = 2 M\nCurrent read_rnd_buffer_size = 256 M\nSort buffer seems to be fine query_cache_size ', float_val=2.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.11464609205722809
+Excluding recommendation "256 M" for parameter "read_rnd_buffer_size" due to low confidence (0.03086998127400875)
+Excluding recommendation "260.00 K
+" for parameter "join_buffer_size" due to low confidence (0.04345124214887619)
+Excluding recommendation "non indexed joins" for parameter "log_throttle_queries_not_using_indexes" due to low confidence (0.0157625712454319)
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(266, 282), match='open_files_limit'>, value=<re.Match object; span=(0, 4), match='9031'>, recommendation='9031', passage='If you are unable to optimize your queries you may want to increase your\njoin_buffer_size to accommodate larger joins in one pass.\nNote! This script will still suggest raising the join_buffer_size when\nANY joins not using indexes are found.\nOPEN FILES LIMIT\nCurrent open_files_limit = 9031 files join_buffer_size ', float_val=9031.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.09383422136306763
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(4, 20), match='open_files_limit'>, value=<re.Match object; span=(0, 2), match='2x'>, recommendation='2x-3x', passage='The open_files_limit should typically be set to at least 2x-3x\nthat of table_cache if you have heavy MyISAM usage.\nYour open_files_limit value seems to be fine\nTABLE CACHE\nCurrent table_open_cache = 4096 tables\nCurrent table_definition_cache = 400 tables table_open_cache ', float_val=2.0, val_unit='x', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.5118798613548279
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(4, 20), match='open_files_limit'>, value=<re.Match object; span=(3, 5), match='3x'>, recommendation='2x-3x', passage='The open_files_limit should typically be set to at least 2x-3x\nthat of table_cache if you have heavy MyISAM usage.\nYour open_files_limit value seems to be fine\nTABLE CACHE\nCurrent table_open_cache = 4096 tables\nCurrent table_definition_cache = 400 tables table_open_cache ', float_val=3.0, val_unit='x', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.5118798613548279
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(219, 241), match='table_definition_cache'>, value=<re.Match object; span=(0, 3), match='400'>, recommendation='400 tables', passage='The open_files_limit should typically be set to at least 2x-3x\nthat of table_cache if you have heavy MyISAM usage.\nYour open_files_limit value seems to be fine\nTABLE CACHE\nCurrent table_open_cache = 4096 tables\nCurrent table_definition_cache = 400 tables table_open_cache ', float_val=400.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.12179433554410934
+Excluding recommendation "4096 tables" for parameter "table_open_cache" due to low confidence (0.011359427124261856)
+Excluding recommendation "2x-3x" for parameter "table_cache" due to low confidence (0.0018590182298794389)
+Excluding recommendation "64 M" for parameter "tmp_table_size" due to low confidence (0.002523900242522359)
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(116, 135), match='max_heap_table_size'>, value=<re.Match object; span=(0, 2), match='64'>, recommendation='64 M', passage='You have a total of 186 tables\nYou have 428 open tables.\nThe table_cache value seems to be fine\nTEMP TABLES\nCurrent max_heap_table_size = 64 M\nCurrent tmp_table_size = 64 M\nOf 490764 temp tables, 0% were created on disk tmp_table_size ', float_val=64.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.10713578015565872
+Excluding recommendation "fine" for parameter "table_cache" due to low confidence (0.00011576043470995501)
+Excluding recommendation "Current table scan ratio = 34 : 1" for parameter "read_buffer_size" due to low confidence (0.0037037986330688)
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(202, 216), match='tmp_table_size'>, value=<re.Match object; span=(26, 27), match='1'>, recommendation='Current Lock Wait ratio = 1 : 383', passage='Created disk tmp tables ratio seems fine\nTABLE SCANS\nCurrent read_buffer_size = 128 K\nCurrent table scan ratio = 34 : 1\nread_buffer_size seems to be fine\nTABLE LOCKING\nCurrent Lock Wait ratio = 1 : 383 tmp_table_size ', float_val=1.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.060774412006139755
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(202, 216), match='tmp_table_size'>, value=<re.Match object; span=(30, 33), match='383'>, recommendation='Current Lock Wait ratio = 1 : 383', passage='Created disk tmp tables ratio seems fine\nTABLE SCANS\nCurrent read_buffer_size = 128 K\nCurrent table scan ratio = 34 : 1\nread_buffer_size seems to be fine\nTABLE LOCKING\nCurrent Lock Wait ratio = 1 : 383 tmp_table_size ', float_val=383.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.060774412006139755
+Excluding recommendation "256K rrbs" for parameter "handler_read_rnd_next" due to low confidence (0.00024282923550345004)
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(8, 28), match='read_rnd_buffer_size'>, value=<re.Match object; span=(0, 3), match='256'>, recommendation='256 M', passage='Current read_rnd_buffer_size = 256 M - indicates your rrbs is 256Meg.\nSET GLOBAL read_rnd_buffer_size=256*1024;\nfor a 256K rrbs to significantly reduce handler_read_rnd_next RPS.\nIn your my.cnf make the change for future more reasonable RAM usage and to reduce CPU busy. read_rnd_buffer_size ', float_val=256.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.13681934773921967
+Excluding recommendation "View profile, Network profile for contact info and our free downloadable Utility Scripts" for parameter "binlog_stmt_cache_size" due to low confidence (0.0017960458062589169)
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(17, 37), match='read_rnd_buffer_size'>, value=<re.Match object; span=(0, 4), match='256K'>, recommendation='256K', passage="You are correct, read_rnd_buffer_size in MariaDB reference manual is 256K.\nIf you could provide the additional information requested, additional suggestions will be provided.\nView profile, Network profile for contact info and our free downloadable Utility Scripts to assist with performance tuning.\n–\xa0Wilson Hauck\nMay 10 '20 at 20:40 binlog_stmt_cache_size ", float_val=256.0, val_unit='K', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.7498665452003479
+Excluding recommendation "256K read_rnd_buffer_size rather than the 256Meg" for parameter "delayed_queue_size" due to low confidence (0.0009184498339891434)
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(59, 79), match='read_rnd_buffer_size'>, value=<re.Match object; span=(0, 4), match='256K'>, recommendation='256K', passage="Is your response time improved significantly with the 256K read_rnd_buffer_size rather than the 256Meg you had been running?\nUpvotes would be nice, if we helped you.\n–\xa0Wilson Hauck\nMay 24 '20 at 14:25\nAdd a comment\n-- MYSQL PERFORMANCE TUNING PRIMER --\n- By: Matthew Montgomery - delayed_queue_size ", float_val=256.0, val_unit='K', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.0794176235795021
+Excluding recommendation "608 out of 14381378 that take longer than 5.000000 sec" for parameter "log_throttle_queries_not_using_indexes" due to low confidence (0.02878590114414692)
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(122, 137), match='long_query_time'>, value=<re.Match object; span=(0, 8), match='5.000000'>, recommendation='5.000000 sec', passage="for info about MySQL's Enterprise Monitoring and Advisory Service\nSLOW QUERIES\nThe slow query log is NOT enabled.\nCurrent long_query_time = 5.000000 sec.\nYou have 608 out of 14381378 that take longer than 5.000000 sec. to complete log_throttle_queries_not_using_indexes ", float_val=5.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.18940290808677673
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(23, 40), match='thread_cache_size'>, value=<re.Match object; span=(0, 3), match='256'>, recommendation='256', passage='WORKER THREADS\nCurrent thread_cache_size = 256\nCurrent threads_cached = 109\nCurrent threads_per_sec = 0\nHistoric threads_per_sec = 0\nYour thread_cache_size is fine\nMAX CONNECTIONS thread_cache_size ', float_val=256.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.08495649695396423
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(55, 69), match='threads_cached'>, value=<re.Match object; span=(0, 3), match='109'>, recommendation='109', passage='WORKER THREADS\nCurrent thread_cache_size = 256\nCurrent threads_cached = 109\nCurrent threads_per_sec = 0\nHistoric threads_per_sec = 0\nYour thread_cache_size is fine\nMAX CONNECTIONS thread_cache_size ', float_val=109.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.8253703713417053
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(84, 99), match='threads_per_sec'>, value=<re.Match object; span=(0, 1), match='0'>, recommendation='0', passage='WORKER THREADS\nCurrent thread_cache_size = 256\nCurrent threads_cached = 109\nCurrent threads_per_sec = 0\nHistoric threads_per_sec = 0\nYour thread_cache_size is fine\nMAX CONNECTIONS thread_cache_size ', float_val=0.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.16330772638320923
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(8, 23), match='max_connections'>, value=<re.Match object; span=(0, 3), match='800'>, recommendation='800', passage='Current max_connections = 800\nCurrent threads_connected = 24\nHistoric max_used_connections = 156\nThe number of used connections is 19% of the configured maximum.\nYour max_connections variable seems to be fine.\nINNODB STATUS\nCurrent InnoDB index space = 5.79 G max_connections ', float_val=800.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.3713453412055969
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(70, 90), match='max_used_connections'>, value=<re.Match object; span=(0, 3), match='156'>, recommendation='156', passage='Current max_connections = 800\nCurrent threads_connected = 24\nHistoric max_used_connections = 156\nThe number of used connections is 19% of the configured maximum.\nYour max_connections variable seems to be fine.\nINNODB STATUS\nCurrent InnoDB index space = 5.79 G max_connections ', float_val=156.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.3829555809497833
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(38, 55), match='threads_connected'>, value=<re.Match object; span=(0, 2), match='24'>, recommendation='24', passage='Current max_connections = 800\nCurrent threads_connected = 24\nHistoric max_used_connections = 156\nThe number of used connections is 19% of the configured maximum.\nYour max_connections variable seems to be fine.\nINNODB STATUS\nCurrent InnoDB index space = 5.79 G max_connections ', float_val=24.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.8403133749961853
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(82, 105), match='innodb_buffer_pool_size'>, value=<re.Match object; span=(0, 5), match='24.00'>, recommendation='24.00 G', passage='Current InnoDB data space = 6.29 G\nCurrent InnoDB buffer pool free = 63 %\nCurrent innodb_buffer_pool_size = 24.00 G\nDepending on how much space your innodb indexes take up it may be safe\nto increase this value to up to 2 / 3 of total system memory innodb_buffer_pool_size ', float_val=24.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.14591245353221893
+Excluding recommendation "512 M" for parameter "key_buffer_size" due to low confidence (0.00809244904667139)
+Excluding recommendation "Current read_rnd_buffer_size = 256 K" for parameter "query_cache_size" due to low confidence (0.00231596315279603)
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(167, 183), match='sort_buffer_size'>, value=<re.Match object; span=(0, 1), match='2'>, recommendation='2 M', passage='Perhaps you can use these resources elsewhere\nQUERY CACHE\nQuery cache is supported but not enabled\nPerhaps you should set the query_cache_size\nSORT OPERATIONS\nCurrent sort_buffer_size = 2 M\nCurrent read_rnd_buffer_size = 256 K query_cache_size ', float_val=2.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.25788313150405884
+Excluding recommendation "256 K" for parameter "read_rnd_buffer_size" due to low confidence (0.01223516184836626)
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(43, 59), match='join_buffer_size'>, value=<re.Match object; span=(0, 6), match='260.00'>, recommendation='260.00 K\n', passage='Sort buffer seems to be fine\nJOINS\nCurrent join_buffer_size = 260.00 K\nYou have had 419644 queries where a join could not use an index properly\nYou should enable "log-queries-not-using-indexes" log_throttle_queries_not_using_indexes ', float_val=260.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.05426876246929169
+Excluding recommendation "You should enable" for parameter "log_throttle_queries_not_using_indexes" due to low confidence (0.0029597252141684294)
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(25, 41), match='open_files_limit'>, value=<re.Match object; span=(0, 2), match='2x'>, recommendation='2x-3x', passage='OPEN FILES LIMIT\nCurrent open_files_limit = 9031 files\nThe open_files_limit should typically be set to at least 2x-3x\nthat of table_cache if you have heavy MyISAM usage.\nYour open_files_limit value seems to be fine open_files_limit ', float_val=2.0, val_unit='x', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.4671017825603485
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(25, 41), match='open_files_limit'>, value=<re.Match object; span=(3, 5), match='3x'>, recommendation='2x-3x', passage='OPEN FILES LIMIT\nCurrent open_files_limit = 9031 files\nThe open_files_limit should typically be set to at least 2x-3x\nthat of table_cache if you have heavy MyISAM usage.\nYour open_files_limit value seems to be fine open_files_limit ', float_val=3.0, val_unit='x', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.4671017825603485
+Excluding recommendation "2x-3x" for parameter "table_cache" due to low confidence (7.202240522019565e-05)
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(59, 81), match='table_definition_cache'>, value=<re.Match object; span=(0, 3), match='400'>, recommendation='400 tables', passage='TABLE CACHE\nCurrent table_open_cache = 4096 tables\nCurrent table_definition_cache = 400 tables\nYou have a total of 186 tables\nYou have 1303 open tables.\nThe table_cache value seems to be fine\nTEMP TABLES table_open_cache ', float_val=400.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.08714817464351654
+Excluding recommendation "fine" for parameter "table_cache" due to low confidence (0.03212423995137215)
+Excluding recommendation "50 : 1" for parameter "tmp_table_size" due to low confidence (0.01326115895062685)
+Excluding recommendation "128 K" for parameter "read_buffer_size" due to low confidence (0.029448220506310463)
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(8, 27), match='max_heap_table_size'>, value=<re.Match object; span=(0, 2), match='64'>, recommendation='64 M', passage='Current max_heap_table_size = 64 M\nCurrent tmp_table_size = 64 M\nOf 842280 temp tables, 0% were created on disk\nCreated disk tmp tables ratio seems fine\nTABLE SCANS\nCurrent read_buffer_size = 128 K\nCurrent table scan ratio = 50 : 1 tmp_table_size ', float_val=64.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.05511638894677162
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(230, 250), match='low_priority_updates'>, value=<re.Match object; span=(0, 1), match='1'>, recommendation='1', passage="read_buffer_size seems to be fine\nTABLE LOCKING\nCurrent Lock Wait ratio = 1 : 29\nYou may benefit from selective use of InnoDB.\nIf you have long running SELECT's against MyISAM tables and perform\nfrequent updates consider setting 'low_priority_updates=1' optimizer_trace_limit ", float_val=1.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.07953537255525589
+Adding hint TuningHint(doc_id=51, param=<re.Match object; span=(254, 275), match='optimizer_trace_limit'>, value=<re.Match object; span=(21, 22), match='1'>, recommendation='low_priority_updates=1', passage="read_buffer_size seems to be fine\nTABLE LOCKING\nCurrent Lock Wait ratio = 1 : 29\nYou may benefit from selective use of InnoDB.\nIf you have long running SELECT's against MyISAM tables and perform\nfrequent updates consider setting 'low_priority_updates=1' optimizer_trace_limit ", float_val=1.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.056699544191360474
+Excluding recommendation "1 : 29
+" for parameter "read_buffer_size" due to low confidence (0.00025563788949511945)
+Creating hints for document 52
+Creating hints for document 53
+Creating hints for document 54
+Creating hints for document 55
+Creating hints for document 56
+Adding hint TuningHint(doc_id=56, param=<re.Match object; span=(207, 225), match='max_allowed_packet'>, value=<re.Match object; span=(0, 2), match='8M'>, recommendation='8M\ntable_cache = 128', passage="Add the following to the [mysqld] section of /etc/my.cnf to see improvements in database speed for MythTV as well as MythWeb. Check your default values using 'mysql> show global variables;'\nkey_buffer = 48M\nmax_allowed_packet = 8M\ntable_cache = 128 # this setting is deprecated in mysql 5.6.23 and will prevent mysql from starting\nsort_buffer_size = 48M sql_select_limit ", float_val=8.0, val_unit='M', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.12616370618343353
+Adding hint TuningHint(doc_id=56, param=<re.Match object; span=(207, 225), match='max_allowed_packet'>, value=<re.Match object; span=(17, 20), match='128'>, recommendation='8M\ntable_cache = 128', passage="Add the following to the [mysqld] section of /etc/my.cnf to see improvements in database speed for MythTV as well as MythWeb. Check your default values using 'mysql> show global variables;'\nkey_buffer = 48M\nmax_allowed_packet = 8M\ntable_cache = 128 # this setting is deprecated in mysql 5.6.23 and will prevent mysql from starting\nsort_buffer_size = 48M sql_select_limit ", float_val=128.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.12616370618343353
+Adding hint TuningHint(doc_id=56, param=<re.Match object; span=(190, 200), match='key_buffer'>, value=<re.Match object; span=(0, 3), match='48M'>, recommendation='48M', passage="Add the following to the [mysqld] section of /etc/my.cnf to see improvements in database speed for MythTV as well as MythWeb. Check your default values using 'mysql> show global variables;'\nkey_buffer = 48M\nmax_allowed_packet = 8M\ntable_cache = 128 # this setting is deprecated in mysql 5.6.23 and will prevent mysql from starting\nsort_buffer_size = 48M sql_select_limit ", float_val=48.0, val_unit='M', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.18049858510494232
+Adding hint TuningHint(doc_id=56, param=<re.Match object; span=(331, 347), match='sort_buffer_size'>, value=<re.Match object; span=(0, 3), match='48M'>, recommendation='48M sql_select_limit', passage="Add the following to the [mysqld] section of /etc/my.cnf to see improvements in database speed for MythTV as well as MythWeb. Check your default values using 'mysql> show global variables;'\nkey_buffer = 48M\nmax_allowed_packet = 8M\ntable_cache = 128 # this setting is deprecated in mysql 5.6.23 and will prevent mysql from starting\nsort_buffer_size = 48M sql_select_limit ", float_val=48.0, val_unit='M', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.2663653492927551
+Excluding recommendation "sort_buffer_size = 48M" for parameter "sql_select_limit" due to low confidence (0.00020008276624139398)
+Adding hint TuningHint(doc_id=56, param=<re.Match object; span=(231, 242), match='table_cache'>, value=<re.Match object; span=(0, 3), match='128'>, recommendation='128', passage="Add the following to the [mysqld] section of /etc/my.cnf to see improvements in database speed for MythTV as well as MythWeb. Check your default values using 'mysql> show global variables;'\nkey_buffer = 48M\nmax_allowed_packet = 8M\ntable_cache = 128 # this setting is deprecated in mysql 5.6.23 and will prevent mysql from starting\nsort_buffer_size = 48M sql_select_limit ", float_val=128.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.6773204803466797
+Adding hint TuningHint(doc_id=56, param=<re.Match object; span=(23, 40), match='thread_cache_size'>, value=<re.Match object; span=(0, 1), match='4'>, recommendation='4', passage='net_buffer_length = 1M\nthread_cache_size = 4\nquery_cache_type = 1 ***\nquery_cache_size = 4M ***\nN.B. Turning on the query_cache (query_cache_type=1) can cause problems with if you have a newer server (>=5.7) and mixed clients (some below 5.7, some above). query_cache_size ', float_val=4.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.06408322602510452
+Adding hint TuningHint(doc_id=56, param=<re.Match object; span=(0, 17), match='net_buffer_length'>, value=<re.Match object; span=(0, 2), match='1M'>, recommendation='1M', passage='net_buffer_length = 1M\nthread_cache_size = 4\nquery_cache_type = 1 ***\nquery_cache_size = 4M ***\nN.B. Turning on the query_cache (query_cache_type=1) can cause problems with if you have a newer server (>=5.7) and mixed clients (some below 5.7, some above). query_cache_size ', float_val=1.0, val_unit='M', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.42778879404067993
+Adding hint TuningHint(doc_id=56, param=<re.Match object; span=(45, 61), match='query_cache_type'>, value=<re.Match object; span=(0, 1), match='1'>, recommendation='1', passage='net_buffer_length = 1M\nthread_cache_size = 4\nquery_cache_type = 1 ***\nquery_cache_size = 4M ***\nN.B. Turning on the query_cache (query_cache_type=1) can cause problems with if you have a newer server (>=5.7) and mixed clients (some below 5.7, some above). query_cache_size ', float_val=1.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.5286885499954224
+Excluding recommendation "query_cache_type=1" for parameter "query_cache" due to low confidence (0.002935645869001746)
+Excluding recommendation "4M ***" for parameter "query_cache_size" due to low confidence (0.002335276920348406)
+Creating hints for document 57
+Creating hints for document 58
+Creating hints for document 59
+Creating hints for document 60
+Creating hints for document 61
+Creating hints for document 62
+Creating hints for document 63
+Creating hints for document 64
+Creating hints for document 65
+Creating hints for document 66
+Creating hints for document 67
+Creating hints for document 68
+Creating hints for document 69
+Creating hints for document 70
+Adding hint TuningHint(doc_id=70, param=<re.Match object; span=(280, 295), match='max_connections'>, value=<re.Match object; span=(0, 3), match='100'>, recommendation='100 concurrent connections', passage='PostgreSQL supports various types of indexes such as B-Tree (default), Hash, GiST, SP-GiST, and GIN. Here are the detailed steps to create PostgreSQL index.\n5. Increase maximum connections\nBy default, PostgreSQL supports a maximum of 100 concurrent connections. This is stored in max_connections server variable. You can increase this number to support more concurrent connections and keep users from waiting. However, each connection consumes memory, so don’t increase it, unless required. sql_select_limit ', float_val=100.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.20549754798412323
+Excluding recommendation "don’t increase it, unless required" for parameter "sql_select_limit" due to low confidence (0.0023611693177372217)
+Creating hints for document 71
+Creating hints for document 72
+Creating hints for document 73
+Creating hints for document 74
+Creating hints for document 75
+Creating hints for document 76
+Creating hints for document 77
+Adding hint TuningHint(doc_id=77, param=<re.Match object; span=(194, 208), match='max_input_time'>, value=<re.Match object; span=(7, 9), match='60'>, recommendation='lower (60 sec)', passage='max_execution_time – lower (30-60 sec) is better to prevent resources hogs from lagging out the server. But you may need higher execution times for long processes like imports, exports, backups.max_input_time – lower (60 sec) is better. Increase only if you’re trying to import something that takes forever.max_input_vars – set to “1000”, unless some plugins need higher.memory_limit – try “256M” to be safe. Raise if you have heavy plugins. I like to set lower so I’m notified immediately when there are memory hogs. The “error_log” will tell you if you need more.zlib.output_compression – may or may not help. I leave it off.\n9. Use an updated MySQL fork version (INT-ADV, LOW)\nMost people only know of MySQL, which is now acquired/owned by Oracle. There’s also MariaDB (a fork of MySQL by its original creators) and Percona, and also others. max_binlog_stmt_cache_size ', float_val=60.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.18650606274604797
+Excluding recommendation "INT-ADV, LOW" for parameter "output_compression" due to low confidence (3.711441240739077e-05)
+Excluding recommendation "if you need more" for parameter "error_log" due to low confidence (0.00409283209592104)
+Adding hint TuningHint(doc_id=77, param=<re.Match object; span=(307, 321), match='max_input_vars'>, value=<re.Match object; span=(0, 4), match='1000'>, recommendation='1000', passage='max_execution_time – lower (30-60 sec) is better to prevent resources hogs from lagging out the server. But you may need higher execution times for long processes like imports, exports, backups.max_input_time – lower (60 sec) is better. Increase only if you’re trying to import something that takes forever.max_input_vars – set to “1000”, unless some plugins need higher.memory_limit – try “256M” to be safe. Raise if you have heavy plugins. I like to set lower so I’m notified immediately when there are memory hogs. The “error_log” will tell you if you need more.zlib.output_compression – may or may not help. I leave it off.\n9. Use an updated MySQL fork version (INT-ADV, LOW)\nMost people only know of MySQL, which is now acquired/owned by Oracle. There’s also MariaDB (a fork of MySQL by its original creators) and Percona, and also others. max_binlog_stmt_cache_size ', float_val=1000.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.26357215642929077
+Adding hint TuningHint(doc_id=77, param=<re.Match object; span=(0, 18), match='max_execution_time'>, value=<re.Match object; span=(7, 9), match='30'>, recommendation='lower (30-60 sec', passage='max_execution_time – lower (30-60 sec) is better to prevent resources hogs from lagging out the server. But you may need higher execution times for long processes like imports, exports, backups.max_input_time – lower (60 sec) is better. Increase only if you’re trying to import something that takes forever.max_input_vars – set to “1000”, unless some plugins need higher.memory_limit – try “256M” to be safe. Raise if you have heavy plugins. I like to set lower so I’m notified immediately when there are memory hogs. The “error_log” will tell you if you need more.zlib.output_compression – may or may not help. I leave it off.\n9. Use an updated MySQL fork version (INT-ADV, LOW)\nMost people only know of MySQL, which is now acquired/owned by Oracle. There’s also MariaDB (a fork of MySQL by its original creators) and Percona, and also others. max_binlog_stmt_cache_size ', float_val=30.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.3850533366203308
+Adding hint TuningHint(doc_id=77, param=<re.Match object; span=(0, 18), match='max_execution_time'>, value=<re.Match object; span=(10, 12), match='60'>, recommendation='lower (30-60 sec', passage='max_execution_time – lower (30-60 sec) is better to prevent resources hogs from lagging out the server. But you may need higher execution times for long processes like imports, exports, backups.max_input_time – lower (60 sec) is better. Increase only if you’re trying to import something that takes forever.max_input_vars – set to “1000”, unless some plugins need higher.memory_limit – try “256M” to be safe. Raise if you have heavy plugins. I like to set lower so I’m notified immediately when there are memory hogs. The “error_log” will tell you if you need more.zlib.output_compression – may or may not help. I leave it off.\n9. Use an updated MySQL fork version (INT-ADV, LOW)\nMost people only know of MySQL, which is now acquired/owned by Oracle. There’s also MariaDB (a fork of MySQL by its original creators) and Percona, and also others. max_binlog_stmt_cache_size ', float_val=60.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.3850533366203308
+Adding hint TuningHint(doc_id=77, param=<re.Match object; span=(371, 383), match='memory_limit'>, value=<re.Match object; span=(0, 4), match='256M'>, recommendation='256M”', passage='max_execution_time – lower (30-60 sec) is better to prevent resources hogs from lagging out the server. But you may need higher execution times for long processes like imports, exports, backups.max_input_time – lower (60 sec) is better. Increase only if you’re trying to import something that takes forever.max_input_vars – set to “1000”, unless some plugins need higher.memory_limit – try “256M” to be safe. Raise if you have heavy plugins. I like to set lower so I’m notified immediately when there are memory hogs. The “error_log” will tell you if you need more.zlib.output_compression – may or may not help. I leave it off.\n9. Use an updated MySQL fork version (INT-ADV, LOW)\nMost people only know of MySQL, which is now acquired/owned by Oracle. There’s also MariaDB (a fork of MySQL by its original creators) and Percona, and also others. max_binlog_stmt_cache_size ', float_val=256.0, val_unit='M', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.2981809973716736
+Excluding recommendation "lower" for parameter "max_binlog_stmt_cache_size" due to low confidence (0.0007867218228057027)
+Creating hints for document 78
+Creating hints for document 79
+Creating hints for document 80
+Creating hints for document 81
+Creating hints for document 82
+Creating hints for document 83
+Creating hints for document 84
+Creating hints for document 85
+Creating hints for document 86
+Creating hints for document 87
+Creating hints for document 88
+Creating hints for document 89
+Creating hints for document 90
+Creating hints for document 91
+Excluding recommendation "tmp_table_size binlog_stmt_cache_size" for parameter "innodb_sort_buffer_size" due to low confidence (0.0020853851456195116)
+Excluding recommendation "max_heap_table_size, tmp_table_size" for parameter "binlog_stmt_cache_size" due to low confidence (0.013906504958868027)
+Excluding recommendation "tmp_table_size binlog_stmt_cache_size" for parameter "max_heap_table_size" due to low confidence (0.021472297608852386)
+Adding hint TuningHint(doc_id=91, param=<re.Match object; span=(105, 123), match='innodb_buffer_pool'>, value=<re.Match object; span=(0, 4), match='450G'>, recommendation='450G for a 512G DRAM', passage='Reference HeatWave GitHub for specific setup details\n3. MySQL Database specific setup\nUse a large enough innodb_buffer_pool size\n(e.g. 450G for a 512G DRAM)\nTune innodb_sort_buffer_size, max_heap_table_size, tmp_table_size binlog_stmt_cache_size ', float_val=450.0, val_unit='G', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.06158885359764099
+Adding hint TuningHint(doc_id=91, param=<re.Match object; span=(105, 123), match='innodb_buffer_pool'>, value=<re.Match object; span=(11, 15), match='512G'>, recommendation='450G for a 512G DRAM', passage='Reference HeatWave GitHub for specific setup details\n3. MySQL Database specific setup\nUse a large enough innodb_buffer_pool size\n(e.g. 450G for a 512G DRAM)\nTune innodb_sort_buffer_size, max_heap_table_size, tmp_table_size binlog_stmt_cache_size ', float_val=512.0, val_unit='G', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.06158885359764099
+Adding hint TuningHint(doc_id=91, param=<re.Match object; span=(146, 169), match='innodb_sort_buffer_size'>, value=<re.Match object; span=(0, 8), match='67108864'>, recommendation='67108864', passage='Other settings that were modified from their default value in our experiments (innodb_max_purge_lag = 1000000; innodb_max_purge_lag_delay=300000; innodb_sort_buffer_size=67108864; lock_wait_timeout =86400; max_binlog_cache_size= 4294967296; max_heap_table_size=103079215104; tmp_table_size=103079215104)\nSet aurora_disable_hash_join = 0 and aurora_parallel_query = ON to use parallel query\nFollow the best practices for aurora database configuration for any other tuning\nFor parallel query to work, make sure that none of the tables are partitioned max_insert_delayed_threads ', float_val=67108864.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.07917308807373047
+Adding hint TuningHint(doc_id=91, param=<re.Match object; span=(180, 197), match='lock_wait_timeout'>, value=<re.Match object; span=(0, 5), match='86400'>, recommendation='86400', passage='Other settings that were modified from their default value in our experiments (innodb_max_purge_lag = 1000000; innodb_max_purge_lag_delay=300000; innodb_sort_buffer_size=67108864; lock_wait_timeout =86400; max_binlog_cache_size= 4294967296; max_heap_table_size=103079215104; tmp_table_size=103079215104)\nSet aurora_disable_hash_join = 0 and aurora_parallel_query = ON to use parallel query\nFollow the best practices for aurora database configuration for any other tuning\nFor parallel query to work, make sure that none of the tables are partitioned max_insert_delayed_threads ', float_val=86400.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.3136906623840332
+Excluding recommendation "0 and aurora_parallel_query = ON" for parameter "aurora_disable_hash_join" due to low confidence (0.044912032783031464)
+Adding hint TuningHint(doc_id=91, param=<re.Match object; span=(206, 227), match='max_binlog_cache_size'>, value=<re.Match object; span=(0, 10), match='4294967296'>, recommendation='4294967296', passage='Other settings that were modified from their default value in our experiments (innodb_max_purge_lag = 1000000; innodb_max_purge_lag_delay=300000; innodb_sort_buffer_size=67108864; lock_wait_timeout =86400; max_binlog_cache_size= 4294967296; max_heap_table_size=103079215104; tmp_table_size=103079215104)\nSet aurora_disable_hash_join = 0 and aurora_parallel_query = ON to use parallel query\nFollow the best practices for aurora database configuration for any other tuning\nFor parallel query to work, make sure that none of the tables are partitioned max_insert_delayed_threads ', float_val=4294967296.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.18044959008693695
+Adding hint TuningHint(doc_id=91, param=<re.Match object; span=(79, 99), match='innodb_max_purge_lag'>, value=<re.Match object; span=(0, 7), match='1000000'>, recommendation='1000000', passage='Other settings that were modified from their default value in our experiments (innodb_max_purge_lag = 1000000; innodb_max_purge_lag_delay=300000; innodb_sort_buffer_size=67108864; lock_wait_timeout =86400; max_binlog_cache_size= 4294967296; max_heap_table_size=103079215104; tmp_table_size=103079215104)\nSet aurora_disable_hash_join = 0 and aurora_parallel_query = ON to use parallel query\nFollow the best practices for aurora database configuration for any other tuning\nFor parallel query to work, make sure that none of the tables are partitioned max_insert_delayed_threads ', float_val=1000000.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.6659865379333496
+Adding hint TuningHint(doc_id=91, param=<re.Match object; span=(111, 137), match='innodb_max_purge_lag_delay'>, value=<re.Match object; span=(0, 6), match='300000'>, recommendation='300000', passage='Other settings that were modified from their default value in our experiments (innodb_max_purge_lag = 1000000; innodb_max_purge_lag_delay=300000; innodb_sort_buffer_size=67108864; lock_wait_timeout =86400; max_binlog_cache_size= 4294967296; max_heap_table_size=103079215104; tmp_table_size=103079215104)\nSet aurora_disable_hash_join = 0 and aurora_parallel_query = ON to use parallel query\nFollow the best practices for aurora database configuration for any other tuning\nFor parallel query to work, make sure that none of the tables are partitioned max_insert_delayed_threads ', float_val=300000.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.7572036385536194
+Adding hint TuningHint(doc_id=91, param=<re.Match object; span=(241, 260), match='max_heap_table_size'>, value=<re.Match object; span=(0, 12), match='103079215104'>, recommendation='103079215104', passage='Other settings that were modified from their default value in our experiments (innodb_max_purge_lag = 1000000; innodb_max_purge_lag_delay=300000; innodb_sort_buffer_size=67108864; lock_wait_timeout =86400; max_binlog_cache_size= 4294967296; max_heap_table_size=103079215104; tmp_table_size=103079215104)\nSet aurora_disable_hash_join = 0 and aurora_parallel_query = ON to use parallel query\nFollow the best practices for aurora database configuration for any other tuning\nFor parallel query to work, make sure that none of the tables are partitioned max_insert_delayed_threads ', float_val=103079215104.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.0746757835149765
+Excluding recommendation "103079215104" for parameter "tmp_table_size" due to low confidence (0.026716765016317368)
+Excluding recommendation "innodb_max_purge_lag = 1000000" for parameter "max_insert_delayed_threads" due to low confidence (9.689022590464447e-06)
+Creating hints for document 92
+Creating hints for document 93
+Creating hints for document 94
+Creating hints for document 95
+Creating hints for document 96
+Creating hints for document 97
+Adding hint TuningHint(doc_id=97, param=<re.Match object; span=(1185, 1200), match='max_connections'>, value=<re.Match object; span=(0, 1), match='4'>, recommendation='4,294,967,295', passage='Get-NetTCPConnection -LocalPort 443 | Measure-ObjectSo, obviously bigger servers will need more threads, but how many? The old school logic when doing IIS tuning for Connectwise Automate is to have half as many worker processes as you have CPU cores (so a server with 8 cores/vCPUs would have 4 worker threads). The idea behind this is to prevent resource starvation. However, there are settings inside of IIS for controlling CPU usage by the worker threads, and they provide much more granular control over the resource utilization.For most partners starting with the old school method is advisable, but if performance is still lacking (or the threads/connections ratio is still disproportionate) it would be worth gradually adding more worker processes (with the IIS resource controls) until an optimal balance is reached. As with other concepts in resource allocation, it’s worth noting that more is not always better, and there is a point of diminishing returns (the tipping point is normally when worker processes exceed core count). It’s also worth noting that additional worker processes will open additional database connections, so care should be taken to prevent hitting the max_connections threshold.Queue LengthIIS application pools also have a property known as queue length. This is simply the number of pending web requests the server will queue before returning the HTTP 503 status code (service not available). All requests pass through this queue first as they are processed by the webserver (there are also other queues, but they are out of scope for our discussion here). The queue length plays a role in determining the total number of concurrent connections; as any request that a worker process can’t accept immediately remains in the queue.In an ideal world, the webserver always can process incoming requests rapidly, and this queue never contains a large volume of requests. However, as discussed in our blog post here, there are inherent performance issues with the Automate database — and that can result in web requests waiting for the database, and thus the queue filling up. Because of this tendency, the Automate installer sets the queue length to 11,000 each on the “Labtech” and “CwaRestApi” application pools — a full 11x greater than the default.It’s important to note cause and effect bidirectionally as we look at tuning this setting. In most cases, a high queue length is caused by contention in MySQL. This makes IIS unable to process requests, and the queue fills. However, once MySQL recovers, the queued requests begin to flood in and the application response will still be poor until the server catches up. It’s during these times that the Control Center will lock up and be unresponsive.The million-dollar question of course is: when doing IIS tuning for Connectwise Automate, what should the queue length be? In the spirit of the proper use of the queue, we’d suggest setting it to a count that could hold ~60 seconds worth of requests (normally this is ~30% of the agent count). If it takes longer than 60 seconds to process a web request that indicates that there is a real issue, and it would make sense to start returning the 503 status code.As a simple test to gauge this, set Performance Monitor to watch the queue size and recycle the application pool. This is normally lower than the 30% of agents count, but it’s representative of what a short processing delay on the server should look like. If your queue length is comfortably larger than this amount then all is well. For smaller Automate instances where 30% of the agent count would be less than the default of 1000 sticking with the default setting is the best course of action.Connection LimitIIS also has a connection limit for all requests to a website on the server. The default value for this is 4,294,967,295, and it’s a setting that normally doesn’t get much attention, but it did get the spotlight during the 2020.7 Automate patch. This setting is defined on the website level, and it is the funnel that feeds all of the different application pools.So, why does this setting default to the number of IPv4 addresses in existence? This value is set to the upper limit by default to prevent connections from being denied by default (the developers are hedging a bet that the whole internet won’t be accessing an IIS server simultaneously). However, the idea is that this value could be set to make sure that the sum of all connections to the server doesn’t exceed the available resources.If this setting is left to the default, the connection limits at the application pool layer are the controlling factor. The danger here is that it’s possible for the sum of the application pool connections to be greater than the number of connections the server can accommodate. This appears to be the issue with the 2020.7 patch, where the queue length on the application pool was too large, and thus the website connection limit was used to prevent overloading of the server. Obviously, the conditions of the patch were a rather special case, but in general, it is of benefit to partners to configure their servers to be tolerant against connection spikes.When doing IIS tuning for Connectwise Automate this value should be set to the max number of connections the server can process — however, there are a lot of variables in that calculation. As a starting point, it’s advisable to set this to the sum of the application pool queues once they are properly scaled, and work down from there. Please keep in mind that this value will be the cap of agent communications, web interface users, and API calls — and the normal count of those will be different depending on user count, integrations, and how Automate is used in your particular environment.We hope that this has been helpful for you. Here at Automation Theory, we’re certified MySQL DBAs dedicated exclusively to the Connectwise Automate software stack. Be sure to check out our\xa0integrations\xa0and\xa0services.\nPlease leave this field emptyWant to get the latest from our blog delivered to your inbox?Check your inbox or spam folder to confirm your email! Posted on\nAugust 22, 2020August 31, 2020\nTags\nAutomate Performance\nCategories connect_timeout ', float_val=4.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.2441176027059555
+Adding hint TuningHint(doc_id=97, param=<re.Match object; span=(1185, 1200), match='max_connections'>, value=<re.Match object; span=(2, 5), match='294'>, recommendation='4,294,967,295', passage='Get-NetTCPConnection -LocalPort 443 | Measure-ObjectSo, obviously bigger servers will need more threads, but how many? The old school logic when doing IIS tuning for Connectwise Automate is to have half as many worker processes as you have CPU cores (so a server with 8 cores/vCPUs would have 4 worker threads). The idea behind this is to prevent resource starvation. However, there are settings inside of IIS for controlling CPU usage by the worker threads, and they provide much more granular control over the resource utilization.For most partners starting with the old school method is advisable, but if performance is still lacking (or the threads/connections ratio is still disproportionate) it would be worth gradually adding more worker processes (with the IIS resource controls) until an optimal balance is reached. As with other concepts in resource allocation, it’s worth noting that more is not always better, and there is a point of diminishing returns (the tipping point is normally when worker processes exceed core count). It’s also worth noting that additional worker processes will open additional database connections, so care should be taken to prevent hitting the max_connections threshold.Queue LengthIIS application pools also have a property known as queue length. This is simply the number of pending web requests the server will queue before returning the HTTP 503 status code (service not available). All requests pass through this queue first as they are processed by the webserver (there are also other queues, but they are out of scope for our discussion here). The queue length plays a role in determining the total number of concurrent connections; as any request that a worker process can’t accept immediately remains in the queue.In an ideal world, the webserver always can process incoming requests rapidly, and this queue never contains a large volume of requests. However, as discussed in our blog post here, there are inherent performance issues with the Automate database — and that can result in web requests waiting for the database, and thus the queue filling up. Because of this tendency, the Automate installer sets the queue length to 11,000 each on the “Labtech” and “CwaRestApi” application pools — a full 11x greater than the default.It’s important to note cause and effect bidirectionally as we look at tuning this setting. In most cases, a high queue length is caused by contention in MySQL. This makes IIS unable to process requests, and the queue fills. However, once MySQL recovers, the queued requests begin to flood in and the application response will still be poor until the server catches up. It’s during these times that the Control Center will lock up and be unresponsive.The million-dollar question of course is: when doing IIS tuning for Connectwise Automate, what should the queue length be? In the spirit of the proper use of the queue, we’d suggest setting it to a count that could hold ~60 seconds worth of requests (normally this is ~30% of the agent count). If it takes longer than 60 seconds to process a web request that indicates that there is a real issue, and it would make sense to start returning the 503 status code.As a simple test to gauge this, set Performance Monitor to watch the queue size and recycle the application pool. This is normally lower than the 30% of agents count, but it’s representative of what a short processing delay on the server should look like. If your queue length is comfortably larger than this amount then all is well. For smaller Automate instances where 30% of the agent count would be less than the default of 1000 sticking with the default setting is the best course of action.Connection LimitIIS also has a connection limit for all requests to a website on the server. The default value for this is 4,294,967,295, and it’s a setting that normally doesn’t get much attention, but it did get the spotlight during the 2020.7 Automate patch. This setting is defined on the website level, and it is the funnel that feeds all of the different application pools.So, why does this setting default to the number of IPv4 addresses in existence? This value is set to the upper limit by default to prevent connections from being denied by default (the developers are hedging a bet that the whole internet won’t be accessing an IIS server simultaneously). However, the idea is that this value could be set to make sure that the sum of all connections to the server doesn’t exceed the available resources.If this setting is left to the default, the connection limits at the application pool layer are the controlling factor. The danger here is that it’s possible for the sum of the application pool connections to be greater than the number of connections the server can accommodate. This appears to be the issue with the 2020.7 patch, where the queue length on the application pool was too large, and thus the website connection limit was used to prevent overloading of the server. Obviously, the conditions of the patch were a rather special case, but in general, it is of benefit to partners to configure their servers to be tolerant against connection spikes.When doing IIS tuning for Connectwise Automate this value should be set to the max number of connections the server can process — however, there are a lot of variables in that calculation. As a starting point, it’s advisable to set this to the sum of the application pool queues once they are properly scaled, and work down from there. Please keep in mind that this value will be the cap of agent communications, web interface users, and API calls — and the normal count of those will be different depending on user count, integrations, and how Automate is used in your particular environment.We hope that this has been helpful for you. Here at Automation Theory, we’re certified MySQL DBAs dedicated exclusively to the Connectwise Automate software stack. Be sure to check out our\xa0integrations\xa0and\xa0services.\nPlease leave this field emptyWant to get the latest from our blog delivered to your inbox?Check your inbox or spam folder to confirm your email! Posted on\nAugust 22, 2020August 31, 2020\nTags\nAutomate Performance\nCategories connect_timeout ', float_val=294.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.2441176027059555
+Adding hint TuningHint(doc_id=97, param=<re.Match object; span=(1185, 1200), match='max_connections'>, value=<re.Match object; span=(6, 9), match='967'>, recommendation='4,294,967,295', passage='Get-NetTCPConnection -LocalPort 443 | Measure-ObjectSo, obviously bigger servers will need more threads, but how many? The old school logic when doing IIS tuning for Connectwise Automate is to have half as many worker processes as you have CPU cores (so a server with 8 cores/vCPUs would have 4 worker threads). The idea behind this is to prevent resource starvation. However, there are settings inside of IIS for controlling CPU usage by the worker threads, and they provide much more granular control over the resource utilization.For most partners starting with the old school method is advisable, but if performance is still lacking (or the threads/connections ratio is still disproportionate) it would be worth gradually adding more worker processes (with the IIS resource controls) until an optimal balance is reached. As with other concepts in resource allocation, it’s worth noting that more is not always better, and there is a point of diminishing returns (the tipping point is normally when worker processes exceed core count). It’s also worth noting that additional worker processes will open additional database connections, so care should be taken to prevent hitting the max_connections threshold.Queue LengthIIS application pools also have a property known as queue length. This is simply the number of pending web requests the server will queue before returning the HTTP 503 status code (service not available). All requests pass through this queue first as they are processed by the webserver (there are also other queues, but they are out of scope for our discussion here). The queue length plays a role in determining the total number of concurrent connections; as any request that a worker process can’t accept immediately remains in the queue.In an ideal world, the webserver always can process incoming requests rapidly, and this queue never contains a large volume of requests. However, as discussed in our blog post here, there are inherent performance issues with the Automate database — and that can result in web requests waiting for the database, and thus the queue filling up. Because of this tendency, the Automate installer sets the queue length to 11,000 each on the “Labtech” and “CwaRestApi” application pools — a full 11x greater than the default.It’s important to note cause and effect bidirectionally as we look at tuning this setting. In most cases, a high queue length is caused by contention in MySQL. This makes IIS unable to process requests, and the queue fills. However, once MySQL recovers, the queued requests begin to flood in and the application response will still be poor until the server catches up. It’s during these times that the Control Center will lock up and be unresponsive.The million-dollar question of course is: when doing IIS tuning for Connectwise Automate, what should the queue length be? In the spirit of the proper use of the queue, we’d suggest setting it to a count that could hold ~60 seconds worth of requests (normally this is ~30% of the agent count). If it takes longer than 60 seconds to process a web request that indicates that there is a real issue, and it would make sense to start returning the 503 status code.As a simple test to gauge this, set Performance Monitor to watch the queue size and recycle the application pool. This is normally lower than the 30% of agents count, but it’s representative of what a short processing delay on the server should look like. If your queue length is comfortably larger than this amount then all is well. For smaller Automate instances where 30% of the agent count would be less than the default of 1000 sticking with the default setting is the best course of action.Connection LimitIIS also has a connection limit for all requests to a website on the server. The default value for this is 4,294,967,295, and it’s a setting that normally doesn’t get much attention, but it did get the spotlight during the 2020.7 Automate patch. This setting is defined on the website level, and it is the funnel that feeds all of the different application pools.So, why does this setting default to the number of IPv4 addresses in existence? This value is set to the upper limit by default to prevent connections from being denied by default (the developers are hedging a bet that the whole internet won’t be accessing an IIS server simultaneously). However, the idea is that this value could be set to make sure that the sum of all connections to the server doesn’t exceed the available resources.If this setting is left to the default, the connection limits at the application pool layer are the controlling factor. The danger here is that it’s possible for the sum of the application pool connections to be greater than the number of connections the server can accommodate. This appears to be the issue with the 2020.7 patch, where the queue length on the application pool was too large, and thus the website connection limit was used to prevent overloading of the server. Obviously, the conditions of the patch were a rather special case, but in general, it is of benefit to partners to configure their servers to be tolerant against connection spikes.When doing IIS tuning for Connectwise Automate this value should be set to the max number of connections the server can process — however, there are a lot of variables in that calculation. As a starting point, it’s advisable to set this to the sum of the application pool queues once they are properly scaled, and work down from there. Please keep in mind that this value will be the cap of agent communications, web interface users, and API calls — and the normal count of those will be different depending on user count, integrations, and how Automate is used in your particular environment.We hope that this has been helpful for you. Here at Automation Theory, we’re certified MySQL DBAs dedicated exclusively to the Connectwise Automate software stack. Be sure to check out our\xa0integrations\xa0and\xa0services.\nPlease leave this field emptyWant to get the latest from our blog delivered to your inbox?Check your inbox or spam folder to confirm your email! Posted on\nAugust 22, 2020August 31, 2020\nTags\nAutomate Performance\nCategories connect_timeout ', float_val=967.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.2441176027059555
+Adding hint TuningHint(doc_id=97, param=<re.Match object; span=(1185, 1200), match='max_connections'>, value=<re.Match object; span=(10, 13), match='295'>, recommendation='4,294,967,295', passage='Get-NetTCPConnection -LocalPort 443 | Measure-ObjectSo, obviously bigger servers will need more threads, but how many? The old school logic when doing IIS tuning for Connectwise Automate is to have half as many worker processes as you have CPU cores (so a server with 8 cores/vCPUs would have 4 worker threads). The idea behind this is to prevent resource starvation. However, there are settings inside of IIS for controlling CPU usage by the worker threads, and they provide much more granular control over the resource utilization.For most partners starting with the old school method is advisable, but if performance is still lacking (or the threads/connections ratio is still disproportionate) it would be worth gradually adding more worker processes (with the IIS resource controls) until an optimal balance is reached. As with other concepts in resource allocation, it’s worth noting that more is not always better, and there is a point of diminishing returns (the tipping point is normally when worker processes exceed core count). It’s also worth noting that additional worker processes will open additional database connections, so care should be taken to prevent hitting the max_connections threshold.Queue LengthIIS application pools also have a property known as queue length. This is simply the number of pending web requests the server will queue before returning the HTTP 503 status code (service not available). All requests pass through this queue first as they are processed by the webserver (there are also other queues, but they are out of scope for our discussion here). The queue length plays a role in determining the total number of concurrent connections; as any request that a worker process can’t accept immediately remains in the queue.In an ideal world, the webserver always can process incoming requests rapidly, and this queue never contains a large volume of requests. However, as discussed in our blog post here, there are inherent performance issues with the Automate database — and that can result in web requests waiting for the database, and thus the queue filling up. Because of this tendency, the Automate installer sets the queue length to 11,000 each on the “Labtech” and “CwaRestApi” application pools — a full 11x greater than the default.It’s important to note cause and effect bidirectionally as we look at tuning this setting. In most cases, a high queue length is caused by contention in MySQL. This makes IIS unable to process requests, and the queue fills. However, once MySQL recovers, the queued requests begin to flood in and the application response will still be poor until the server catches up. It’s during these times that the Control Center will lock up and be unresponsive.The million-dollar question of course is: when doing IIS tuning for Connectwise Automate, what should the queue length be? In the spirit of the proper use of the queue, we’d suggest setting it to a count that could hold ~60 seconds worth of requests (normally this is ~30% of the agent count). If it takes longer than 60 seconds to process a web request that indicates that there is a real issue, and it would make sense to start returning the 503 status code.As a simple test to gauge this, set Performance Monitor to watch the queue size and recycle the application pool. This is normally lower than the 30% of agents count, but it’s representative of what a short processing delay on the server should look like. If your queue length is comfortably larger than this amount then all is well. For smaller Automate instances where 30% of the agent count would be less than the default of 1000 sticking with the default setting is the best course of action.Connection LimitIIS also has a connection limit for all requests to a website on the server. The default value for this is 4,294,967,295, and it’s a setting that normally doesn’t get much attention, but it did get the spotlight during the 2020.7 Automate patch. This setting is defined on the website level, and it is the funnel that feeds all of the different application pools.So, why does this setting default to the number of IPv4 addresses in existence? This value is set to the upper limit by default to prevent connections from being denied by default (the developers are hedging a bet that the whole internet won’t be accessing an IIS server simultaneously). However, the idea is that this value could be set to make sure that the sum of all connections to the server doesn’t exceed the available resources.If this setting is left to the default, the connection limits at the application pool layer are the controlling factor. The danger here is that it’s possible for the sum of the application pool connections to be greater than the number of connections the server can accommodate. This appears to be the issue with the 2020.7 patch, where the queue length on the application pool was too large, and thus the website connection limit was used to prevent overloading of the server. Obviously, the conditions of the patch were a rather special case, but in general, it is of benefit to partners to configure their servers to be tolerant against connection spikes.When doing IIS tuning for Connectwise Automate this value should be set to the max number of connections the server can process — however, there are a lot of variables in that calculation. As a starting point, it’s advisable to set this to the sum of the application pool queues once they are properly scaled, and work down from there. Please keep in mind that this value will be the cap of agent communications, web interface users, and API calls — and the normal count of those will be different depending on user count, integrations, and how Automate is used in your particular environment.We hope that this has been helpful for you. Here at Automation Theory, we’re certified MySQL DBAs dedicated exclusively to the Connectwise Automate software stack. Be sure to check out our\xa0integrations\xa0and\xa0services.\nPlease leave this field emptyWant to get the latest from our blog delivered to your inbox?Check your inbox or spam folder to confirm your email! Posted on\nAugust 22, 2020August 31, 2020\nTags\nAutomate Performance\nCategories connect_timeout ', float_val=295.0, val_unit='', hint_type=<HintType.ABSOLUTE: 3>) with confidence 0.2441176027059555
+Excluding recommendation "it is the funnel that feeds all of the different application pools" for parameter "connect_timeout" due to low confidence (0.03406674414873123)
+Creating hints for document 98
+Initializing documents from file tuning_docs/mysql100 ...
+Sample of tuning hints:
+       filenr                                           sentence
+34490      94  also the "avg_queue", "be_conn", and "be_sess_...
+Nr. documents read: 99
+Nr. passages by doc: [0, 0, 0, 0, 9, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 15, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 36, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0]
+Nr. mentions per assignment: [(('innodb_buffer_pool_instances', '8'), 3), (('query_cache_type', '0'), 3), (('innodb_log_file_size', '2G'), 2), (('innodb_buffer_pool_size', '1GB'), 2), (('innodb_buffer_pool_size', '8'), 2), (('innodb_read_io_threads', '4'), 1), (('performance_schema_max_statement_stack', '8'), 1), (('innodb_log_file_size', '128M'), 1), (('innodb_buffer_pool_size', '50%'), 1), (('innodb_buffer_pool_instances', '32'), 1), (('innodb_read_io_threads', '16'), 1), (('innodb_buffer_pool_size', '70%'), 1), (('innodb_buffer_pool_size', '5G'), 1), (('innodb_log_file_size', '512M'), 1), (('query_cache_size', '0'), 1), (('innodb_log_file_size', '1GB'), 1), (('max_heap_table_size', '16M'), 1), (('innodb_buffer_pool_instances', '4'), 1), (('innodb_write_io_threads', '8'), 1), (('innodb_buffer_pool_instances', '1'), 1), (('innodb_buffer_pool_size', '80%'), 1), (('innodb_buffer_pool_size', '2'), 1), (('thread_cache_size', '40'), 1), (('innodb_buffer_pool_size', '3'), 1), (('innodb_buffer_pool_size', '8GB'), 1), (('thread_cache_size', '20'), 1), (('innodb_buffer_pool_size', '5.78or'), 1), (('innodb_buffer_pool_size', '1'), 1), (('innodb_buffer_pool_size', '4'), 1), (('innodb_buffer_pool_size', '1GBMySQL'), 1), (('innodb_buffer_pool_size', '70'), 1), (('innodb_buffer_pool_size', '6GB'), 1), (('key_buffer_size', '768MB'), 1), (('tmp_table_size', '16M'), 1), (('innodb_buffer_pool_instances', '64'), 1), (('innodb_buffer_pool_instances', '1GB'), 1), (('innodb_buffer_pool_size', '2048M'), 1), (('table_open_cache', '400'), 1), (('join_buffer_size', '256M'), 1), (('innodb_buffer_pool_size', '50GB'), 1), (('low_priority_updates', '1'), 1), (('innodb_buffer_pool_instances', '6'), 1), (('key_buffer_size', '512'), 1), (('nnodb_write_io_threads', '8'), 1), (('key_buffer_size', '512M'), 1), (('table_definition_cache', '400'), 1), (('read_rnd_buffer_size', '256'), 1), (('read_rnd_buffer_size', '256K'), 1), (('threads_connected', '17'), 1), (('innodb_log_buffer_size', '16M'), 1), (('innodb_thread_concurrency', '16'), 1), (('join_buffer_size', '256K'), 1), (('max_allowed_packet', '512M'), 1), (('innodb_thread_concurrency', '0'), 1), (('thread_cache_size', '256'), 1), (('tmp_table_size', '1'), 1), (('join_buffer_size', '260.00'), 1), (('max_heap_table_size', '64'), 1), (('table_open_cache', '4096'), 1), (('max_used_connections', '120'), 1), (('sort_buffer_size', '2M'), 1), (('innodb_autoextend_increment', '128M'), 1), (('threads_cache', '92'), 1), (('open_files_limit', '2x'), 1), (('long_query_time', '5.000000'), 1), (('max_used_connections', '156'), 1), (('innodb_buffer_pool_size', '24G'), 1), (('tmp_table_size', '383'), 1), (('read_rnd_buffer_size', '256M'), 1), (('query_cache_limit', '4M'), 1), (('peak_time', '256'), 1), (('sort_buffer_size', '2'), 1), (('threads_cached', '103'), 1), (('open_files_limit', '8192'), 1), (('optimizer_trace_limit', '1'), 1), (('innodb_lock_wait_timeout', '120'), 1), (('threads_connected', '24'), 1), (('innodb_data_file_path', '1'), 1), (('threads_cached', '109'), 1), (('max_connections', '800'), 1), (('open_files_limit', '3x'), 1), (('wait_timeout', '100s'), 1), (('threads_per_sec', '0'), 1), (('innodb_buffer_pool_size', '24.00'), 1), (('open_files_limit', '9031'), 1), (('innodb_max_dirty_pages_pct', '80'), 1), (('innodb_data_file_path', '1G'), 1), (('innodb_autoinc_lock_mode', '2'), 1), (('net_buffer_length', '1M'), 1), (('thread_cache_size', '4'), 1), (('key_buffer', '48M'), 1), (('max_allowed_packet', '8M'), 1), (('max_allowed_packet', '128'), 1), (('query_cache_type', '1'), 1), (('table_cache', '128'), 1), (('sort_buffer_size', '48M'), 1), (('max_connections', '100'), 1), (('max_execution_time', '30'), 1), (('max_input_vars', '1000'), 1), (('max_execution_time', '60'), 1), (('memory_limit', '256M'), 1), (('max_input_time', '60'), 1), (('innodb_buffer_pool', '512G'), 1), (('innodb_max_purge_lag_delay', '300000'), 1), (('max_binlog_cache_size', '4294967296'), 1), (('max_heap_table_size', '103079215104'), 1), (('innodb_buffer_pool', '450G'), 1), (('innodb_max_purge_lag', '1000000'), 1), (('innodb_sort_buffer_size', '67108864'), 1), (('lock_wait_timeout', '86400'), 1), (('max_connections', '295'), 1), (('max_connections', '4'), 1), (('max_connections', '294'), 1), (('max_connections', '967'), 1)]
+Nr. documents per parameter: [('innodb_buffer_pool_size', 6), ('innodb_buffer_pool_instances', 4), ('query_cache_type', 4), ('innodb_log_file_size', 3), ('thread_cache_size', 3), ('max_heap_table_size', 3), ('max_connections', 3), ('key_buffer_size', 2), ('tmp_table_size', 2), ('join_buffer_size', 2), ('table_open_cache', 2), ('sort_buffer_size', 2), ('max_allowed_packet', 2), ('innodb_read_io_threads', 1), ('performance_schema_max_statement_stack', 1), ('query_cache_size', 1), ('innodb_write_io_threads', 1), ('nnodb_write_io_threads', 1), ('innodb_data_file_path', 1), ('threads_cache', 1), ('read_rnd_buffer_size', 1), ('threads_per_sec', 1), ('innodb_lock_wait_timeout', 1), ('threads_connected', 1), ('open_files_limit', 1), ('low_priority_updates', 1), ('max_used_connections', 1), ('peak_time', 1), ('optimizer_trace_limit', 1), ('innodb_max_dirty_pages_pct', 1), ('innodb_log_buffer_size', 1), ('innodb_autoextend_increment', 1), ('query_cache_limit', 1), ('threads_cached', 1), ('long_query_time', 1), ('innodb_autoinc_lock_mode', 1), ('table_definition_cache', 1), ('wait_timeout', 1), ('innodb_thread_concurrency', 1), ('key_buffer', 1), ('net_buffer_length', 1), ('table_cache', 1), ('memory_limit', 1), ('max_input_time', 1), ('max_execution_time', 1), ('max_input_vars', 1), ('innodb_sort_buffer_size', 1), ('lock_wait_timeout', 1), ('max_binlog_cache_size', 1), ('innodb_max_purge_lag', 1), ('innodb_max_purge_lag_delay', 1), ('innodb_buffer_pool', 1)]
+All hints considered for multi-doc tuning:
+Hint nr. 0: innodb_buffer_pool_size -> 50%
+Hint nr. 1: innodb_buffer_pool_size -> 70%
+Hint nr. 2: innodb_buffer_pool_size -> 1GB
+Hint nr. 3: innodb_buffer_pool_size -> 8
+Hint nr. 4: innodb_buffer_pool_size -> 5G
+Hint nr. 5: innodb_buffer_pool_size -> 1
+Hint nr. 6: innodb_buffer_pool_size -> 2
+Hint nr. 7: innodb_buffer_pool_size -> 3
+Hint nr. 8: innodb_buffer_pool_size -> 4
+Hint nr. 9: innodb_buffer_pool_size -> 8
+Hint nr. 10: innodb_buffer_pool_instances -> 8
+Hint nr. 11: innodb_buffer_pool_instances -> 8
+Hint nr. 12: innodb_buffer_pool_instances -> 32
+Hint nr. 13: innodb_buffer_pool_instances -> 8
+Hint nr. 14: innodb_buffer_pool_instances -> 8
+Hint nr. 15: innodb_buffer_pool_instances -> 8
+Hint nr. 16: innodb_buffer_pool_instances -> 8
+Hint nr. 17: innodb_buffer_pool_instances -> 1
+Hint nr. 18: innodb_buffer_pool_instances -> 64
+Hint nr. 19: innodb_buffer_pool_instances -> 4
+Hint nr. 20: query_cache_type -> 0
+Hint nr. 21: query_cache_type -> 0
+Hint nr. 22: query_cache_type -> 0
+Hint nr. 23: query_cache_type -> 0
+Hint nr. 24: innodb_log_file_size -> 128M
+Hint nr. 25: innodb_log_file_size -> 2G
+Hint nr. 26: innodb_log_file_size -> 1GB
+Hint nr. 27: innodb_log_file_size -> 512M
+Hint nr. 28: thread_cache_size -> 20
+Hint nr. 29: thread_cache_size -> 40
+Hint nr. 30: thread_cache_size -> 256
+Hint nr. 31: thread_cache_size -> 256
+Hint nr. 32: max_heap_table_size -> 16M
+Hint nr. 33: max_heap_table_size -> 64
+Hint nr. 34: max_heap_table_size -> 64
+Hint nr. 35: max_connections -> 800
+Hint nr. 36: max_connections -> 800
+Hint nr. 37: max_connections -> 800
+Hint nr. 38: max_connections -> 100
+Hint nr. 39: max_connections -> 4
+Hint nr. 40: max_connections -> 294
+Hint nr. 41: max_connections -> 967
+Hint nr. 42: key_buffer_size -> 768MB
+Hint nr. 43: key_buffer_size -> 512M
+Hint nr. 44: tmp_table_size -> 16M
+Hint nr. 45: tmp_table_size -> 1
+Hint nr. 46: join_buffer_size -> 256M
+Hint nr. 47: join_buffer_size -> 256K
+Hint nr. 48: table_open_cache -> 400
+Hint nr. 49: sort_buffer_size -> 2M
+Hint nr. 50: sort_buffer_size -> 2
+Hint nr. 51: sort_buffer_size -> 2
+Hint nr. 52: max_allowed_packet -> 512M
+Hint nr. 53: max_allowed_packet -> 8M
+Hint nr. 54: innodb_read_io_threads -> 4
+Hint nr. 55: query_cache_size -> 0
+Hint nr. 56: innodb_data_file_path -> 1
+Hint nr. 57: read_rnd_buffer_size -> 256M
+Hint nr. 58: read_rnd_buffer_size -> 256
+Hint nr. 59: read_rnd_buffer_size -> 256K
+Hint nr. 60: threads_per_sec -> 0
+Hint nr. 61: threads_connected -> 17
+Hint nr. 62: open_files_limit -> 8192
+Hint nr. 63: open_files_limit -> 9031
+Hint nr. 64: open_files_limit -> 2x
+Hint nr. 65: open_files_limit -> 3x
+Hint nr. 66: open_files_limit -> 2x
+Hint nr. 67: max_used_connections -> 120
+Hint nr. 68: threads_cached -> 103
+Hint nr. 69: table_definition_cache -> 400
+Hint nr. 70: innodb_thread_concurrency -> 16
+Hint nr. 71: innodb_thread_concurrency -> 0
+Hint nr. 72: max_execution_time -> 30
+Hint nr. 73: innodb_buffer_pool -> 450G
+Hint nr. 74: innodb_buffer_pool_size -> 6GB
+Hint nr. 75: innodb_buffer_pool_size -> 4
+Hint nr. 76: innodb_buffer_pool_size -> 1GB
+Hint nr. 77: innodb_buffer_pool_size -> 70
+Hint nr. 78: innodb_buffer_pool_size -> 80%
+Hint nr. 79: innodb_buffer_pool_size -> 1GBMySQL
+Hint nr. 80: innodb_buffer_pool_size -> 5.78or
+Hint nr. 81: innodb_buffer_pool_size -> 1
+Hint nr. 82: innodb_buffer_pool_size -> 8GB
+Hint nr. 83: innodb_buffer_pool_size -> 2048M
+Hint nr. 84: innodb_buffer_pool_instances -> 1GB
+Hint nr. 85: innodb_buffer_pool_instances -> 8
+Hint nr. 86: innodb_buffer_pool_size -> 50GB
+Hint nr. 87: innodb_buffer_pool_size -> 24G
+Hint nr. 88: innodb_buffer_pool_size -> 24.00
+[2023-04-20 11:03:09] benchmark start!
+[2023-04-20 11:03:12] benchmark finished!
+[2023-04-20 11:03:12] clear processlist
+!!!tps:  53.379999999999995 ./log/1681959789.log
+def metric: ([0], [46.620000000000005, -100], {'tps': 53.379999999999995, 'lat': 862.09, 'qps': 432.06, 'tpsVar': 218.40499999999997, 'latVar': 481.7407999999989, 'qpsVar': 9693.8888}, {'cpu': 0, 'readIO': 0, 'writeIO': 0, 'IO': 0, 'virtualMem': 0, 'physical': 0, 'dirty': 0.0, 'hit': nan, 'data': 0.014251708984375}, [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 15269888.0, 0.0, 932.0, 0.0, 2095962.0, 2.0, 2096896.0, 0.0, 0.0, 0.0, 0.0, 34359738368.0, 0.0, 0.0, 0.0, 0.0, 0.0, 111.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 16384.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], {'objs': ['-cpu'], 'constraints': ['100-tps', 'readIO - 100']}, 0)
+dbenv default step metric:  {'error': 0, 'throughput': 53.379999999999995, 'time': 862.09}
+--- Tuning Updates ---
+Minimal tps: 53.379999999999995
+Achieved with configuration: {}
+Maximal tps (ms): 53.379999999999995
+Achieved with configuration: {}
+Running for up to 5400.0 seconds, 50000 frames
+--- Tuning Updates ---
+Minimal tps: 53.379999999999995
+Achieved with configuration: {}
+Maximal tps (ms): 53.379999999999995
+Achieved with configuration: {}
+Adding assignment ('innodb_buffer_pool_size', '1GB') with weight 16
+Adding assignment ('innodb_buffer_pool_size', '4') with weight 2
+Weighted hints: defaultdict(<function MultiDocTuning._reset.<locals>.<lambda> at 0x7f11639c4680>, {('innodb_buffer_pool_size', '1GB'): 16, ('innodb_buffer_pool_size', '4'): 2})
+Selected configurations: [{'innodb_buffer_pool_size': '1GB'}]
+[2023-04-20 11:03:49] benchmark start!
+[2023-04-20 11:03:52] benchmark finished!
+[2023-04-20 11:03:52] clear processlist
+!!!tps:  68.58999999999999 ./log/1681959829.log
+--- Tuning Updates ---
+Minimal tps: 53.379999999999995
+Achieved with configuration: {}
+Maximal tps (ms): 68.58999999999999
+Achieved with configuration: {'innodb_buffer_pool_size': '1GB'}
+Reward 15.209999999999994 with {'innodb_buffer_pool_size': '1GB'}
+Obtained 15.209999999999994 by configuration {'innodb_buffer_pool_size': '1GB'}
+Achieved unscaled reward of 15.209999999999994 using {'innodb_buffer_pool_size': '1GB'}.
+episode: 1, frame: 10, fps: 0, returns: 20.1521
+Elapsed time: 40.54273080825806 seconds
+--- Tuning Updates ---
+Minimal tps: 53.379999999999995
+Achieved with configuration: {}
+Maximal tps (ms): 68.58999999999999
+Achieved with configuration: {'innodb_buffer_pool_size': '1GB'}
+Adding assignment ('innodb_buffer_pool_size', '2') with weight 8
+Adding assignment ('innodb_buffer_pool_size', '12') with weight 2
+Adding assignment ('innodb_buffer_pool_size', '2') with weight 16
+Adding assignment ('innodb_buffer_pool_size', '16') with weight 4
+Weighted hints: defaultdict(<function MultiDocTuning._reset.<locals>.<lambda> at 0x7f11639c4950>, {('innodb_buffer_pool_size', '2'): 24, ('innodb_buffer_pool_size', '12'): 2, ('innodb_buffer_pool_size', '16'): 4})
+Selected configurations: [{'innodb_buffer_pool_size': '2'}]
+[2023-04-20 11:04:29] benchmark start!
+[2023-04-20 11:04:32] benchmark finished!
+[2023-04-20 11:04:33] clear processlist
+!!!tps:  50.4 ./log/1681959869.log
+--- Tuning Updates ---
+Minimal tps: 50.4
+Achieved with configuration: {'innodb_buffer_pool_size': '2'}
+Maximal tps (ms): 68.58999999999999
+Achieved with configuration: {'innodb_buffer_pool_size': '1GB'}
+Reward -2.979999999999997 with {'innodb_buffer_pool_size': '2'}
+Obtained 0 by configuration {}
+Achieved unscaled reward of 0 using {}.
+episode: 2, frame: 25, fps: 0, returns: 30.0
+Elapsed time: 78.882883310318 seconds
+--- Tuning Updates ---
+Minimal tps: 50.4
+Achieved with configuration: {'innodb_buffer_pool_size': '2'}
+Maximal tps (ms): 68.58999999999999
+Achieved with configuration: {'innodb_buffer_pool_size': '1GB'}
+Adding assignment ('innodb_buffer_pool_instances', '4') with weight 16
+Adding assignment ('innodb_buffer_pool_instances', '4') with weight 8
+Adding assignment ('innodb_buffer_pool_instances', '32') with weight 1
+Weighted hints: defaultdict(<function MultiDocTuning._reset.<locals>.<lambda> at 0x7f11639c49e0>, {('innodb_buffer_pool_instances', '4'): 24, ('innodb_buffer_pool_instances', '32'): 1})
+Selected configurations: [{'innodb_buffer_pool_instances': '4'}]
+[2023-04-20 11:05:10] benchmark start!
+[2023-04-20 11:05:13] benchmark finished!
+[2023-04-20 11:05:13] clear processlist
+!!!tps:  61.885 ./log/1681959910.log
+--- Tuning Updates ---
+Minimal tps: 50.4
+Achieved with configuration: {'innodb_buffer_pool_size': '2'}
+Maximal tps (ms): 68.58999999999999
+Achieved with configuration: {'innodb_buffer_pool_size': '1GB'}
+Reward 8.505000000000003 with {'innodb_buffer_pool_instances': '4'}
+Obtained 8.505000000000003 by configuration {'innodb_buffer_pool_instances': '4'}
+Achieved unscaled reward of 8.505000000000003 using {'innodb_buffer_pool_instances': '4'}.
+episode: 3, frame: 38, fps: 0, returns: 20.085050000000003
+Elapsed time: 120.3430802822113 seconds
+--- Tuning Updates ---
+Minimal tps: 50.4
+Achieved with configuration: {'innodb_buffer_pool_size': '2'}
+Maximal tps (ms): 68.58999999999999
+Achieved with configuration: {'innodb_buffer_pool_size': '1GB'}
+Adding assignment ('innodb_buffer_pool_instances', '8') with weight 4
+Adding assignment ('innodb_buffer_pool_instances', '2') with weight 2
+Adding assignment ('innodb_buffer_pool_instances', '64') with weight 4
+Adding assignment ('innodb_buffer_pool_instances', '8') with weight 8
+Weighted hints: defaultdict(<function MultiDocTuning._reset.<locals>.<lambda> at 0x7f11639ffcb0>, {('innodb_buffer_pool_instances', '8'): 12, ('innodb_buffer_pool_instances', '2'): 2, ('innodb_buffer_pool_instances', '64'): 4})
+Selected configurations: [{'innodb_buffer_pool_instances': '8'}]
+[2023-04-20 11:06:41] benchmark start!
+[2023-04-20 11:06:44] benchmark finished!
+[2023-04-20 11:06:44] clear processlist
+!!!tps:  60.925 ./log/1681960001.log
+--- Tuning Updates ---
+Minimal tps: 50.4
+Achieved with configuration: {'innodb_buffer_pool_size': '2'}
+Maximal tps (ms): 68.58999999999999
+Achieved with configuration: {'innodb_buffer_pool_size': '1GB'}
+Reward 7.545000000000002 with {'innodb_buffer_pool_instances': '8'}
+Obtained 7.545000000000002 by configuration {'innodb_buffer_pool_instances': '8'}
+Achieved unscaled reward of 7.545000000000002 using {'innodb_buffer_pool_instances': '8'}.
+episode: 4, frame: 51, fps: 0, returns: 40.075450000000004
+Elapsed time: 230.26069808006287 seconds
+--- Tuning Updates ---
+Minimal tps: 50.4
+Achieved with configuration: {'innodb_buffer_pool_size': '2'}
+Maximal tps (ms): 68.58999999999999
+Achieved with configuration: {'innodb_buffer_pool_size': '1GB'}
+Adding assignment ('query_cache_type', '0') with weight 16
+Adding assignment ('query_cache_type', '0') with weight 4
+Weighted hints: defaultdict(<function MultiDocTuning._reset.<locals>.<lambda> at 0x7f11639c48c0>, {('query_cache_type', '0'): 20})
+Selected configurations: [{'query_cache_type': '0'}]
+[2023-04-20 11:11:20] benchmark start!
+[2023-04-20 11:11:23] benchmark finished!
+[2023-04-20 11:11:23] clear processlist
+!!!tps:  43.4 ./log/1681960280.log
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 68.58999999999999
+Achieved with configuration: {'innodb_buffer_pool_size': '1GB'}
+Reward -9.979999999999997 with {'query_cache_type': '0'}
+Obtained 0 by configuration {}
+Achieved unscaled reward of 0 using {}.
+episode: 5, frame: 66, fps: 0, returns: -10.0
+Elapsed time: 507.0603153705597 seconds
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 68.58999999999999
+Achieved with configuration: {'innodb_buffer_pool_size': '1GB'}
+Adding assignment ('innodb_log_file_size', '2G') with weight 2
+Adding assignment ('innodb_log_file_size', '2GB') with weight 8
+Weighted hints: defaultdict(<function MultiDocTuning._reset.<locals>.<lambda> at 0x7f11639c4f80>, {('innodb_log_file_size', '2G'): 2, ('innodb_log_file_size', '2GB'): 8})
+Selected configurations: [{'innodb_log_file_size': '2G'}]
+[2023-04-20 11:15:45] benchmark start!
+[2023-04-20 11:15:48] benchmark finished!
+[2023-04-20 11:15:49] clear processlist
+!!!tps:  45.835 ./log/1681960545.log
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 68.58999999999999
+Achieved with configuration: {'innodb_buffer_pool_size': '1GB'}
+Reward -7.544999999999995 with {'innodb_log_file_size': '2G'}
+Obtained 0 by configuration {}
+Achieved unscaled reward of 0 using {}.
+episode: 6, frame: 79, fps: 0, returns: 0.0
+Elapsed time: 770.90904712677 seconds
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 68.58999999999999
+Achieved with configuration: {'innodb_buffer_pool_size': '1GB'}
+Adding assignment ('max_heap_table_size', '32') with weight 16
+Adding assignment ('max_heap_table_size', '64') with weight 16
+Weighted hints: defaultdict(<function MultiDocTuning._reset.<locals>.<lambda> at 0x7f11639c4b90>, {('max_heap_table_size', '32'): 16, ('max_heap_table_size', '64'): 16})
+Selected configurations: [{'max_heap_table_size': '32'}]
+[2023-04-20 11:19:11] benchmark start!
+[2023-04-20 11:19:14] benchmark finished!
+[2023-04-20 11:19:15] clear processlist
+!!!tps:  66.23666666666666 ./log/1681960751.log
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 68.58999999999999
+Achieved with configuration: {'innodb_buffer_pool_size': '1GB'}
+Reward 12.85666666666667 with {'max_heap_table_size': '32'}
+Obtained 12.85666666666667 by configuration {'max_heap_table_size': '32'}
+Achieved unscaled reward of 12.85666666666667 using {'max_heap_table_size': '32'}.
+episode: 7, frame: 90, fps: 0, returns: 10.128566666666666
+Elapsed time: 978.6871910095215 seconds
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 68.58999999999999
+Achieved with configuration: {'innodb_buffer_pool_size': '1GB'}
+Adding assignment ('max_connections', '800') with weight 4
+Adding assignment ('max_connections', '200') with weight 2
+Adding assignment ('max_connections', '2') with weight 2
+Weighted hints: defaultdict(<function MultiDocTuning._reset.<locals>.<lambda> at 0x7f11639c4f80>, {('max_connections', '800'): 4, ('max_connections', '200'): 2, ('max_connections', '2'): 2})
+Selected configurations: [{'max_connections': '800'}]
+[2023-04-20 11:24:14] benchmark start!
+[2023-04-20 11:24:18] benchmark finished!
+[2023-04-20 11:24:18] clear processlist
+!!!tps:  52.870000000000005 ./log/1681961054.log
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 68.58999999999999
+Achieved with configuration: {'innodb_buffer_pool_size': '1GB'}
+Reward -0.5099999999999909 with {'max_connections': '800'}
+Obtained 0 by configuration {}
+Achieved unscaled reward of 0 using {}.
+episode: 8, frame: 105, fps: 0, returns: 10.0
+Elapsed time: 1279.801254272461 seconds
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 68.58999999999999
+Achieved with configuration: {'innodb_buffer_pool_size': '1GB'}
+Adding assignment ('key_buffer_size', '512M') with weight 4
+Weighted hints: defaultdict(<function MultiDocTuning._reset.<locals>.<lambda> at 0x7f11639c4c20>, {('key_buffer_size', '512M'): 4})
+Selected configurations: [{'key_buffer_size': '512M'}]
+[2023-04-20 11:28:25] benchmark start!
+[2023-04-20 11:28:28] benchmark finished!
+[2023-04-20 11:28:28] clear processlist
+!!!tps:  47.91 ./log/1681961305.log
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 68.58999999999999
+Achieved with configuration: {'innodb_buffer_pool_size': '1GB'}
+Reward -5.469999999999999 with {'key_buffer_size': '512M'}
+Obtained 0 by configuration {}
+Achieved unscaled reward of 0 using {}.
+episode: 9, frame: 120, fps: 0, returns: -30.0
+Elapsed time: 1532.45569896698 seconds
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 68.58999999999999
+Achieved with configuration: {'innodb_buffer_pool_size': '1GB'}
+Adding assignment ('tmp_table_size', '2') with weight 16
+Adding assignment ('sort_buffer_size', '1M') with weight 2
+Weighted hints: defaultdict(<function MultiDocTuning._reset.<locals>.<lambda> at 0x7f11639c4b90>, {('tmp_table_size', '2'): 16, ('sort_buffer_size', '1M'): 2})
+Selected configurations: [{'tmp_table_size': '2', 'sort_buffer_size': '1M'}]
+[2023-04-20 11:31:43] benchmark start!
+[2023-04-20 11:31:46] benchmark finished!
+[2023-04-20 11:31:46] clear processlist
+!!!tps:  74.425 ./log/1681961503.log
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 74.425
+Achieved with configuration: {'tmp_table_size': '2', 'sort_buffer_size': '1M'}
+Reward 21.045 with {'tmp_table_size': '2', 'sort_buffer_size': '1M'}
+Obtained 21.045 by configuration {'tmp_table_size': '2', 'sort_buffer_size': '1M'}
+Achieved unscaled reward of 21.045 using {'tmp_table_size': '2', 'sort_buffer_size': '1M'}.
+episode: 10, frame: 131, fps: 0, returns: 10.21045
+Elapsed time: 1723.6875150203705 seconds
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 74.425
+Achieved with configuration: {'tmp_table_size': '2', 'sort_buffer_size': '1M'}
+Adding assignment ('max_allowed_packet', '512M') with weight 1
+Adding assignment ('max_allowed_packet', '4M') with weight 8
+Adding assignment ('innodb_read_io_threads', '2') with weight 1
+Weighted hints: defaultdict(<function MultiDocTuning._reset.<locals>.<lambda> at 0x7f11639c4f80>, {('max_allowed_packet', '512M'): 1, ('max_allowed_packet', '4M'): 8, ('innodb_read_io_threads', '2'): 1})
+Selected configurations: [{'max_allowed_packet': '4M', 'innodb_read_io_threads': '2'}]
+[2023-04-20 11:35:59] benchmark start!
+[2023-04-20 11:36:02] benchmark finished!
+[2023-04-20 11:36:02] clear processlist
+!!!tps:  70.61333333333333 ./log/1681961759.log
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 74.425
+Achieved with configuration: {'tmp_table_size': '2', 'sort_buffer_size': '1M'}
+Reward 17.233333333333334 with {'max_allowed_packet': '4M', 'innodb_read_io_threads': '2'}
+Obtained 17.233333333333334 by configuration {'max_allowed_packet': '4M', 'innodb_read_io_threads': '2'}
+Achieved unscaled reward of 17.233333333333334 using {'max_allowed_packet': '4M', 'innodb_read_io_threads': '2'}.
+episode: 11, frame: 146, fps: 0, returns: 10.172333333333333
+Elapsed time: 1993.1894779205322 seconds
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 74.425
+Achieved with configuration: {'tmp_table_size': '2', 'sort_buffer_size': '1M'}
+Adding assignment ('query_cache_size', '0') with weight 8
+Adding assignment ('read_rnd_buffer_size', '256M') with weight 4
+Adding assignment ('read_rnd_buffer_size', '128K') with weight 1
+Weighted hints: defaultdict(<function MultiDocTuning._reset.<locals>.<lambda> at 0x7f11639c4950>, {('query_cache_size', '0'): 8, ('read_rnd_buffer_size', '256M'): 4, ('read_rnd_buffer_size', '128K'): 1})
+Selected configurations: [{'query_cache_size': '0', 'read_rnd_buffer_size': '256M'}]
+[2023-04-20 11:40:29] benchmark start!
+[2023-04-20 11:40:32] benchmark finished!
+[2023-04-20 11:40:33] clear processlist
+!!!tps:  57.379999999999995 ./log/1681962029.log
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 74.425
+Achieved with configuration: {'tmp_table_size': '2', 'sort_buffer_size': '1M'}
+Reward 4.0 with {'query_cache_size': '0', 'read_rnd_buffer_size': '256M'}
+Obtained 4.0 by configuration {'query_cache_size': '0', 'read_rnd_buffer_size': '256M'}
+Achieved unscaled reward of 4.0 using {'query_cache_size': '0', 'read_rnd_buffer_size': '256M'}.
+episode: 12, frame: 159, fps: 0, returns: 20.04
+Elapsed time: 2259.4560499191284 seconds
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 74.425
+Achieved with configuration: {'tmp_table_size': '2', 'sort_buffer_size': '1M'}
+Adding assignment ('threads_per_sec', '0') with weight 2
+Weighted hints: defaultdict(<function MultiDocTuning._reset.<locals>.<lambda> at 0x7f11639c4f80>, {('threads_per_sec', '0'): 2})
+Selected configurations: [{'threads_per_sec': '0'}]
+[2023-04-20 11:43:46] benchmark start!
+[2023-04-20 11:43:49] benchmark finished!
+[2023-04-20 11:43:49] clear processlist
+!!!tps:  49.324999999999996 ./log/1681962226.log
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 74.425
+Achieved with configuration: {'tmp_table_size': '2', 'sort_buffer_size': '1M'}
+Reward -4.055 with {'threads_per_sec': '0'}
+Obtained 0 by configuration {}
+Achieved unscaled reward of 0 using {}.
+episode: 13, frame: 170, fps: 0, returns: -10.0
+Elapsed time: 2452.7043826580048 seconds
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 74.425
+Achieved with configuration: {'tmp_table_size': '2', 'sort_buffer_size': '1M'}
+episode: 14, frame: 179, fps: 0, returns: -20.0
+Elapsed time: 2588.813161611557 seconds
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 74.425
+Achieved with configuration: {'tmp_table_size': '2', 'sort_buffer_size': '1M'}
+Adding assignment ('innodb_thread_concurrency', '0') with weight 8
+Weighted hints: defaultdict(<function MultiDocTuning._reset.<locals>.<lambda> at 0x7f11639c4f80>, {('innodb_thread_concurrency', '0'): 8})
+Selected configurations: [{'innodb_thread_concurrency': '0'}]
+Reward -10000 with {'innodb_thread_concurrency': '0'}
+Obtained 0 by configuration {}
+Achieved unscaled reward of 0 using {}.
+episode: 15, frame: 190, fps: 0, returns: -10.0
+Elapsed time: 2762.5459406375885 seconds
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 74.425
+Achieved with configuration: {'tmp_table_size': '2', 'sort_buffer_size': '1M'}
+Adding assignment ('innodb_buffer_pool_size', '2') with weight 1
+Adding assignment ('innodb_buffer_pool_size', '3') with weight 16
+Adding assignment ('innodb_buffer_pool_size', '0GBMySQL') with weight 4
+Weighted hints: defaultdict(<function MultiDocTuning._reset.<locals>.<lambda> at 0x7f11639c4950>, {('innodb_buffer_pool_size', '2'): 1, ('innodb_buffer_pool_size', '3'): 16, ('innodb_buffer_pool_size', '0GBMySQL'): 4})
+Selected configurations: [{'innodb_buffer_pool_size': '3'}]
+[2023-04-20 11:52:40] benchmark start!
+[2023-04-20 11:52:43] benchmark finished!
+[2023-04-20 11:52:43] clear processlist
+!!!tps:  59.92 ./log/1681962760.log
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 74.425
+Achieved with configuration: {'tmp_table_size': '2', 'sort_buffer_size': '1M'}
+Reward 6.540000000000006 with {'innodb_buffer_pool_size': '3'}
+Obtained 6.540000000000006 by configuration {'innodb_buffer_pool_size': '3'}
+Achieved unscaled reward of 6.540000000000006 using {'innodb_buffer_pool_size': '3'}.
+episode: 16, frame: 203, fps: 0, returns: 20.0654
+Elapsed time: 2992.7880642414093 seconds
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 74.425
+Achieved with configuration: {'tmp_table_size': '2', 'sort_buffer_size': '1M'}
+Adding assignment ('innodb_buffer_pool_size', '23or') with weight 2
+Adding assignment ('innodb_buffer_pool_size', '4') with weight 8
+Weighted hints: defaultdict(<function MultiDocTuning._reset.<locals>.<lambda> at 0x7f11639c4ef0>, {('innodb_buffer_pool_size', '23or'): 2, ('innodb_buffer_pool_size', '4'): 8})
+Selected configurations: [{'innodb_buffer_pool_size': '4'}]
+[2023-04-20 11:56:32] benchmark start!
+[2023-04-20 11:56:35] benchmark finished!
+[2023-04-20 11:56:35] clear processlist
+!!!tps:  49.88 ./log/1681962992.log
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 74.425
+Achieved with configuration: {'tmp_table_size': '2', 'sort_buffer_size': '1M'}
+Reward -3.499999999999993 with {'innodb_buffer_pool_size': '4'}
+Obtained 0 by configuration {}
+Achieved unscaled reward of 0 using {}.
+episode: 17, frame: 216, fps: 0, returns: 0.0
+Elapsed time: 3219.269782781601 seconds
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 74.425
+Achieved with configuration: {'tmp_table_size': '2', 'sort_buffer_size': '1M'}
+Adding assignment ('innodb_buffer_pool_size', '48G') with weight 16
+Weighted hints: defaultdict(<function MultiDocTuning._reset.<locals>.<lambda> at 0x7f11639c4b90>, {('innodb_buffer_pool_size', '48G'): 16})
+Selected configurations: [{'innodb_buffer_pool_size': '48G'}]
+[2023-04-20 11:59:21] benchmark start!
+[2023-04-20 11:59:24] benchmark finished!
+[2023-04-20 11:59:25] clear processlist
+!!!tps:  78.41 ./log/1681963161.log
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 78.41
+Achieved with configuration: {'innodb_buffer_pool_size': '48G'}
+Reward 25.03 with {'innodb_buffer_pool_size': '48G'}
+Obtained 25.03 by configuration {'innodb_buffer_pool_size': '48G'}
+Achieved unscaled reward of 25.03 using {'innodb_buffer_pool_size': '48G'}.
+episode: 18, frame: 226, fps: 0, returns: -9.7497
+Elapsed time: 3394.9999916553497 seconds
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 78.41
+Achieved with configuration: {'innodb_buffer_pool_size': '48G'}
+Adding assignment ('innodb_buffer_pool_size', '1') with weight 2
+Adding assignment ('innodb_buffer_pool_size', '0GB') with weight 1
+Adding assignment ('innodb_buffer_pool_size', '32') with weight 4
+Weighted hints: defaultdict(<function MultiDocTuning._reset.<locals>.<lambda> at 0x7f11639c4950>, {('innodb_buffer_pool_size', '1'): 2, ('innodb_buffer_pool_size', '0GB'): 1, ('innodb_buffer_pool_size', '32'): 4})
+Selected configurations: [{'innodb_buffer_pool_size': '32'}]
+[2023-04-20 12:03:39] benchmark start!
+[2023-04-20 12:03:43] benchmark finished!
+[2023-04-20 12:03:43] clear processlist
+!!!tps:  58.345 ./log/1681963419.log
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 78.41
+Achieved with configuration: {'innodb_buffer_pool_size': '48G'}
+Reward 4.965000000000003 with {'innodb_buffer_pool_size': '32'}
+Obtained 4.965000000000003 by configuration {'innodb_buffer_pool_size': '32'}
+Achieved unscaled reward of 4.965000000000003 using {'innodb_buffer_pool_size': '32'}.
+episode: 19, frame: 239, fps: 0, returns: 20.04965
+Elapsed time: 3640.3625497817993 seconds
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 78.41
+Achieved with configuration: {'innodb_buffer_pool_size': '48G'}
+Adding assignment ('innodb_buffer_pool_size', '3') with weight 1
+Adding assignment ('innodb_buffer_pool_size', '2') with weight 16
+Weighted hints: defaultdict(<function MultiDocTuning._reset.<locals>.<lambda> at 0x7f11639c4f80>, {('innodb_buffer_pool_size', '3'): 1, ('innodb_buffer_pool_size', '2'): 16})
+Selected configurations: [{'innodb_buffer_pool_size': '2'}]
+[2023-04-20 12:07:29] benchmark start!
+[2023-04-20 12:07:32] benchmark finished!
+[2023-04-20 12:07:32] clear processlist
+!!!tps:  67.35 ./log/1681963649.log
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 78.41
+Achieved with configuration: {'innodb_buffer_pool_size': '48G'}
+Reward 13.969999999999999 with {'innodb_buffer_pool_size': '2'}
+Obtained 13.969999999999999 by configuration {'innodb_buffer_pool_size': '2'}
+Achieved unscaled reward of 13.969999999999999 using {'innodb_buffer_pool_size': '2'}.
+episode: 20, frame: 252, fps: 0, returns: 0.1396999999999995
+Elapsed time: 3879.4394929409027 seconds
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 78.41
+Achieved with configuration: {'innodb_buffer_pool_size': '48G'}
+Adding assignment ('innodb_buffer_pool_instances', '64') with weight 16
+Weighted hints: defaultdict(<function MultiDocTuning._reset.<locals>.<lambda> at 0x7f11639c4d40>, {('innodb_buffer_pool_instances', '64'): 16})
+Selected configurations: [{'innodb_buffer_pool_instances': '64'}]
+[2023-04-20 12:11:23] benchmark start!
+[2023-04-20 12:11:26] benchmark finished!
+[2023-04-20 12:11:26] clear processlist
+!!!tps:  50.845 ./log/1681963883.log
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 78.41
+Achieved with configuration: {'innodb_buffer_pool_size': '48G'}
+Reward -2.5349999999999966 with {'innodb_buffer_pool_instances': '64'}
+Obtained 0 by configuration {}
+Achieved unscaled reward of 0 using {}.
+episode: 21, frame: 265, fps: 0, returns: -20.0
+Elapsed time: 4109.266965150833 seconds
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 78.41
+Achieved with configuration: {'innodb_buffer_pool_size': '48G'}
+Adding assignment ('innodb_buffer_pool_instances', '16') with weight 16
+Adding assignment ('innodb_buffer_pool_instances', '16') with weight 16
+Adding assignment ('innodb_buffer_pool_instances', '16') with weight 4
+Weighted hints: defaultdict(<function MultiDocTuning._reset.<locals>.<lambda> at 0x7f11639c4950>, {('innodb_buffer_pool_instances', '16'): 36})
+Selected configurations: [{'innodb_buffer_pool_instances': '16'}]
+[2023-04-20 12:15:41] benchmark start!
+[2023-04-20 12:15:45] benchmark finished!
+[2023-04-20 12:15:45] clear processlist
+!!!tps:  59.23 ./log/1681964141.log
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 78.41
+Achieved with configuration: {'innodb_buffer_pool_size': '48G'}
+Reward 5.850000000000001 with {'innodb_buffer_pool_instances': '16'}
+Obtained 5.850000000000001 by configuration {'innodb_buffer_pool_instances': '16'}
+Achieved unscaled reward of 5.850000000000001 using {'innodb_buffer_pool_instances': '16'}.
+episode: 22, frame: 280, fps: 0, returns: 10.0585
+Elapsed time: 4368.003137350082 seconds
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 78.41
+Achieved with configuration: {'innodb_buffer_pool_size': '48G'}
+Adding assignment ('innodb_log_file_size', '32M') with weight 2
+Weighted hints: defaultdict(<function MultiDocTuning._reset.<locals>.<lambda> at 0x7f11639c4f80>, {('innodb_log_file_size', '32M'): 2})
+Selected configurations: [{'innodb_log_file_size': '32M'}]
+Reward -10000 with {'innodb_log_file_size': '32M'}
+Obtained 0 by configuration {}
+Achieved unscaled reward of 0 using {}.
+episode: 23, frame: 295, fps: 0, returns: -30.0
+Elapsed time: 4601.6288096904755 seconds
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 78.41
+Achieved with configuration: {'innodb_buffer_pool_size': '48G'}
+Adding assignment ('innodb_log_file_size', '8G') with weight 1
+Adding assignment ('innodb_log_file_size', '1024M') with weight 2
+Adding assignment ('thread_cache_size', '10') with weight 8
+Adding assignment ('thread_cache_size', '20') with weight 1
+Weighted hints: defaultdict(<function MultiDocTuning._reset.<locals>.<lambda> at 0x7f11639c4950>, {('innodb_log_file_size', '8G'): 1, ('innodb_log_file_size', '1024M'): 2, ('thread_cache_size', '10'): 8, ('thread_cache_size', '20'): 1})
+Selected configurations: [{'innodb_log_file_size': '1024M', 'thread_cache_size': '10'}]
+Reward -10000 with {'innodb_log_file_size': '1024M', 'thread_cache_size': '10'}
+Obtained 0 by configuration {}
+Achieved unscaled reward of 0 using {}.
+episode: 24, frame: 310, fps: 0, returns: 30.0
+Elapsed time: 4854.774587392807 seconds
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 78.41
+Achieved with configuration: {'innodb_buffer_pool_size': '48G'}
+Adding assignment ('thread_cache_size', '1024') with weight 16
+Adding assignment ('max_heap_table_size', '64M') with weight 2
+Adding assignment ('max_heap_table_size', '256') with weight 8
+Weighted hints: defaultdict(<function MultiDocTuning._reset.<locals>.<lambda> at 0x7f11639c4830>, {('thread_cache_size', '1024'): 16, ('max_heap_table_size', '64M'): 2, ('max_heap_table_size', '256'): 8})
+Selected configurations: [{'thread_cache_size': '1024', 'max_heap_table_size': '256'}]
+[2023-04-20 12:27:39] benchmark start!
+[2023-04-20 12:27:43] benchmark finished!
+[2023-04-20 12:27:43] clear processlist
+!!!tps:  69.86666666666667 ./log/1681964859.log
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 78.41
+Achieved with configuration: {'innodb_buffer_pool_size': '48G'}
+Reward 16.48666666666668 with {'thread_cache_size': '1024', 'max_heap_table_size': '256'}
+Obtained 16.48666666666668 by configuration {'thread_cache_size': '1024', 'max_heap_table_size': '256'}
+Achieved unscaled reward of 16.48666666666668 using {'thread_cache_size': '1024', 'max_heap_table_size': '256'}.
+episode: 25, frame: 323, fps: 0, returns: 20.16486666666667
+Elapsed time: 5091.952095270157 seconds
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 78.41
+Achieved with configuration: {'innodb_buffer_pool_size': '48G'}
+episode: 26, frame: 336, fps: 0, returns: -40.0
+Elapsed time: 5246.3487668037415 seconds
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 78.41
+Achieved with configuration: {'innodb_buffer_pool_size': '48G'}
+Adding assignment ('max_connections', '294') with weight 16
+Adding assignment ('max_connections', '1934') with weight 1
+Weighted hints: defaultdict(<function MultiDocTuning._reset.<locals>.<lambda> at 0x7f11639c4830>, {('max_connections', '294'): 16, ('max_connections', '1934'): 1})
+Selected configurations: [{'max_connections': '294'}]
+[2023-04-20 12:33:52] benchmark start!
+[2023-04-20 12:33:56] benchmark finished!
+[2023-04-20 12:33:56] clear processlist
+!!!tps:  79.92500000000001 ./log/1681965232.log
+--- Tuning Updates ---
+Minimal tps: 43.4
+Achieved with configuration: {'query_cache_type': '0'}
+Maximal tps (ms): 79.92500000000001
+Achieved with configuration: {'max_connections': '294'}
+Reward 26.545000000000016 with {'max_connections': '294'}
+Obtained 26.545000000000016 by configuration {'max_connections': '294'}
+Achieved unscaled reward of 26.545000000000016 using {'max_connections': '294'}.
+episode: 27, frame: 347, fps: 0, returns: 10.26545
+Elapsed time: 5467.405235052109 seconds
+Model saved in  /home/tzj/dbbert/posttrained_bert/1/

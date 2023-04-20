@@ -12,6 +12,7 @@ from autotune.dbconnector import MysqlConnector
 from autotune.knobs import logger
 from autotune.utils.parser import ConfigParser
 from autotune.knobs import initialize_knobs, get_default_knobs
+import ipdb
 
 dst_data_path = os.environ.get("DATADST")
 src_data_path = os.environ.get("DATASRC")
@@ -74,7 +75,8 @@ class MysqlDB:
         self.default_knobs = get_default_knobs()
         self.pre_combine_log_file_size = log_num_default * log_size_default
 
-        self.clear_cmd = """mysqladmin processlist -uroot -S$MYSQL_SOCK | awk '$2 ~ /^[0-9]/ {print "KILL "$2";"}' | mysql -uroot -S$MYSQL_SOCK """
+        # self.clear_cmd = """mysqladmin processlist -uroot -S$MYSQL_SOCK | awk '$2 ~ /^[0-9]/ {print "KILL "$2";"}' | mysql -uroot -S$MYSQL_SOCK """
+        self.clear_cmd = """mysqladmin processlist -uroot -ptzj | awk '$2 ~ /^[0-9]/ {print "KILL "$2";"}' | mysql -uroot -ptzj """
 
     def _gen_config_file(self, knobs):
         if self.remote_mode:
@@ -100,8 +102,7 @@ class MysqlDB:
                 knobs_not_in_cnf.append(key)
                 continue
             cnf_parser.set(key, knobs[key])
-
-        cnf_parser.replace('/data2/ruike/tmpdir/mysql.cnf')
+        cnf_parser.replace()
 
         if self.remote_mode:
             ssh = paramiko.SSHClient()
@@ -120,8 +121,9 @@ class MysqlDB:
         return knobs_not_in_cnf
 
     def _kill_mysqld(self):
-        mysqladmin = os.path.dirname(self.mysqld) + '/mysqladmin'
-        kill_cmd = '{} -u{} -S {} shutdown'.format(mysqladmin, self.user, self.sock)
+        # mysqladmin = os.path.dirname(self.mysqld) + '/mysqladmin'
+        mysqladmin = '/usr/bin/mysqladmin'
+        kill_cmd = '{} -u{} -S {} -p{} shutdown'.format(mysqladmin, self.user, self.sock, self.passwd)
         force_kill_cmd1 = "ps aux|grep '" + self.sock + "'|awk '{print $2}'|xargs kill -9"
         force_kill_cmd2 = "ps aux|grep '" + self.mycnf + "'|awk '{print $2}'|xargs kill -9"
 
@@ -180,7 +182,7 @@ class MysqlDB:
                     logger.info('Failed: add {} to memory,cpuset:server'.format(self.pid))
 
         else:
-            proc = subprocess.Popen([self.mysqld, '--defaults-file={}'.format(self.mycnf)])
+            proc = subprocess.Popen([self.mysqld, '--defaults-file={}'.format(self.mycnf)])            
             self.pid = proc.pid
             if self.isolation_mode:
                 command = 'sudo cgclassify -g memory,cpuset:server ' + str(self.pid)
@@ -196,6 +198,7 @@ class MysqlDB:
         error, db_conn = None, None
         while True:
             try:
+                # ipdb.set_trace()
                 dbc = MysqlConnector(**self.connection_info)
                 db_conn = dbc.conn
                 if db_conn.is_connected():
@@ -266,9 +269,9 @@ class MysqlDB:
                 200 * 1024) > log_num * log_size:
             logger.info("innodb_thread_concurrency is set too large")
             return False
-
         knobs_rdsL = self._gen_config_file(knobs)
         sucess = self._start_mysqld()
+        sucess = True
         try:
             logger.info('sleeping for {} seconds after restarting mysql'.format(RESTART_WAIT_TIME))
             time.sleep(RESTART_WAIT_TIME)
@@ -280,18 +283,19 @@ class MysqlDB:
             r2 = db_conn.fetch_results(sql2)
             file_num = r2[0]['Value'].strip()
             self.pre_combine_log_file_size = int(file_num) * int(file_size)
-            if len(knobs_rdsL) > 0:
-                tmp_rds = {}
-                for knob_rds in knobs_rdsL:
-                    tmp_rds[knob_rds] = knobs[knob_rds]
-                self.apply_knobs_online(tmp_rds)
-            if modify_concurrency:
-                tmp = {}
-                tmp['innodb_thread_concurrency'] = true_concurrency
-                self.apply_knobs_online(tmp)
-                knobs['innodb_thread_concurrency'] = true_concurrency
-        except:
+            # if len(knobs_rdsL) > 0:
+            #     tmp_rds = {}
+            #     for knob_rds in knobs_rdsL:
+            #         tmp_rds[knob_rds] = knobs[knob_rds]
+            #     self.apply_knobs_online(tmp_rds)
+            # if modify_concurrency:
+            #     tmp = {}
+            #     tmp['innodb_thread_concurrency'] = true_concurrency
+            #     self.apply_knobs_online(tmp)
+            #     knobs['innodb_thread_concurrency'] = true_concurrency
+        except Exception as e:
             sucess = False
+            print("Exception: ", e)
 
         return sucess
 
@@ -397,9 +401,11 @@ class MysqlDB:
             else:
                 return float(sum(metric_values)) / len(metric_values)
 
-        result = np.zeros(65)
         keys = list(metrics[0].keys())
         keys.sort()
+        # TODO tzj modify len(result)=len(keys)=74 due to test
+        # result = np.zeros(65)
+        result = np.zeros(len(keys))
         total_pages = 0
         dirty_pages = 0
         request = 0

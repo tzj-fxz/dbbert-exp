@@ -53,6 +53,7 @@ class ConfigParser(object):
                 f2.write('%s\t\t%s %s\n' % (key, '=', self._knobs[key]))
         f1.close()
         f2.close()
+        # print("this is shutil copy")
         copyfile(tmp, self._cnf)
 
     def set(self, k, v):
@@ -98,8 +99,9 @@ def parse_sysbench(file_path):
         qpsL.append(float(i[1]))
     num_samples = len(temporal)
     global num_samples_normal
-    if num_samples >= num_samples_normal * 0.8:
-        num_samples_normal = num_samples
+    if num_samples >= num_samples_normal * 0.6:
+        if num_samples_normal > 0:
+            num_samples_normal = num_samples
         tps /= num_samples
         qps /= num_samples
         latency /= num_samples

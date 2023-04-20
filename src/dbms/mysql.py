@@ -70,7 +70,7 @@ class MySQLconfig(ConfigurableDBMS):
         recovery_cmd = config['DATABASE']['recovery_cmd']
         timeout_s = config['LEARNING']['timeout_s']
         knob_config_file = config['DATABASE']['knob_config_file']
-        if_no_connect = config['DATABASE']['if_no_connect']
+        if_no_connect = eval(config['DATABASE']['if_no_connect'])
         return cls(db_name, db_user, password, 
                    restart_cmd, recovery_cmd, timeout_s,
                    knob_config_file=knob_config_file,
@@ -101,13 +101,15 @@ class MySQLconfig(ConfigurableDBMS):
         """
         print(f'Trying to connect to {self.db} with user {self.user}')
         # TODO For no_connect test
-        if self.if_no_connect:
+        if self.if_no_connect != 0:
+            print(self.if_no_connect)
             return False
         # Need to recover in case of bad configuration
         try:
             self.connection = mysql.connector.connect(
                 database=self.db, user=self.user, 
-                password=self.password, host="localhost")
+                password=self.password, host="localhost",
+                auth_plugin='mysql_native_password')
             self.set_timeout(self.timeout_s)
             self.failed_connections = 0
             return True

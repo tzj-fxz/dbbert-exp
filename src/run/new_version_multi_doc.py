@@ -1,25 +1,40 @@
 '''
-Created on May 5, 2021
+Created on May 1, 2021
 
 @author: immanueltrummer
-
-Train interpreting tuning documents without supervision.
 '''
+
+from all.agents import VQN
+from all.approximation import QNetwork
+from all.experiments import run_experiment
+from all.logging import DummyWriter
+from all.policies.greedy import GreedyPolicy
+from torch.optim import Adam
+from all.presets.classic_control import ddqn
 from all.environments.gym import GymEnvironment
 from all.experiments.single_env_experiment import SingleEnvExperiment
-from all.presets.classic_control.ddqn import ddqn
+
+from pybullet_utils.util import set_global_seeds
 from argparse import ArgumentParser
 from configparser import ConfigParser
 from doc.collection import DocCollection
 from environment.multi_doc import MultiDocTuning
-from models.bert_tuning import BertFineTuning
+from stable_baselines3.common.utils import set_random_seed
 import benchmark.factory
 import dbms.factory
 import environment.multi_doc
 import numpy as np
+import random
 import search.objectives
 import time
+import torch
+import ipdb
+from autotune.utils.config import parse_args
 from autotune.dbenv import DBEnv
+from autotune.tuner import DBTuner
+from transformers import BertForMultipleChoice
+from models.bert_tuning import BertFineTuning
+from autotune.database.mysqldb import MysqlDB
 
 # Read configuration referenced as command line parameters
 arg_parser = ArgumentParser(description='DB-BERT: Train NLU for DB tuning documents')
@@ -29,13 +44,12 @@ config = ConfigParser()
 config.read(args.cpath)
 
 # TODO Test for dbenv, but with no real db
-env = DBEnv(config['DATABASE'], config['TUNE'], db=None)
+env = DBEnv(config['DATABASE'], config['TUNE'], db=MysqlDB(config['DATABASE']))
 # env = None
 
 device = config['LEARNING']['device'] # cuda or cpu
-input_model = config['LEARNING']['input'] # name or path to input model
-output_model = config['LEARNING']['output'] # path to output model
 nr_frames = int(config['LEARNING']['nr_frames']) # number of frames
+nr_episodes = int(config['LEARNING']['nr_episodes']) # number of episodes
 timeout_s = float(config['LEARNING']['timeout_s']) # seconds until timeout
 epsilon = float(config['LEARNING']['start_epsilon']) # start value for epsilon
 p_scaling = float(config['LEARNING']['performance_scaling']) # scaling for performance reward
@@ -44,6 +58,10 @@ nr_evals = int(config['LEARNING']['nr_evaluations']) # number of evaluations per
 nr_hints = int(config['LEARNING']['nr_hints']) # number of hints per episode
 min_batch_size = int(config['LEARNING']['min_batch_size']) # samples per batch
 mask_params = True if config['LEARNING']['mode'] == 'masked' else False
+if 'model_path' in config['LEARNING']:
+    posttrained_model_path = config['LEARNING']['model_path'] # posttrained model
+else:
+    posttrained_model_path = config['LEARNING']['input']
 
 nr_runs = int(config['BENCHMARK']['nr_runs'])
 path_to_docs = config['BENCHMARK']['docs']
@@ -67,7 +85,7 @@ bench = benchmark.factory.from_file(config, dbms)
 
 for run_ctr in range(nr_runs):
     
-    print(f'Starting run number {run_ctr}')
+    print(f"Starting run number {run_ctr}")
     
     # Initialize for new run
     dbms.reset_config()
@@ -84,13 +102,12 @@ for run_ctr in range(nr_runs):
         hint_order=hint_order, dbms=dbms, benchmark=bench, 
         hardware={'memory':memory, 'disk':disk, 'cores':cores}, hints_per_episode=nr_hints, 
         nr_evals=nr_evals, scale_perf=p_scaling, scale_asg=a_scaling, 
-        objective=objective, rec_path=rec_path, use_recs=use_recs,
-        dbenv=env)
+        objective=objective, rec_path=rec_path, use_recs=use_recs, dbenv=env)
     unsupervised_env = GymEnvironment(unsupervised_env, device=device)
     unsupervised_env.reset()
     
     # Initialize agents
-    model = BertFineTuning(input_model)
+    model = BertFineTuning(posttrained_model_path)
     agent = ddqn(
         model_constructor=lambda _:model, minibatch_size=min_batch_size, 
         device=device, lr=1e-5, initial_exploration=epsilon, replay_start_size=50, 
@@ -105,17 +122,34 @@ for run_ctr in range(nr_runs):
     def finished(experiment, elapsed_s):
         """ Returns true iff the experiment is finished. """
         return elapsed_s > timeout_s or experiment._done(
-            frames=nr_frames, episodes=np.inf)
+            frames=nr_frames, episodes=nr_episodes)
     
-    print(f'Running for up to {timeout_s} seconds, {nr_frames} frames')
+    print(f'Running for up to {timeout_s} seconds, {nr_episodes} episodes')
     start_s = time.time()
     elapsed_s = 0
+    # start experiment
     while not finished(experiment, elapsed_s):
-        experiment._run_training_episode()
+        # check whether fine-tuned or not
+        if 'model_path' in config['LEARNING']:
+            experiment.test(episodes=nr_episodes)
+        else:
+            experiment.train(episodes=nr_episodes)
+            # TODO use sysbench or new synthetic workload
+            # TODO send pretrained model to Xinyi Zhang
         cur_s = time.time()
         elapsed_s = cur_s - start_s
         print(f'Elapsed time: {elapsed_s} seconds')
     
-    # Save final model
-    model.model.save_pretrained(output_model)
-    print('Model saved in ', output_model)
+    # def make_model(env):
+    #     return model
+    # run_experiment(ddqn(model_constructor=make_model, minibatch_size=2), unsupervised_env, nr_frames)
+
+    # Check: Save final model
+    if 'output' in config['LEARNING']:
+        model.model.save_pretrained(config['LEARNING']['output'])
+        print('Model saved in ', config['LEARNING']['output'])
+
+    # Show final summary
+    print('Tuning process of DB-BERT is finished.')
+    print('Summary of results:')
+    bench.print_stats()

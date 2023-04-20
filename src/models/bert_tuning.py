@@ -23,7 +23,8 @@ class BertFineTuning(torch.nn.Module):
         
     def forward(self, observations):
         """ Produces logits for five actions. """
-        permuted_obs = observations.permute(1, 0, 2, 3).contiguous()
+        permuted_obs = observations.permute(1, 0, 2, 3).contiguous().long()
+        # print("forward: ...")
         return self.model(input_ids=permuted_obs[0], 
                           token_type_ids=permuted_obs[1],
                           attention_mask=permuted_obs[2]).logits

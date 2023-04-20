@@ -1,3 +1,24 @@
+# Baseline of dbbert for Xinyi Zhang's paper
+关于脚本：路径为src/run/new_version_multi_doc.py
+训练模式：在仓库目录下使用命令PYTHONPATH='src' python3 src/run/new_version_multi_doc.py config/ms_tpch_manydocs_masked.ini > train.log
+测试模式：在仓库目录下使用命令PYTHONPATH='src' python3 src/run/new_version_multi_doc.py config/ms_tpch_manydocs.ini > test.log
+使用脚本前，请确保mysqld未在运行
+
+关于ini文件：
+一些共有参数：
+    device：cpu或cuda，建议在允许的情况下改成cuda加快模型更新速度
+    nr_episodes：即iteration数
+    timeout_s：运行时间限制
+    mode：masked表示训练，unmasked表示测试
+    recovery_cmd：请忽略这个参数，这是dbbert自带的用于作者pg数据库的重启命令
+    workload_time：每个sysbench workload运行的时间
+ms_tpch_manydocs_masked.ini：用于训练
+    input：待训练的bert模型的路径（均为huggingface官网上下载的模型，我存在本地，如果网好，也可以直接连接到huggingface在线获取模型）
+    output：训练完成后输出的bert模型路径，文件夹里面包括一个config。json和pytorch_model.bin模型
+ms_tpch_manydocs.ini：用于测试
+    model_path：用于测试的bert模型的路径，可以与上面的output相同以使用刚才训练好的模型
+
+
 # dbbert
 DB-BERT is a database tuning tools that exploits natural language text as additional input. It extracts recommendations for database parameter settings from tuning-related text via natural language analysis. It optimizes parameter settings for a given workload and performance metric using reinforcement learning.
 

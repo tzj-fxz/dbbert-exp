@@ -4,6 +4,7 @@ import configparser
 import json
 from collections import defaultdict
 from autotune.utils.history_container import detect_valid_history_file
+import ipdb
 
 class DictParser(configparser.ConfigParser):
     def read_dict(self):
@@ -85,6 +86,7 @@ def parse_args(file):
     cf.read(file, encoding="utf-8")
     config_dict = cf.read_dict()
     global knob_config
+    # ipdb.set_trace()
     f = open(config_dict['database']['knob_config_file'])
     knob_config = json.load(f)
 

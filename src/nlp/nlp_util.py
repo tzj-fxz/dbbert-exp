@@ -8,8 +8,8 @@ from transformers import BertModel
 import torch
 
 # Initialize model and associated tokenizer
-tokenizer = BertTokenizerFast.from_pretrained("bert-base-cased")
-model = BertModel.from_pretrained("bert-base-cased")
+tokenizer = BertTokenizerFast.from_pretrained("/home/tzj/bert-base-cased")
+model = BertModel.from_pretrained("/home/tzj/bert-base-cased")
 
 # Initialize caching for natural language analysis
 use_cache = False

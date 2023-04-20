@@ -28,7 +28,7 @@ class TuningBertFine(DocTuning):
         self.mask_params = mask_params
         self.observation_space = Box(
             low=0, high=100000, shape=(3, 5, max_length,), dtype=np.int64)
-        self.tokenizer = BertTokenizer.from_pretrained('bert-base-cased')
+        self.tokenizer = BertTokenizer.from_pretrained('/home/tzj/bert-base-cased')
 
     def _mask(self, strings, param):
         """ Mask occurrence of parameter in string array. 

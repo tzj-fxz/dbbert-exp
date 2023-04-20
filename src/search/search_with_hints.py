@@ -33,8 +33,24 @@ class ParameterExplorer():
             # TODO this is dbenv api for default config
             if self.dbenv:
                 def_metrics_from_dbenv = self.dbenv.step({})
+                print('def metric:', def_metrics_from_dbenv)
                 def_metrics = {'error': def_metrics_from_dbenv[-1], 'throughput': def_metrics_from_dbenv[2]['tps'],
                            'time': def_metrics_from_dbenv[2]['lat']}
+                print("dbenv default step metric: ", def_metrics)
+                if not def_metrics['error']:
+                    if isinstance(self.benchmark, OLAP):
+                        if def_metrics['time'] > self.benchmark.max_time:
+                            self.benchmark.max_time = def_metrics['time']
+                            self.benchmark.max_conf = {}
+                        if def_metrics['time'] < self.benchmark.min_time:
+                            self.benchmark.min_time = def_metrics['time']
+                            self.benchmark.min_conf = {}
+                        if def_metrics['throughput'] > self.benchmark.max_throughput:
+                            self.benchmark.max_throughput = def_metrics['throughput']
+                            self.benchmark.max_config = {}
+                        if def_metrics['throughput'] < self.benchmark.min_throughput:
+                            self.benchmark.min_throughput = def_metrics['throughput']
+                            self.benchmark.min_config = {}
             else:
                 self.dbms.reset_config()
                 self.dbms.reconfigure()
@@ -158,12 +174,14 @@ class ParameterExplorer():
         if self.dbms:
             # TODO this is dbenv api for evaluate
             if self.dbenv:
-                print(f'Trying configuration: {config}')
+                # print(f'dbenv Trying configuration: {config}')
                 metrics_from_dbenv = self.dbenv.step(config)
-                metrics = {'error': metrics_from_dbenv[-1], 'throughput': metrics_from_dbenv[2]['tps'],
-                           'time': metrics_from_dbenv[2]['lat']}
+                # print(f"config {config} get metrics: {metrics_from_dbenv}")
                 # TODO Only for showing statistics, maybe dbenv has similar api
-                if not metrics['error']:
+                if not metrics_from_dbenv[-1]:
+                    metrics = {'error': metrics_from_dbenv[-1], 'throughput': metrics_from_dbenv[2]['tps'],
+                            'time': metrics_from_dbenv[2]['lat']}
+                    # print(f"dbenv try config {config} and get metric {metrics}")
                     if isinstance(self.benchmark, OLAP):
                         if metrics['time'] > self.benchmark.max_time:
                             self.benchmark.max_time = metrics['time']
@@ -171,6 +189,12 @@ class ParameterExplorer():
                         if metrics['time'] < self.benchmark.min_time:
                             self.benchmark.min_time = metrics['time']
                             self.benchmark.min_conf = config
+                        if metrics['throughput'] > self.benchmark.max_throughput:
+                            self.benchmark.max_throughput = metrics['throughput']
+                            self.benchmark.max_config = config
+                        if metrics['throughput'] < self.benchmark.min_throughput:
+                            self.benchmark.min_throughput = metrics['throughput']
+                            self.benchmark.min_config = config
                     elif isinstance(self.benchmark, TpcC):
                         if metrics['throughput'] > self.benchmark.max_throughput:
                             self.benchmark.max_throughput = metrics['throughput']
@@ -179,6 +203,8 @@ class ParameterExplorer():
                             self.benchmark.min_throughput = metrics['throughput']
                             self.benchmark.min_config = config
                     self.benchmark.print_stats()
+                else:
+                    metrics = {'error': metrics_from_dbenv[-1]}
             else:
                 self.dbms.reset_config()
                 print(f'Trying configuration: {config}')

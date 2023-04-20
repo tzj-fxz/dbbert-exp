@@ -15,6 +15,7 @@ from .resource_monitor import ResourceMonitor
 from autotune.workload import SYSBENCH_WORKLOAD, JOB_WORKLOAD, OLTPBENCH_WORKLOADS, TPCH_WORKLOAD
 from autotune.utils.constants import MAXINT, SUCCESS, FAILED, TIMEOUT
 from autotune.utils.parser import is_number
+from parameters.util import convert_to_bytes
 
 
 class DBEnv:
@@ -122,7 +123,7 @@ class DBEnv:
             RESTART_FREQUENCY = 30000
 
         else:
-            raise ValueError('Invalid workload nmae!')
+            raise ValueError('Invalid workload name!')
 
     def get_external_metrics(self, filename=''):
         if self.workload['name'] == 'sysbench':
@@ -165,6 +166,7 @@ class DBEnv:
                                               self.db.host,
                                               self.db.port,
                                               self.db.user,
+                                              self.db.passwd,
                                               150,
                                               800000,
                                               BENCHMARK_WARMING_TIME,
@@ -205,6 +207,7 @@ class DBEnv:
         im.start()
 
         # start Resource Monition (if activated)
+        collect_resource = False
         if collect_resource:
             if self.remote_mode:
                 # start remote Resource Monitor
@@ -219,23 +222,23 @@ class DBEnv:
         benchmark_timeout = False
         cmd, filename = self.get_benchmark_cmd()
         print("[{}] benchmark start!".format(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())))
-        p_benchmark = subprocess.Popen(cmd, shell=True, stderr=subprocess.STDOUT, stdout=subprocess.PIPE,
-                                       close_fds=True)
-        try:
-            outs, errs = p_benchmark.communicate(timeout=TIMEOUT_TIME)
-            ret_code = p_benchmark.poll()
-            if ret_code == 0:
-                print("[{}] benchmark finished!".format(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())))
-            else:
-                print("run benchmark get error {}".format(ret_code))
-        except subprocess.TimeoutExpired:
-            #benchmark_timeout = True
-            print("[{}] benchmark timeout!".format(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())))
+        with subprocess.Popen(cmd, shell=True, stderr=subprocess.STDOUT, stdout=subprocess.PIPE,
+                            close_fds=True) as p_benchmark:
+            try:
+                outs, errs = p_benchmark.communicate(timeout=TIMEOUT_TIME)
+                ret_code = p_benchmark.poll()
+                if ret_code == 0:
+                    print("[{}] benchmark finished!".format(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())))
+                else:
+                    print("run benchmark get error {}".format(ret_code))
+            except subprocess.TimeoutExpired:
+                #benchmark_timeout = True
+                print("[{}] benchmark timeout!".format(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())))
 
         # terminate Benchmark
         if not self.remote_mode:
             subprocess.Popen(self.db.clear_cmd, shell=True, stderr=subprocess.STDOUT, stdout=subprocess.PIPE,
-                             close_fds=True)
+                            close_fds=True)
             print("[{}] clear processlist".format(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())))
 
         # stop Internal Metrics Collection
@@ -261,6 +264,7 @@ class DBEnv:
 
         external_metrics = self.get_external_metrics(filename)
         internal_metrics, dirty_pages, hit_ratio, page_data = self.db._post_handle(internal_metrics)
+        print("!!!tps: ", external_metrics[0], filename)
         logger.info('internal metrics: {}.'.format(list(internal_metrics)))
 
         return benchmark_timeout, external_metrics, internal_metrics, (
@@ -296,7 +300,9 @@ class DBEnv:
 
     def step_GP(self, knobs, collect_resource=True):
         # TODO test random
-        return False, np.random.rand(6), np.random.rand(65), np.random.rand(8)
+        # return False, np.random.rand(6), np.random.rand(65), np.random.rand(8)
+        # return False, np.random.rand(6), np.random.rand(74), np.random.rand(8)
+
         # re-init database if activated
         if self.reinit_interval > 0 and self.reinit_interval % RESTART_FREQUENCY == 0:
             if self.reinit:
@@ -308,7 +314,8 @@ class DBEnv:
 
         # modify and apply knobs
         for key in knobs.keys():
-            value = knobs[key]
+            # Handle for different unit
+            value = convert_to_bytes(knobs[key])
             if not key in self.knobs_detail.keys() or not self.knobs_detail[key]['type'] == 'integer':
                 continue
             if value > self.knobs_detail[key]['max']:
@@ -317,6 +324,8 @@ class DBEnv:
             elif value < self.knobs_detail[key]['min']:
                 knobs[key] = self.knobs_detail[key]['min']
                 logger.info("{} with value of is smaller than min, adjusted".format(key))
+            else:
+                knobs[key] = value
 
         logger.info("[step {}] generate knobs: {}\n".format(self.step_count, knobs))
 
@@ -390,7 +399,8 @@ class DBEnv:
                 knobs[k] = self.knobs_detail[k]['default']
 
         try:
-            timeout, metrics, internal_metrics, resource = self.step_GP(knobs, collect_resource=True)
+            # TODO no resources for quick deliver
+            timeout, metrics, internal_metrics, resource = self.step_GP(knobs, collect_resource=False)
 
             if timeout:
                 trial_state = TIMEOUT
@@ -421,7 +431,13 @@ class DBEnv:
             res = dict(external_metrics, **resource)
             objs = self.get_objs(res)
             constraints = self.get_constraints(res)
+            self._reset_cnf_file()
             return objs, constraints, external_metrics, resource, list(internal_metrics), self.info, trial_state
 
         except:
+            self._reset_cnf_file()
             return None, None, {}, {}, [], self.info, FAILED
+
+    def _reset_cnf_file(self):
+        flag = self.db.apply_knobs_offline(self.default_knobs)
+        return flag

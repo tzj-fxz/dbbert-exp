@@ -15,7 +15,9 @@ import gym.spaces
 import json
 import numpy as np
 import parameters.util
-import transformers
+import torch
+import torch.nn.functional as F
+import random
 
 class HintOrder(enum.IntEnum):
     """ The order in which tuning hints are considered. """
@@ -43,7 +45,7 @@ class MultiDocTuning(TuningBertFine):
             self, docs: DocCollection, max_length, mask_params, hint_order,
             dbms: ConfigurableDBMS, benchmark: Benchmark, hardware, 
             hints_per_episode, nr_evals, scale_perf, scale_asg, objective,
-            rec_path, use_recs):
+            rec_path, use_recs, dbenv=None):
         """ Initialize from given tuning documents, database, and benchmark. 
         
         Args:
@@ -69,7 +71,8 @@ class MultiDocTuning(TuningBertFine):
         self.nr_evals = nr_evals
         self.scale_perf = scale_perf
         self.scale_asg = scale_asg
-        self.docs.doc_to_hints
+        # self.docs.doc_to_hints
+        self.docs = docs
         self.hints = self._ordered_hints(hint_order)
         self.nr_hints = len(self.hints)
         if hints_per_episode == -1:
@@ -80,11 +83,12 @@ class MultiDocTuning(TuningBertFine):
         for i in range(self.nr_hints):
             _, hint = self.hints[i]
             print(f'Hint nr. {i}: {hint.param.group()} -> {hint.value.group()}')
-        self.explorer = ParameterExplorer(dbms, benchmark, objective)
+        self.explorer = ParameterExplorer(dbms, benchmark, objective, dbenv=dbenv)
         self.use_recs = use_recs
         if use_recs:
             with open(rec_path) as file:
                 self.recs = json.load(file)
+        self.dbenv = dbenv
 
     def _finalize_episode(self):
         """ Return optimal benchmark reward when using weighted hints. """
@@ -144,20 +148,22 @@ class MultiDocTuning(TuningBertFine):
         """ Finishes processing current hint and returns direct reward. """
         param = hint.param.group()
         value = str(int(self.base * self.factor)) + hint.val_unit
-        success = self.dbms.can_set(param, value)
+        # TODO should change to dbenv api, now simply random 'success'
+        # success = self.dbms.can_set(param, value)
+        success = random.choice([True, False])
         assignment = (param, value)
-        print(f'Trying assigning {param} to {value}')
+        # print(f'Trying assigning {param} to {value}')
         if success:
             weight = pow(2, action)
             self.hint_to_weight[assignment] += weight
             print(f'Adding assignment {assignment} with weight {weight}')
-            print(f'Assignment {assignment} extracted from "{hint.passage}"')
+            # print(f'Assignment {assignment} extracted from "{hint.passage}"')
 
             reward = 10 * self.scale_asg
             if self.use_recs:
                 reward += weight * self.scale_asg * self._rec_reward(assignment)
         else:
-            print(f'Assignment {assignment} was rejected')
+            # print(f'Assignment {assignment} was rejected')
             reward = -10
         return reward
 
@@ -204,7 +210,12 @@ class MultiDocTuning(TuningBertFine):
         if self.decision == DecisionType.PICK_BASE:
             if action <= 2 and hint.float_val < 1.0:
                 # Multiply given value with hardware properties
-                self.base = float(self.hardware[action]) * hint.float_val
+                if action == 0:
+                    self.base = float(self.hardware['memory']) * hint.float_val
+                elif action == 1:
+                    self.base = float(self.hardware['disk']) * hint.float_val
+                elif action == 2:
+                    self.base = float(self.hardware['cores']) * hint.float_val
             else:
                 # Use provided value as is
                 self.base = hint.float_val
@@ -221,7 +232,7 @@ class MultiDocBart(MultiDocTuning):
         self, docs: DocCollection, max_length, mask_params, hint_order,
         dbms: ConfigurableDBMS, benchmark: Benchmark, hardware, 
         hints_per_episode, nr_evals, scale_perf, scale_asg, objective,
-        rec_path, use_recs):
+        rec_path, use_recs, posttrained_model, dbenv=None):
         """ Initialize from given tuning documents, database, and benchmark. 
         
         Args:
@@ -241,14 +252,15 @@ class MultiDocBart(MultiDocTuning):
             use_recs: flag indicating whether to use recommendations
         """
         self.warmup = True
-        self.bart = transformers.pipeline(
-            'zero-shot-classification',
-            model='facebook/bart-large-mnli')
+        # self.bart = transformers.pipeline(
+        #     'zero-shot-classification',
+        #     model='facebook/bart-large-mnli')
+        self.bart = posttrained_model
         self.obs_cache = {}
         super().__init__(
             docs, max_length, mask_params, hint_order, dbms, 
             benchmark, hardware, hints_per_episode, nr_evals, 
-            scale_perf, scale_asg, objective, rec_path, use_recs)
+            scale_perf, scale_asg, objective, rec_path, use_recs, dbenv)
         self.observation_space = gym.spaces.Box(
             0, 1, (8,), np.float32)
     
@@ -262,10 +274,12 @@ class MultiDocBart(MultiDocTuning):
             observation, reward, termination flag, debugging info
         """
         if self.warmup:
+            print("warmup step")
             reward = self._bart_reward(action)
             self.hint_ctr += 1
             return self._observe(), reward, False, {}
         else:
+            print("normal step")
             return super().step(action)
     
     def stop_warmup(self):
@@ -304,31 +318,66 @@ class MultiDocBart(MultiDocTuning):
         if self.warmup:
             observations =  self.observation_space.sample()
         else:
+            # print(f'No warmup - hint counter: {self.hint_ctr}')
+            # _, hint = self.hints[self.hint_ctr]
+            # if self.decision == DecisionType.PICK_BASE:
+            #     print(f'Deciding hint type of {hint}')
+            #     choices = ['RAM', 'disk', 'cores', 'absolute', 'not a hint']
+            # elif self.decision == DecisionType.PICK_FACTOR:
+            #     print(f'Deciding adaption of {hint}')
+            #     choices = ['Decrease recommendation strongly', 
+            #                'Decrease recommendation', 
+            #                'Use recommendation', 
+            #                'Increase recommendation', 
+            #                'Increase recommendation strongly']
+            # else:
+            #     print(f'Deciding weight of {hint}')
+            #     v_weights = ['not', 'somewhat', 'quite', 'very', 'super']
+            #     choices = [f'This hint is {w} important.' for w in v_weights]
+            
+            # print(f'Choice labels: {choices}')
+            # result = self.bart(hint.passage, choices)
+            # scores = []
+            # for choice in choices:
+            #     choice_idx = result['labels'].index(choice)
+            #     score = result['scores'][choice_idx]
+            #     scores += [score]
+
+
+            # This is real posttrained model to evaluate true training choices
             print(f'No warmup - hint counter: {self.hint_ctr}')
-            _, hint = self.hints[self.hint_ctr]
-            if self.decision == DecisionType.PICK_BASE:
-                print(f'Deciding hint type of {hint}')
-                choices = ['RAM', 'disk', 'cores', 'absolute', 'not a hint']
-            elif self.decision == DecisionType.PICK_FACTOR:
-                print(f'Deciding adaption of {hint}')
-                choices = ['Decrease recommendation strongly', 
-                           'Decrease recommendation', 
-                           'Use recommendation', 
-                           'Increase recommendation', 
-                           'Increase recommendation strongly']
+            if self.hint_ctr < self.nr_hints:
+                _, hint = self.hints[self.hint_ctr]
             else:
-                print(f'Deciding weight of {hint}')
-                v_weights = ['not', 'somewhat', 'quite', 'very', 'super']
-                choices = [f'This hint is {w} important.' for w in v_weights]
-            
-            print(f'Choice labels: {choices}')
-            result = self.bart(hint.passage, choices)
-            scores = []
-            for choice in choices:
-                choice_idx = result['labels'].index(choice)
-                score = result['scores'][choice_idx]
-                scores += [score]
-            
+                _, hint = self.hints[0]
+            passage_cps = [hint.passage for _ in range(5)]
+            param = hint.param.group()
+            value = hint.value.group()
+            if self.decision == DecisionType.PICK_BASE:
+                choices = [
+                    f'{param} and {value} relate to main memory.',
+                    f'{param} and {value} relate to hard disk.',
+                    f'{param} and {value} relate to core counts.',
+                    f'Set {param} to {value}.',
+                    f'{param} and {value} are unrelated.']
+            elif self.decision == DecisionType.PICK_FACTOR:
+                v_factors = ['much lower than', 'slightly below', 
+                            'to', 'slightly above', 'much higher than']
+                choices = [f'Set {param} {f} {value}.' for f in v_factors]
+            else:
+                v_weights = ['not', 'slightly', 'quite', 'very', 'extremely']
+                choices = [f'The hint on {param} is {weight} important.' for weight in v_weights]
+            # Mask parameter name (generalization to different DBMS)
+            if self.mask_params:
+                passage_cps = self._mask(passage_cps, param)
+                choices = self._mask(choices, param)
+            encoding = self.tokenizer(
+                passage_cps, choices, return_tensors='pt', 
+                padding='max_length', truncation=True, 
+                max_length=self.max_length)
+            result = self.bart(**{k: v.unsqueeze(0) for k, v in encoding.items()}).logits
+            print('result:', result)            
+            scores = torch.squeeze(F.normalize(F.softmax(result), p=1.0).detach()).numpy().tolist()
             print(f'Probabilities: {scores}')
             scaled_doc_id = hint.doc_id / self.docs.nr_docs
             scaled_hint_ctr = self.hint_ctr / self.nr_hints

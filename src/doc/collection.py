@@ -69,13 +69,13 @@ class DocCollection():
     """ Represents a collection of documents with tuning hints. """
     qa_pipeline = pipeline(
         'question-answering', 
-        model='deepset/roberta-base-squad2', 
-        tokenizer='deepset/roberta-base-squad2', 
+        model='/home/tzj/roberta-base-squad2', 
+        tokenizer='/home/tzj/roberta-base-squad2', 
         device=models.util.torch_device())
     zsc_pipeline = pipeline(
         'zero-shot-classification', 
-        model='facebook/bart-large-mnli', 
-        tokenizer='facebook/bart-large-mnli', 
+        model='/home/tzj/bart-large-mnli', 
+        tokenizer='/home/tzj/bart-large-mnli', 
         device=models.util.torch_device())
 
     def __init__(self, docs_path, dbms:ConfigurableDBMS, 
