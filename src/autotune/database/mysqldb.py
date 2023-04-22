@@ -75,8 +75,8 @@ class MysqlDB:
         self.default_knobs = get_default_knobs()
         self.pre_combine_log_file_size = log_num_default * log_size_default
 
-        # self.clear_cmd = """mysqladmin processlist -uroot -S$MYSQL_SOCK | awk '$2 ~ /^[0-9]/ {print "KILL "$2";"}' | mysql -uroot -S$MYSQL_SOCK """
-        self.clear_cmd = """mysqladmin processlist -uroot -ptzj | awk '$2 ~ /^[0-9]/ {print "KILL "$2";"}' | mysql -uroot -ptzj """
+        self.clear_cmd = """mysqladmin processlist -uroot -S$MYSQL_SOCK | awk '$2 ~ /^[0-9]/ {print "KILL "$2";"}' | mysql -uroot -S$MYSQL_SOCK """
+        #self.clear_cmd = """mysqladmin processlist -uroot -ptzj | awk '$2 ~ /^[0-9]/ {print "KILL "$2";"}' | mysql -uroot -ptzj """
 
     def _gen_config_file(self, knobs):
         if self.remote_mode:
@@ -121,8 +121,8 @@ class MysqlDB:
         return knobs_not_in_cnf
 
     def _kill_mysqld(self):
-        # mysqladmin = os.path.dirname(self.mysqld) + '/mysqladmin'
-        mysqladmin = '/usr/bin/mysqladmin'
+        mysqladmin = os.path.dirname(self.mysqld) + '/mysqladmin'
+        #mysqladmin = '/usr/bin/mysqladmin'
         kill_cmd = '{} -u{} -S {} -p{} shutdown'.format(mysqladmin, self.user, self.sock, self.passwd)
         force_kill_cmd1 = "ps aux|grep '" + self.sock + "'|awk '{print $2}'|xargs kill -9"
         force_kill_cmd2 = "ps aux|grep '" + self.mycnf + "'|awk '{print $2}'|xargs kill -9"
@@ -198,7 +198,6 @@ class MysqlDB:
         error, db_conn = None, None
         while True:
             try:
-                # ipdb.set_trace()
                 dbc = MysqlConnector(**self.connection_info)
                 db_conn = dbc.conn
                 if db_conn.is_connected():
@@ -270,6 +269,7 @@ class MysqlDB:
             logger.info("innodb_thread_concurrency is set too large")
             return False
         knobs_rdsL = self._gen_config_file(knobs)
+        print(knobs_rdsL)
         sucess = self._start_mysqld()
         sucess = True
         try:
