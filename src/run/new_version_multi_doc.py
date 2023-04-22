@@ -3,6 +3,7 @@ Created on May 1, 2021
 
 @author: immanueltrummer
 '''
+import pdb
 
 from all.agents import VQN
 from all.approximation import QNetwork
@@ -29,6 +30,7 @@ import search.objectives
 import time
 import torch
 import ipdb
+import pdb
 from autotune.utils.config import parse_args
 from autotune.dbenv import DBEnv
 from autotune.tuner import DBTuner
@@ -44,6 +46,7 @@ config = ConfigParser()
 config.read(args.cpath)
 
 # TODO Test for dbenv, but with no real db
+
 env = DBEnv(config['DATABASE'], config['TUNE'], db=MysqlDB(config['DATABASE']))
 # env = None
 
@@ -86,7 +89,6 @@ bench = benchmark.factory.from_file(config, dbms)
 for run_ctr in range(nr_runs):
     
     print(f"Starting run number {run_ctr}")
-    
     # Initialize for new run
     dbms.reset_config()
     dbms.reconfigure()
@@ -128,26 +130,30 @@ for run_ctr in range(nr_runs):
     start_s = time.time()
     elapsed_s = 0
     # start experiment
-    while not finished(experiment, elapsed_s):
-        # check whether fine-tuned or not
-        if 'model_path' in config['LEARNING']:
-            experiment.test(episodes=nr_episodes)
-        else:
-            experiment.train(episodes=nr_episodes)
-            # TODO use sysbench or new synthetic workload
-            # TODO send pretrained model to Xinyi Zhang
-        cur_s = time.time()
-        elapsed_s = cur_s - start_s
-        print(f'Elapsed time: {elapsed_s} seconds')
-    
-    # def make_model(env):
-    #     return model
-    # run_experiment(ddqn(model_constructor=make_model, minibatch_size=2), unsupervised_env, nr_frames)
+    for i in range(nr_episodes//10):
+        try:
+            # check whether fine-tuned or not
+            if 'model_path' in config['LEARNING']:
+                experiment.test(episodes=nr_episodes)
+            else:
+                experiment.train(episodes=10 * (i + 1))
+                # TODO use sysbench or new synthetic workload
+                # TODO send pretrained model to Xinyi Zhang
+            cur_s = time.time()
+            elapsed_s = cur_s - start_s
+            print(f'Elapsed time: {elapsed_s} seconds')
+        except:
+            if 'output' in config['LEARNING']:
+                model.model.save_pretrained(config['LEARNING']['output'])
+                print('Model saved in ', config['LEARNING']['output'])
 
-    # Check: Save final model
-    if 'output' in config['LEARNING']:
-        model.model.save_pretrained(config['LEARNING']['output'])
-        print('Model saved in ', config['LEARNING']['output'])
+            print('Summary of results:')
+            bench.print_stats()
+
+        if 'output' in config['LEARNING']:
+            model.model.save_pretrained(config['LEARNING']['output'])
+            print('Model saved in ', config['LEARNING']['output'])
+        bench.print_stats()
 
     # Show final summary
     print('Tuning process of DB-BERT is finished.')
