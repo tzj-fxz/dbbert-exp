@@ -328,8 +328,8 @@ class NlpTuningEnv(gym.Env):
         param = hint.param.group()
         value = str(int(self.base * self.factor)) + hint.val_unit
         # TODO should change to dbenv api, now simply random 'success'
-        # success = self.dbms.can_set(param, value)
-        success = random.choice([True, False])
+        success = self.dbenv.can_set(param, value)
+        #success = random.choice([True, False])
 
         assignment = (param, value)
         print(f'Trying assigning {param} to {value}')

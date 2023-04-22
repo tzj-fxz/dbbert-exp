@@ -3,6 +3,8 @@ Created on Apr 18, 2021
 
 @author: immanueltrummer
 '''
+import pdb
+
 from environment.bert_tuning import TuningBertFine
 from benchmark.evaluate import Benchmark
 from environment.common import DecisionType
@@ -149,8 +151,8 @@ class MultiDocTuning(TuningBertFine):
         param = hint.param.group()
         value = str(int(self.base * self.factor)) + hint.val_unit
         # TODO should change to dbenv api, now simply random 'success'
-        # success = self.dbms.can_set(param, value)
-        success = random.choice([True, False])
+        success = self.dbenv.can_set(param, value)
+        #success = random.choice([True, False])
         assignment = (param, value)
         # print(f'Trying assigning {param} to {value}')
         if success:

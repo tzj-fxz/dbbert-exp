@@ -221,6 +221,7 @@ class DBEnv:
         # start Benchmark
         benchmark_timeout = False
         cmd, filename = self.get_benchmark_cmd()
+        print(cmd)
         print("[{}] benchmark start!".format(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())))
         with subprocess.Popen(cmd, shell=True, stderr=subprocess.STDOUT, stdout=subprocess.PIPE,
                             close_fds=True) as p_benchmark:
@@ -441,3 +442,38 @@ class DBEnv:
     def _reset_cnf_file(self):
         flag = self.db.apply_knobs_offline(self.default_knobs)
         return flag
+
+    def add_default_knobs(self, new_knob_dict):
+        for key in new_knob_dict:
+            if not key in self.default_knobs:
+                self.default_knobs[key] = new_knob_dict[key]
+
+    def _transform_val(self, value):
+        """ Transforms parameter values using heuristic. """
+        value = str(value)
+        unit_to_size = {'KB': '000', 'MB': '000000', 'GB': '000000000',
+                        'K': '000', 'M': '000000', 'G': '000000000'}
+        for unit in unit_to_size:
+            size = unit_to_size[unit]
+            value = value.replace(unit, size)
+        return value
+
+
+
+    def can_set(self, param, value):
+        print("Can we set {} to {}?".format(param, value))
+        if not param in self.knobs_detail.keys():
+            print("NO")
+            return False
+        value = self._transform_val(value)
+        if self.knobs_detail[param]['type'] == 'integer':
+            if int(value) >= self.knobs_detail[param]['min'] and  int(value) <= self.knobs_detail[param]['max']:
+                print("YES")
+                return  True
+        else:
+            if value in self.knobs_detail[param]['enum_values']:
+                print("YES")
+                return True
+
+        print("NO")
+        return False

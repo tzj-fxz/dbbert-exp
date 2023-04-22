@@ -250,3 +250,11 @@ class MySQLconfig(ConfigurableDBMS):
         self._connect()
         # Currently, we consider no MySQL parameters requiring restart
         return True
+
+    def get_default_value(self):
+        self.default_knobs = dict()
+
+        for knob in self.global_vars:
+            sql = 'SHOW GLOBAL VARIABLES LIKE "{}";'.format(knob)
+            value = self.query_all(sql)[0][1]
+            self.default_knobs[knob] = value
