@@ -64,13 +64,13 @@ def convert_to_bytes(value):
         number, unit = decompose_val(value)
         low_unit = unit.lower()
         if len(low_unit) == 0:
-            return number
+            return int(number)
         elif 'g' in low_unit:
-            return number * 1000000000
+            return int(number * 1000000000)
         elif 'm' in low_unit:
-            return number * 1000000
+            return int(number * 1000000)
         elif 'k' in low_unit:
-            return number * 1000
+            return int(number * 1000)
         else:
             return None
     else:
