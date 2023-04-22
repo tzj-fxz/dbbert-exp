@@ -87,9 +87,9 @@ def parse_args(file):
     config_dict = cf.read_dict()
     global knob_config
     # ipdb.set_trace()
-    f = open(config_dict['database']['knob_config_file'])
+    f = open(config_dict['DATABASE']['knob_config_file'])
     knob_config = json.load(f)
 
-    return get_default_dict(config_dict["database"]), get_default_dict(config_dict['tune'])
+    return get_default_dict(config_dict["DATABASE"]), get_default_dict(config_dict['TUNE'])
 
 
