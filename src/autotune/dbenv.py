@@ -465,11 +465,14 @@ class DBEnv:
         if not param in self.knobs_detail.keys():
             print("NO")
             return False
-        value = self._transform_val(value)
+        value = convert_to_bytes(value)
+        if value == None:
+            print("NO")
+            return False
         if self.knobs_detail[param]['type'] == 'integer':
             if int(value) >= self.knobs_detail[param]['min'] and  int(value) <= self.knobs_detail[param]['max']:
                 print("YES")
-                return  True
+                return True
         else:
             if value in self.knobs_detail[param]['enum_values']:
                 print("YES")
