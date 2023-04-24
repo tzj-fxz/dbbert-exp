@@ -32,7 +32,7 @@ class ParameterExplorer():
         if self.dbms and self.benchmark:
             # TODO this is dbenv api for default config
             if self.dbenv:
-                def_metrics_from_dbenv = self.dbenv.step({})
+                def_metrics_from_dbenv = self.dbenv.step(self.dbenv.default_knobs)
                 print('def metric:', def_metrics_from_dbenv)
                 def_metrics = {'error': def_metrics_from_dbenv[-1], 'throughput': def_metrics_from_dbenv[2]['tps'],
                            'time': def_metrics_from_dbenv[2]['lat']}
